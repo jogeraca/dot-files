@@ -228,7 +228,7 @@
   "tslint.enable": true,
   "tslint.autoFixOnSave": true,
 
-  "python.formatting.provider": "black",
+  "python.formatting.provider": "autopep8",
   "python.sortImports.path": "isort",
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,
