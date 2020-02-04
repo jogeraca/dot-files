@@ -43,6 +43,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Others
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-obsession'
 Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
@@ -68,7 +69,6 @@ Plug 'wakatime/vim-wakatime'
 
 " Git Support
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -487,19 +487,13 @@ noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
 noremap <leader>gw :Gbrowse<cr>
 
+""" Git
+nmap <silent> }c <Plug>(coc-git-nextchunk)
+nmap <silent> {c <Plug>(coc-git-prevchunk)
+nmap <silent> <Leader>cs :CocCommand git.chunkStage<CR>
+nmap <silent> <Leader>cu :CocCommand git.chunkUndo<CR>
+nmap <silent> <Leader>cp <Plug>(coc-git-chunkinfo)
 
-" Gitgutter
-nmap }c <Plug>GitGutterNextHunk
-nmap {c <Plug>GitGutterPrevHunk
-nmap <Leader>cs <Plug>GitGutterStageHunk
-nmap <Leader>cu <Plug>GitGutterUndoHunk
-nmap <Leader>cp <Plug>GitGutterPreviewHunk
-highlight GitGutterAdd    guifg=#009900 ctermfg=80
-highlight GitGutterChange guifg=#bbbb00 ctermfg=116
-highlight GitGutterDelete guifg=#ff2222 ctermfg=200
-highlight GitGutterAdd    guifg=#009900 ctermfg=80
-highlight GitGutterChange guifg=#bbbb00 ctermfg=116
-highlight GitGutterDelete guifg=#ff2222 ctermfg=200
 " session management
 nnoremap <leader>so :OpenSession<Space>
 nnoremap <leader>ss :SaveSession<Space>
@@ -582,9 +576,6 @@ if has('autocmd')
 endif
 
 "" Copy/Paste/Cut
-if has('unnamedplus')
-  set clipboard=unnamed,unnamedplus
-endif
 
 noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
@@ -652,9 +643,9 @@ vnoremap K :m '<-2<CR>gv=gv
   \ }
 "*****************************************************************************
 "Wayland clipboard
-xnoremap "+y y:call system("wl-copy", @")<cr>
-nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
-nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
+""xnoremap "+y y:call system("wl-copy", @")<cr>
+"nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
+"nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
