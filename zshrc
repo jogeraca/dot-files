@@ -122,7 +122,14 @@ bindkey "^R" history-incremental-search-backward
 . $HOME/.asdf/completions/asdf.bash
 
 source ~/dot-files/.bash_aliases
-#tty=`tty`
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/.fzf/shell/key-bindings.zsh
+
+source ~/.fzf/shell/completion.zsh
+
+export TERM="xterm-256color"
+export COLORTERM='truecolor'
 if  [[ $(tty) != /dev/tty1 ]]; then
 	tmux
 fi
