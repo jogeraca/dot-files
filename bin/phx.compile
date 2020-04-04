@@ -1,0 +1,2 @@
+cd /home/yoser/liftit/core && rm -rf _build && rm -rf deps && mix deps.get && mix compile && mix phx.server
+

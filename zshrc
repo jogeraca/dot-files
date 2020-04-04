@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin:~/dot-files/bin
 
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
@@ -12,6 +12,8 @@ ZSH=/usr/share/oh-my-zsh/
 if [[ $(tty) = /dev/tty1 ]]
     then
     ZSH_THEME="risto"
+    sudo ntpd -qg &
+    sway
 else
     ZSH_THEME="agnoster"
 fi
@@ -113,7 +115,7 @@ export GDK_BACKEND=wayland,x11
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
 # section configuration
 source $ZSH/oh-my-zsh.sh
-# 
+#
 bindkey -v
 bindkey "^R" history-incremental-search-backward
 
@@ -121,7 +123,7 @@ bindkey "^R" history-incremental-search-backward
 
 . $HOME/.asdf/completions/asdf.bash
 
-source ~/dot-files/.bash_aliases
+source ~/dot-files/bash_aliases
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.fzf/shell/key-bindings.zsh
@@ -133,3 +135,4 @@ export COLORTERM='truecolor'
 if  [[ $(tty) != /dev/tty1 ]]; then
 	tmux
 fi
+

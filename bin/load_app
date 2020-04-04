@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+program=$1
+class=$2
+param=$3
+
+if ps -C "$program" >/dev/null; then
+    swaymsg "[class=\"$class\"] focus"
+    echo "aqui 2"
+else
+    echo "aqui"
+    swaymsg "exec $param $program"
+fi

@@ -159,7 +159,7 @@
     }
   },
   "coc.preferences.jumpCommand": "drop",
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "elixir", "eelixir",  "python", "haskell"],
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "python", "haskell"],
   "elixir.pathToElixirLS": "~/Programing/elixir/elixir-ls/release/language_server.sh",
 
   "coc.preferences.snippets.enable": true,
@@ -172,6 +172,13 @@
   "diagnostic.signOffset":          9999999,
   "diagnostic.highlightOffset":     9999999,
   "diagnostic.refreshOnInsertMode": true,
+
+  "yank.highlight.duration": 300,
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
 
   // suggest
   "suggest.timeout":  5000,
@@ -212,7 +219,7 @@
   },
 
   // prettier
-  "prettier.eslintIntegration": true,
+"prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
   "prettier.stylelintIntegration": true,
   "prettier.statusItemText": "",
@@ -231,7 +238,7 @@
   "tslint.enable": true,
   "tslint.autoFixOnSave": true,
 
-  "python.formatting.provider": "black",
+  "python.formatting.provider": "autopep8",
   "python.formatting.blackArgs": [],
   "python.sortImports.path": "isort",
   "python.jediEnabled": true,
@@ -240,68 +247,15 @@
   "python.linting.enabled": true,
   "python.linting.mypyEnabled": true,
 
-  "explorer.icon.expanded": "▾",
-  "explorer.icon.shrinked": "▸",
+  //"explorer.icon.expanded": "▾",
+  //"explorer.icon.shrinked": "▸",
   "explorer.icon.enableNerdfont": true,
+  "explorer.file.column.indent.topLevel": false,
+  "explorer.file.autoReveal": true,
+  //"explorer.quitOnOpen": true,
+
 
   "git.enableGutters": true,
   "git.addGBlameToVirtualText": true,
-  "git.addGBlameToBufferVar": true,
-  "explorer.keyMappings": {
-      "k": "nodePrev",
-      "j": "nodeNext",
-
-      "*": "toggleSelection",
-      "<tab>": "actionMenu",
-
-      "h": "collapse",
-      "l": "expand",
-      "J": ["toggleSelection", "normal:j"],
-      "K": ["toggleSelection", "normal:k"],
-      "gl": "expandRecursive",
-      "gh": "collapseRecursive",
-      "o": "expandOrCollapse",
-      "<cr>": "open",
-      "e": "open",
-      "E": "openInVsplit",
-      "t": "openInTab",
-      "<bs>": "gotoParent",
-
-      "y": "copyFilepath",
-      "Y": "copyFilename",
-      "c": "copyFile",
-      "x": "cutFile",
-      "p": "pasteFile",
-      "d": "delete",
-      "D": "deleteForever",
-
-      "a": "addFile",
-      "A": "addDirectory",
-      "r": "rename",
-
-      ".": "toggleHidden",
-      "R": "refresh",
-
-      "?": "help",
-      "q": "quit",
-      "X": "systemExecute",
-      "gd": "listDrive",
-
-      "f": "search",
-      "F": "searchRecursive",
-
-      "gf": "gotoSource:file",
-      "gb": "gotoSource:buffer",
-
-      "[[": "sourcePrev",
-          "]]": "sourceNext",
-
-      "[d": "diagnosticPrev",
-          "]d": "diagnosticNext",
-
-      "[c": "gitPrev",
-          "]c": "gitNext",
-      "<<": "gitStage",
-      ">>": "gitUnstage"
-    }
+  "git.addGBlameToBufferVar": true
 }

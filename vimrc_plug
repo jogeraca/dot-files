@@ -46,10 +46,10 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-"Plug 'chiel92/vim-autoformat'
+Plug 'chiel92/vim-autoformat'
 "Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-repeat'
 Plug 'christoomey/vim-sort-motion'
@@ -60,13 +60,13 @@ Plug 'vim-scripts/grep.vim'
 
 " Generic Programming Support
 Plug 'neomake/neomake'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'klen/python-mode'
 
 " Utility
 Plug 'majutsushi/tagbar'
 Plug 'wakatime/vim-wakatime'
-
+Plug 'bogado/file-line'
 " Git Support
 Plug 'tpope/vim-fugitive'
 
@@ -83,7 +83,7 @@ endif
 
 "" Vim-Session
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
+Plug 'xolox/vim-session' " investigar
 
 " Foat windows
 if has('nvim')
@@ -102,14 +102,14 @@ Plug 'tomasr/molokai'
 
 " Elixir
 Plug 'elixir-lang/vim-elixir'
-Plug 'mhinz/vim-mix-format'
+"Plug 'mhinz/vim-mix-format'
 
 Plug 'easymotion/vim-easymotion'
 
 
 
 "Plug 'carlosgaldino/elixir-snippets'
-Plug 'elixir-editors/vim-elixir' " new yoser
+"Plug 'elixir-editors/vim-elixir' " new yoser
 " reference https://github.com/amacgregor/dot-files/blob/master/vimrc
 Plug 'mattreduce/vim-mix'
 Plug 'tpope/vim-endwise'
@@ -146,7 +146,7 @@ Plug 'jelera/vim-javascript-syntax'
 
 " python
 "" Python Bundle
-Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi-vim'
 
 set encoding=UTF-8
 
@@ -227,6 +227,7 @@ set titlestring=%F
 set hlsearch
 set ignorecase
 set incsearch
+set ws! ws?
 
 set smartcase
 
@@ -261,7 +262,7 @@ else
     set shell=/bin/sh
 endif
 
-if has('nvim') 
+if has('nvim')
     set inccommand=split
 endif
 
@@ -275,7 +276,7 @@ tnoremap <silent> <F10> <C-\><C-n>:FloatermToggle<CR>
 " session management
 let g:session_directory = "~/.vim/session"
 let g:session_autoload = "no"
-let g:session_autosave = "no"
+let g:session_autosave = "yes"
 let g:session_command_aliases = 1
 "let g:session_autoload = "yes"  " new yoser
 "let g:session_default_to_last = 1 "new yoser
@@ -293,10 +294,16 @@ if has("gui_running")
 else
   let g:CSApprox_loaded = 1
   " IndentLine
-  let g:indentLine_enabled = 1
-  let g:indentLine_concealcursor = 0
-  let g:indentLine_char = '┆'
-  let g:indentLine_faster = 1
+  "let g:indentLine_enabled = 1
+  "let g:indentLine_concealcursor = 0
+  "let g:indentLine_char = 'c'
+  "let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+  "let g:indentLine_faster = 1
+  "let g:indentLine_conceallevel = 3
+  "
+  "let g:indentLine_bufTypeExclude = ['coc-explorer']
+  "let g:indentLine_bufNameExclude = ['coc-explorer.*']
+  "let g:indentLine_fileTypeExclude = ['coc-explorer']
 
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
@@ -312,6 +319,7 @@ endif
 if &term =~ '256color'
   set t_ut=
 endif
+set t_Co=256
 
 "" Map leader to ,
 let mapleader=','
@@ -368,48 +376,15 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
-"" Neomake settings
-"call neomake#configure#automake('nw', 1000)
-"autocmd! BufWritePost * Neomake
-"function! NeomakeCredoErrorType(entry)
-"    if a:entry.type ==# 'F'      " Refactoring opportunities
-"        let l:type = 'W'
-"    elseif a:entry.type ==# 'D'  " Software design suggestions
-"       let l:type = 'I'
-"    elseif a:entry.type ==# 'W'  " Warnings
-"        let l:type = 'W'
-"    elseif a:entry.type ==# 'R'  " Readability suggestions
-"        let l:type = 'I'
-"    elseif a:entry.type ==# 'C'  " Convention violation
-"        let l:type = 'W'
-"    else
-"        let l:type = 'M'           " Everything else is a message
-"    endif
-"    let a:entry.type = l:type
-"endfunction
-"let g:neomake_elixir_credo_maker = {
-"        \ 'exe': 'mix',
-"        \ 'args': ['credo', 'list', '%:p', '--format=oneline'],
-"        \ 'errorformat': '[%t] %. %f:%l:%c %m,[%t] %. %f:%l %m',
-"        \ 'postprocess': function('NeomakeCredoErrorType')
-"        \ }
-"let g:neomake_elixir_mix_maker = {
-"      \ 'exe' : 'mix',
-"      \ 'args': ['compile', '--warnings-as-errors'],
-"      \ 'cwd': getcwd(),
-"      \ 'errorformat':
-"        \ '** %s %f:%l: %m,' .
-"        \ '%f:%l: warning: %m'
-"      \ }
-"let g:neomake_elixir_enabled_makers = ['mix','credo']
-
-"" elixir formatter on save (hopefully will be integrated with plugin soon!
-"autocmd BufWritePost *.exs silent :!mix format %
-"autocmd BufWritePost *.ex silent :!mix format %
-
+autocmd BufWrite * :Autoformat
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
 "augroup neomake
 ""    autocmd! BufWritePost * Neomake
 "augroup END
+
+set iskeyword-=.
+autocmd BufReadPost * set isk-=.
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -466,7 +441,8 @@ augroup vimrc-make-cmake
 augroup END
 
 set autoread
-
+au CursorHold,CursorHoldI * checktime
+"au FocusGained,BufEnter * :checktime
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
@@ -500,10 +476,7 @@ nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
-"" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
+"nnoremap <silent> <S-t> :tabnew<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -581,6 +554,18 @@ noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
 noremap XX "+x<CR>
 
+"*****************************************************************************
+"Wayland clipboard
+
+xnoremap Y y:!wl-copy <C-r>"<cr><cr>gv
+"xnoremap "Y y:call system("wl-copy", @")<cr>
+nnoremap "P :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
+nnoremap "*P :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
+
+
+set clipboard=unnamedplus
+
+
 if has('macunix')
   " pbcopy for OSX copy/paste
   vmap <C-x> :!pbcopy<CR>
@@ -588,10 +573,8 @@ if has('macunix')
 endif
 
 "" Buffer nav
-noremap <leader>z :bp<CR>
-noremap <leader>q :bp<CR>
-noremap <leader>x :bn<CR>
-noremap <leader>w :bn<CR>
+nnoremap <Tab> :bn<CR>
+nnoremap <S-Tab> :bp<CR>
 
 "" Close buffer
 noremap <leader>c :bd<CR>
@@ -631,7 +614,7 @@ vnoremap K :m '<-2<CR>gv=gv
         \ 'functions:functions',
         \ 'c:callbacks',
         \ 'd:delegates',
-        \ 'e:exceptions',
+        \ 'e:excep/ions',
         \ 'i:implementations',
         \ 'a:macros',
         \ 'o:operators',
@@ -641,11 +624,7 @@ vnoremap K :m '<-2<CR>gv=gv
         \ 't:tests'
      \ ]
   \ }
-"*****************************************************************************
-"Wayland clipboard
-""xnoremap "+y y:call system("wl-copy", @")<cr>
-"nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
-"nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
+
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
@@ -701,8 +680,7 @@ let g:airline#extensions#virtualenv#enabled = 1
 " Default highlight is better than polyglot
 "let g:polyglot_disabled = ['python']
 "let python_highlight_all = 1
-
-
+"python-virtualenv
 
 "*****************************************************************************
 "*****************************************************************************
@@ -847,11 +825,11 @@ function! s:show_documentation()
   endif
 endfunction
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"yoser inoremap <silent><expr> <TAB>
+"yoser"      \ pumvisible() ? "\<C-n>" :
+"yoser"      \ <SID>check_back_space() ? "\<TAB>" :
+    "yoser"  \ coc#refresh()
+"yoser"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
       let col = col('.') - 1
@@ -952,5 +930,7 @@ nmap <silent> <C-c> <Plug>(coc-cursors-position)
 " use normal command like `<leader>xi(`
 "       osera
 nmap <leader>x <Plug>(coc-cursors-operator))
+
+
 
 so ~/.vim/google_python_style.vim

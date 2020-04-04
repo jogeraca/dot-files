@@ -1,0 +1,4 @@
+action=$1
+cmd=$2
+
+swaynag -t warning -m "You pressed the exit shortcut. Do you really want to $action $cmd?" -b "Yes, exit $action" "$cmd"
