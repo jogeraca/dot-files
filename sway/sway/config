@@ -98,7 +98,7 @@ input * {
     bindsym Shift+Print exec ~/dot-files/scripts/screencap_tray.py
 
     # start your launcher
-    bindsym $mod+m exec $menus
+    bindsym $mod+d exec $menus
     # start a terminal
     bindsym $mod+Return exec $term
     # kill focused window
@@ -106,7 +106,6 @@ input * {
     # start browser
     bindsym XF86HomePage exec $browser
     bindsym $mod+Shift+c exec $browser
-    bindsym $mod+d exec $menu
     # start dbeaver
     bindsym $mod+Shift+b exec --no-startup-id load_app $db DBeaver $gdk_backend
 
@@ -222,7 +221,9 @@ bindsym $mod+Shift+s mode "$mode_system"
 
     workspace_layout tabbed
 
+#TODO: menu  de trayicon (crow) no se sobrepone
     assign [class="Postman"] $working
+#TODO: hacer programa que devuelva el workspace  de dbeaver, si no hay que vaya a  $tools
     assign [class="DBeaver"]  $tools
     assign [class="Google-chrome"]  $working
     assign [instance=$pomodoro] $tracking
@@ -239,6 +240,7 @@ bindsym $mod+Shift+s mode "$mode_system"
 
    for_window [window_role="pop-up"] floating enable
 
+   for_window [class="Crow"] floating enable
    for_window [window_role="bubble"] floating enable
    for_window [window_role="task_dialog"] floating enable
    for_window [window_role="Preferences"] floating enable
@@ -253,9 +255,9 @@ bindsym $mod+Shift+s mode "$mode_system"
 
 
 
+  for_window [app_id="pavucontrol"] floating enable
 #    for_window [title=".*Settings.*"] floating enable
 #   for_window [title=".*Configura.*"] floating enable
-#  for_window [title="Volume.*"] floating enable
 #for_window [title=".*Find.*"] floating enable
 
     for_window [app_id="waybar" floating] {
@@ -335,9 +337,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ## Mark window
+show_marks yes
 set $get_mark echo | rofi -dmenu -p "Mark:" | xargs swaymsg mark
 set $go_mark echo | rofi -dmenu -p "Goto:" | xargs -I{} swaymsg '[con_mark="{}"] focus'
-bindsym $mod+p exec $get_mark
+bindsym $mod+m exec $get_mark
 bindsym $mod+g exec $go_mark
 
 

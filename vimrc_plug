@@ -95,7 +95,7 @@ endif
 "Plug 'honza/vim-snippets'
 
 "" Color
-Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
@@ -284,7 +284,10 @@ let g:session_command_aliases = 1
 "nnoremap p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p"
 
 let no_buffers_menu=1
-silent! colorscheme molokai
+silent! colorscheme gruvbox
+let g:gruvbox_termcolors = 256
+let g:gruvbox_contrast_dark = 'hard'
+
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
@@ -347,7 +350,8 @@ nnoremap N Nzzzv
 
 " vim-airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'gruvbox'
+"let g:airline_theme = 'powerlineish'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
@@ -775,6 +779,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <C-p> :GFiles <CR>
 
 if !has('nvim')
     let g:airline_section_c = airline#section#create(['%{airline#extensions#fugitiveline#bufname()}','%m',"   %#__accent_gray__# %{get(b:,'coc_git_blame','')} %#__restore__#", '%#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'])
@@ -790,12 +795,11 @@ set shortmess+=c
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 
-""TODO:
-   "inoremap <silent><expr> <TAB>
-    "\ pumvisible() ? "\<C-n>" e_hide_wait 3.0
-    "\ <SID>check_back_space() ? "\<TAB>" :
-    "\ coc#refresh()
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <TAB>
+   \ pumvisible() ? "\<C-n>":
+   \ <SID>check_back_space() ? "\<TAB>" :
+   \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -825,16 +829,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-"yoser inoremap <silent><expr> <TAB>
-"yoser"      \ pumvisible() ? "\<C-n>" :
-"yoser"      \ <SID>check_back_space() ? "\<TAB>" :
-    "yoser"  \ coc#refresh()
-"yoser"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-      let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -886,7 +880,7 @@ if has('nvim')
 else
     "set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 endif
-"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "
 "set statusline^=%{get(b:,'coc_current_function','')}
 "set statusline^=%{coc#status()}
