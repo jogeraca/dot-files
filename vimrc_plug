@@ -50,13 +50,13 @@ Plug 'Raimondi/delimitMate'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'chiel92/vim-autoformat'
-"Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-repeat'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-system-copy'
 Plug 'christoomey/vim-titlecase'
 
-Plug 'vim-scripts/grep.vim'
+Plug 'jremmen/vim-ripgrep'
+
 
 " Generic Programming Support
 Plug 'neomake/neomake'
@@ -69,6 +69,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'bogado/file-line'
 " Git Support
 Plug 'tpope/vim-fugitive'
+Plug 'mbbill/undotree'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -206,6 +207,7 @@ set pastetoggle=<F7>				 " when in insert mode, press <F2> to go to
 set tabstop=4
 set nobackup
 set nowritebackup
+set noswapfile
 
 "" Fix backspace indent
 set backspace=indent,eol,start
@@ -265,6 +267,7 @@ endif
 if has('nvim')
     set inccommand=split
 endif
+
 
 " Floaterm
 let g:floaterm_background = '#303030'
@@ -391,10 +394,12 @@ set iskeyword-=.
 autocmd BufReadPost * set isk-=.
 
 " grep.vim
-nnoremap <silent> <leader>f :Rgrep<CR>
-let Grep_Default_Options = '-IR'
-let Grep_Skip_Files = '*.log *.db'
-let Grep_Skip_Dirs = '.git node_modules'
+nnoremap <silent> <leader>f :Rg<CR>
+"let Grep_Default_Options = '-IR'
+"let Grep_Skip_Files = '*.log *.db'
+"let Grep_Skip_Dirs = '.git node_modules'
+
+"let g:rg_root_types = ['.git']
 
 " terminal emulation
 nnoremap <silent> <leader>sh :terminal<CR>
@@ -466,7 +471,10 @@ noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
 noremap <leader>gw :Gbrowse<cr>
-
+noremap <Leader>gh :diffget<CR>
+noremap <Leader>gu :diffget<CR>
+" u unstage changes
+" s stage changes
 """ Git
 nmap <silent> }c <Plug>(coc-git-nextchunk)
 nmap <silent> {c <Plug>(coc-git-prevchunk)
@@ -504,9 +512,17 @@ endif
 
 " ripgrep
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
   set grepprg=rg\ --vimgrep
-  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+
+  let g:rg_command = '
+    \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+    \ --glob "!{.config,.git,node_modules,vendor,yarn.lock,*.sty,*.bst,build,dist}/*" '
+  let $FZF_DEFAULT_COMMAND = ''  "g:rg_command
+  "let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+
+  let g:rg_command = ''
+  command! -bang -nargs=* Find call fzf#vim#grep(g:rg_command.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+  "//command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 endif
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
@@ -585,6 +601,13 @@ noremap <leader>c :bd<CR>
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
+
+
+
+nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <silent> <Leader>+ :vertical resize +5 <CR>
+nnoremap <silent> <Leader>- :vertical resize -5 <CR>
+
 
 "" Switching windows
 "noremap <C-j> <C-w>j
