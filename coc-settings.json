@@ -21,7 +21,7 @@
     "dls": {
       "command": "diagnostic-languageserver",
       "args": ["--stdio"],
-      "filetypes": [ "sh", "email", "markdown", "vim", "elixir", "eelixir" ], 
+      "filetypes": [ "sh", "email", "markdown", "vim", "elixir", "eelixir" ],
       "initializationOptions": {
           "linters": {
             "shellcheck": {
@@ -183,7 +183,7 @@
   // suggest
   "suggest.timeout":  5000,
   "diagnostic.checkCurrentLine": true,
-  "suggest.autoTrigger": "trigger", 
+  "suggest.autoTrigger": "trigger",
   "suggest.snippetIndicator": "►",
   "suggest.detailField": "abbr",
   "suggest.maxCompleteItemCount": 50,
@@ -257,5 +257,15 @@
 
   "git.enableGutters": true,
   "git.addGBlameToVirtualText": true,
-  "git.addGBlameToBufferVar": true
+  "git.addGBlameToBufferVar": true,
+
+      "jedi.enable": true,
+      "jedi.startupMessage": true,
+      "jedi.trace.server": "verbose",
+      //"jedi.executable.command": "",
+      //"jedi.executable.args": [],
+      "jedi.diagnostics.enable": true,
+      "jedi.diagnostics.didOpen": true,
+      "jedi.diagnostics.didChange": true,
+      "jedi.diagnostics.didSave": true
 }

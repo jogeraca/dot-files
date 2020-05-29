@@ -142,7 +142,7 @@ input * {
     set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
     mode "$mode_system" {
         bindsym l exec $lock, mode "default"
-        bindsym e exec msg_sway "sway exit" exit
+        bindsym e exec msg_sway "sway" exit sway
         bindsym s exec msg_sway "suspend" "systemctl suspend", mode "default"
         bindsym r exec msg_sway "reboot" "systemctl reboot", mode "default"
         bindsym Shift+s exec msg_sway "shutdown" "systemctl poweroff -i", mode "default"

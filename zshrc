@@ -130,7 +130,7 @@ source ~/.fzf/shell/key-bindings.zsh
 
 source ~/.fzf/shell/completion.zsh
 
-export TERM="xterm-256color"
+#export TERM="xterm-256color"
 export COLORTERM='truecolor'
 if  [[ $(tty) != /dev/tty1 ]]; then
 	tmux
