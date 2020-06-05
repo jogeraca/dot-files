@@ -1,7 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:~/.local/bin:~/dot-files/bin
-
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#60,bg=cyan,bold,underline"
+CASE_SENSITIVE="true"
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
 
@@ -72,7 +73,16 @@ DISABLE_AUTO_UPDATE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git z
+  git 
+  z
+  tmux
+  vi-mode
+  copydir
+  colorize
+  copybuffer
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  colored-man-pages
 )
 
 

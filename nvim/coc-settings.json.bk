@@ -1,0 +1,53 @@
+{
+  "codeLens.enable": true,
+  //"diagnostic-languageserver.filetypes": {
+    //"elixir": ["mix_credo", "mix_credo_compile"],
+    //"eelixir": ["mix_credo", "mix_credo_compile"]
+  //},
+  "languageserver": {
+    "dockerfile": {
+        "command": "docker-langserver",
+        "filetypes": ["dockerfile"],
+        "args": ["--stdio"]
+    }
+  },
+//"elixirLS": {
+      //"command": "/home/yoser/.local/share/nvim/plugged/elixir-ls/release/language_server.sh",
+      //"filetypes": ["elixir", "eelixir", "ex"]
+     //}
+  //},
+  //"elixir.pathToElixirLS": "/home/yoser/.local/share/nvim/plugged/elixir-ls/release/language_server.sh",
+ // "diagnostic-languageserver.formatFiletypes": {
+    //"elixir": "mix_format",
+   // "eelixir": "mix_format"
+  //},
+  "diagnostic-languageserver.filetypes" : {
+    "sh": ["shellcheck"],
+    "markdown": ["markdownlint", "write-good"],
+    "elixir": ["mix_credo", "mix_credo_compile"],
+    "eelixir": ["mix_credo", "mix_credo_compile"]
+  },
+  // Require .prettierrc
+  "prettier.requireConfig": true,
+
+  // Tslint on save
+  "tslint.enable": true,
+  "tslint.autoFixOnSave": true,
+
+  // Run prettier (and others)
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "html",
+    "markdown",
+    "Markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "elixir",
+    "eelixir"
+  ],
+  // Enable auto format
+  "tsserver.formatOnType": true,
+  "coc.preferences.formatOnType": true
+}

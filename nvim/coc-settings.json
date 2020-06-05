@@ -1,4 +1,6 @@
 {
+  "solargraph.useBundler": true,
+  "codeLens.enable": true,
   "languageserver": {
     "dockerfile": {
         "command": "docker-langserver",
@@ -165,7 +167,6 @@
   },
   "coc.preferences.jumpCommand": "drop",
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "python", "haskell", "elixir"],
-  "elixir.pathToElixirLS": "~/Programing/elixir/elixir-ls/release/language_server.sh",
 
   "coc.preferences.snippets.enable": true,
   // diagnostic
@@ -252,7 +253,7 @@
   "python.linting.enabled": true,
   "python.linting.mypyEnabled": true,
 
-  //"explorer.icon.expanded": "▾",
+  "explorer.icon.expanded": "▾",
   //"explorer.icon.shrinked": "▸",
   "explorer.icon.enableNerdfont": true,
   "explorer.file.column.indent.topLevel": false,
@@ -265,15 +266,6 @@
 
   "git.enableGutters": true,
   "git.addGBlameToVirtualText": true,
-  "git.addGBlameToBufferVar": true,
+  "git.addGBlameToBufferVar": true
 
-      "jedi.enable": true,
-      "jedi.startupMessage": true,
-      "jedi.trace.server": "verbose",
-      //"jedi.executable.command": "",
-      //"jedi.executable.args": [],
-      "jedi.diagnostics.enable": true,
-      "jedi.diagnostics.didOpen": true,
-      "jedi.diagnostics.didChange": true,
-      "jedi.diagnostics.didSave": true
 }
