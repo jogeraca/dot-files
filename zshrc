@@ -1,8 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:~/.local/bin:~/dot-files/bin
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#60,bg=cyan,bold,underline"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#676676,bold"
 CASE_SENSITIVE="true"
+ZSH_AUTOSUGGEST_USE_ASYNC='true'
+
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
 
