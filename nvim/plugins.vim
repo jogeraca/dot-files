@@ -19,10 +19,10 @@ Plug 'wakatime/vim-wakatime'
 "Plug 'tpope/vim-obsession'
 Plug 'mbbill/undotree'
 " Git support
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 " Programing            
 
-Plug 'elixir-lang/vim-elixir' " elixir 
 "Plug 'jimenezrick/vimerl' " erlang
 
 

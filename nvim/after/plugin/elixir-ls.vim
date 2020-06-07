@@ -1,6 +1,6 @@
 let g:ElixirLS = {}
 "let ElixirLS.path = stdpath('config').'/plugged/elixir-ls'
-let ElixirLS.path='/home/yoser/.local/share/nvim/plugged/elixir-ls'
+let ElixirLS.path="/home/yoser/.local/share/nvim/plugged/elixir-ls"
 let ElixirLS.lsp=printf('%s/%s', ElixirLS.path, 'release/language_server.sh') 
 let ElixirLS.cmd=join([
         \ 'asdf install &&',
@@ -35,20 +35,16 @@ function ElixirLS.compile()
   let me.id = jobstart('cd ' . me.path . ' && git pull && ' . me.cmd, me)
 endfunction
 
-call coc#config('languageserver', {
-	\ 'elixir': {
-	\	 'command': ElixirLS.lsp,
-	\	 'trace.server': 'verbose',
-	\	 'filetypes': ['elixir', 'eelixir'],
-  \    "rootPatterns": ["mix.exs"],
-  \   "initializationOptions": {}
-	\ }
-	\})
+"call coc#config('languageserver', {
+"	\ 'elixir': {
+"	\	 'command': ElixirLS.lsp,
+"	\	 'trace.server': 'verbose',
+""	\	 'filetypes': ['elixir', 'eelixir'],
+"    \    "rootPatterns": ["mix.exs"],
+"    \ "initializationOptions": {}
+"	\ }
+"	\})
 
-"call coc#config('language_server',{
-  "\ 'elixir', {
-  "\ 'command': g:ElixirLS.lsp,
-  "\ 'filetypes': ['elixir', 'eelixir'],
-  "\ 'trace.server': 'verbose',
-  "\}})
-call coc#config('elixir.pathToElixirLS', g:ElixirLS.lsp)
+    
+
+call coc#config('elixir.pathToElixirLS', ElixirLS.lsp)
