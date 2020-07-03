@@ -1,15 +1,10 @@
 let g:mapleader=","
 
-set mouse=a
-set mousemodel=popup
-
 "" move betwen tab windows
 nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
 nnoremap <silent> <S-t> :tabnew<CR>
 noremap <leader>c :bd<CR>
-
-
 
 "" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
@@ -17,14 +12,23 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
 nnoremap <silent> <leader><space> :nohlsearch<CR>
-
+" redimension windown
 nnoremap <silent> <Leader>+ :vertical resize +5 <CR>
 nnoremap <silent> <Leader>- :vertical resize -5 <CR>
+" words move {{{
+cnoremap <C-h> <S-Left>
+cnoremap <C-l> <S-Right>
+vnoremap <silent> <C-K> :m '<-2<CR>gv=gv
+vnoremap <silent> <C-J> :m '>+1<CR>gv=gv
 
+" list buffers
 nnoremap <silent> <leader>b :Buffers<CR>
 
 " terminal emulation
 nnoremap <silent> <leader>sh :terminal<CR>
+
+" select all {{{
+map <Leader>sa ggVG
 
 "*****************************************************************************
 "" Abbreviations
@@ -40,4 +44,3 @@ cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
-

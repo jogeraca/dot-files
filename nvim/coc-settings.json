@@ -96,11 +96,22 @@
   "python.linting.enabled": true,
   "python.linting.mypyEnabled": true,
 
+  //java
+  "java.home": "~/.asdf/installs/java/openjdk-11",
+
+  "explorer.width": 30,
   "explorer.icon.expanded": "▾",
-  //"explorer.icon.shrinked": "▸",
   "explorer.icon.enableNerdfont": true,
-  "explorer.file.column.indent.topLevel": false,
-  "explorer.file.autoReveal": true,
+ //"explorer.file.column.indent.topLevel": false,
+ // "explorer.file.autoReveal": true,
+  "explorer.floating.height": -10,
+  "explorer.floating.width": -20,
+  "explorer.keyMappings": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  },
+
+  "explorer.openAction.strategy": "sourceWindow",
   //"explorer.quitOnOpen": true,
 
   "tsserver.formatOnType": true,
@@ -117,6 +128,15 @@
   "git.topRemovedSign.hlGroup":     "GitGutterDelete",
   "git.changeRemovedSign.hlGroup":  "GitGutterChangeDelete",
 
+  // html 
+  "html.enable": false,
+  "html.autoClosingTags": true,
+  "html.validate.styles": true,
+  "html.validate.scripts": true,
+  // spell
+  "cSpellExt.enableDictionaries": ["spanish"],
+  "cSpell.language": "en,es",
+
   "languageserver": {
     "dockerfile": {
         "command": "docker-langserver",
@@ -132,5 +152,8 @@
       "ignoredRootPaths": ["~"],
       "settings": {}
     }
-  }
+  },
+  "cSpell.userWords": [
+    "eelixir"
+  ]
 }

@@ -256,8 +256,8 @@
   //"explorer.icon.shrinked": "▸",
   "explorer.icon.enableNerdfont": true,
   "explorer.file.column.indent.topLevel": false,
-  "explorer.file.autoReveal": true,
-  //"explorer.quitOnOpen": true,
+  //"explorer.file.autoReveal": true,
+  "explorer.quitOnOpen": false,
 
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true,

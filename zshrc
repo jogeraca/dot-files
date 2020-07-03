@@ -136,6 +136,7 @@ bindkey "^R" history-incremental-search-backward
 . $HOME/.asdf/completions/asdf.bash
 
 source ~/dot-files/bash_aliases
+. ~/.asdf/plugins/java/set-java-home.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.fzf/shell/key-bindings.zsh

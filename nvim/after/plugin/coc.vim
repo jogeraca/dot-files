@@ -18,10 +18,13 @@ let g:coc_global_extensions = [
    \ 'coc-tag',
    \ 'coc-tslint',
    \ 'coc-tslint-plugin',
+   \ 'coc-spell-checker',
+   \ 'coc-cspell-dicts',
    \ 'coc-snippets',
    \ 'coc-tsserver',
    \ 'coc-vimlsp',
    \ 'coc-elixir',
+   \ 'coc-java',
    \ 'coc-yaml']
 
 
@@ -76,7 +79,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> <C-p> :GFiles <CR>
+nmap <silent> <Alt-p> :GFiles <CR> " TODO: pendiente
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -181,6 +184,17 @@ xmap <silent> <C-d> <Plug>(coc-cursors-range)
 imap <leader>x  <Plug>(coc-cursors-operator)
 nmap <leader>r  <Plug>(coc-refactor)
 
+vmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)
+
+
+nmap <silent> }c <Plug>(coc-git-nextchunk)
+nmap <silent> {c <Plug>(coc-git-prevchunk)
+nmap <silent> <Leader>cs :CocCommand git.chunkStage<CR>
+nmap <silent> <Leader>cu :CocCommand git.chunkUndo<CR>
+nmap <silent> <Leader>cp <Plug>(coc-git-chunkinfo)
+
+
 
 ""if !has('nvim')
 ""    let g:airline_section_c = airline#section#create(['%{airline#extensions#fugitiveline#bufname()}','%m',"   %#__accent_gray__# %{get(b:,'coc_git_blame','')} %#__restore__#", '%#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'])
@@ -199,3 +213,6 @@ function! s:select_current_word()
                 endif
                   return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
               endfunc
+
+
+
