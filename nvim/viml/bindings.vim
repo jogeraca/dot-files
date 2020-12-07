@@ -27,6 +27,11 @@ nnoremap <silent> <leader>b :Buffers<CR>
 " terminal emulation
 nnoremap <silent> <leader>sh :terminal<CR>
 
+"sort
+vnoremap <silent> <C-O> :sort<CR>
+
+"Column
+vnoremap <silent> <leader>ft :column --table<CR>
 " select all {{{
 map <Leader>sa ggVG
 
@@ -44,3 +49,6 @@ cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
+
+" EasyMotion
+nmap <Leader>s <Plug>(easymotion-s2)

@@ -1,6 +1,6 @@
 let g:ElixirLS = {}
 "let ElixirLS.path = stdpath('config').'/plugged/elixir-ls'
-let ElixirLS.path="/home/yoser/.local/share/nvim/plugged/elixir-ls"
+let ElixirLS.path="~/.local/share/nvim/plugged/elixir-ls"
 let ElixirLS.lsp=printf('%s/%s', ElixirLS.path, 'release/language_server.sh') 
 let ElixirLS.cmd=join([
         \ 'asdf install &&',

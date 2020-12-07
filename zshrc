@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:~/.local/bin:~/dot-files/bin
+export PATH=$PATH:~/.local/bin:~/dot-files/bin:~/src/liftit/geolib
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#676676,bold"
 CASE_SENSITIVE="true"
 ZSH_AUTOSUGGEST_USE_ASYNC='true'
@@ -149,3 +149,9 @@ if  [[ $(tty) != /dev/tty1 ]]; then
 	tmux
 fi
 
+[ -f /usr/share/zsh/site-functions/git-flow-completion.zsh ] \
+	&& source /usr/share/zsh/site-functions/git-flow-completion.zsh
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/yoser/.cache/yay/httptoolkit/src/httptoolkit/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/yoser/.cache/yay/httptoolkit/src/httptoolkit/node_modules/tabtab/.completions/electron-forge.zsh

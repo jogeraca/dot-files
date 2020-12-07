@@ -33,9 +33,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 "Plug 'jremmen/vim-ripgrep'
+"Themes
 Plug 'morhetz/gruvbox'
 " Utils
-Plug 'wakatime/vim-wakatime'
+"Plug 'wakatime/vim-wakatime'
 Plug 'Yggdroot/indentLine'
 "Plug 'tpope/vim-obsession'
 Plug 'mbbill/undotree'
@@ -44,7 +45,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'andreshazard/vim-freemarker'
 " Programing            
-
 "Plug 'jimenezrick/vimerl' " erlang
 call plug#end()
 

@@ -15,9 +15,8 @@ for s:item in s:sourceList
 endfor
 
 unlet s:scriptPath
-unlet s:sourceList 
+unlet s:sourceList
 
 filetype on
 filetype indent on
 filetype plugin on
-

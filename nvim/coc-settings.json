@@ -19,6 +19,7 @@
   "coc.preferences.jumpCommand": "drop",
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "python", "haskell", "elixir", "elixir"],
   "coc.preferences.snippets.enable": true,
+  "coc.preferences.colorSupport": true,
   // diagnostic
   "diagnostic.infoSign":            "☑",
   "diagnostic.hintSign":            "☝",
@@ -28,6 +29,7 @@
   "diagnostic.signOffset":          9999999,
   "diagnostic.highlightOffset":     9999999,
   "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.virtualText": true,
 
   "yank.highlight.duration": 300,
 
@@ -39,7 +41,7 @@
   "suggest.detailField": "abbr",
   "suggest.maxCompleteItemCount": 50,
   "suggest.maxPreviewWidth": 80,
-  "suggest.triggerAfterInsertEnter": false,
+  "suggest.triggerAfterInsertEnter": true,
   "suggest.detailMaxLength": 30,
   "suggest.completionItemKindLabels": {
     "keyword":       "\uf1de",
@@ -99,20 +101,19 @@
   //java
   "java.home": "~/.asdf/installs/java/openjdk-11",
 
-  "explorer.width": 30,
+  "explorer.width": 40,
   "explorer.icon.expanded": "▾",
   "explorer.icon.enableNerdfont": true,
  //"explorer.file.column.indent.topLevel": false,
  // "explorer.file.autoReveal": true,
-  "explorer.floating.height": -10,
-  "explorer.floating.width": -20,
-  "explorer.keyMappings": {
+  "explorer.floating.height": -20,
+  "explorer.floating.width": -10,
+  "explorer.keyMappings.global": {
     "<cr>": ["expandable?", "expand", "open"],
     "v": "open:vsplit"
   },
-
   "explorer.openAction.strategy": "sourceWindow",
-  //"explorer.quitOnOpen": true,
+  "explorer.quitOnOpen": true,
 
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true,
@@ -134,8 +135,8 @@
   "html.validate.styles": true,
   "html.validate.scripts": true,
   // spell
-  "cSpellExt.enableDictionaries": ["spanish"],
-  "cSpell.language": "en,es",
+  //"cSpellExt.enableDictionaries": ["spanish"],
+  //"cSpell.language": "en,es",
 
   "languageserver": {
     "dockerfile": {
@@ -152,8 +153,8 @@
       "ignoredRootPaths": ["~"],
       "settings": {}
     }
-  },
-  "cSpell.userWords": [
-    "eelixir"
-  ]
+  }
+  //"cSpell.userWords": [
+   //"eelixir"
+  //]
 }
