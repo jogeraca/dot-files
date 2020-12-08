@@ -1,5 +1,3 @@
-
-
 #include QMK_KEYBOARD_H
 
 extern keymap_config_t keymap_config;
@@ -90,11 +88,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_LOWER] = LAYOUT_kc(
   //,-----------------------------------------.                ,-----------------------------------------.
-        ESC,     1,     2,     3,     4,     5,                      6,     7,     8,     9,     0,  BSPC,
+          1,     2,     3,     4,     5,     6,                      7,     8,     9,     0,  MINS,  BSPC,
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      CTLTB,   GRV,  PGUP,  PGDN,  HOME,   END,                   LEFT,  DOWN,    UP, RIGHT,  LBRC,  RBRC,
+        GRV,  PGUP,  PGDN,  HOME,   END,  PSCR,                  XXXXX,  LEFT,  DOWN,    UP, RIGHT,  RBRC,
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LSFT, MUTE,   VOLD,  VOLU,  MPLY, XXXXX,                  XXXXX, XXXXX, XXXXX,   EQL,  NUBS,RSHIFT,
+      CTLTB,  MUTE,  VOLD,  VOLU,  MPLY, XXXXX,                  XXXXX, XXXXX, XXXXX,  NUBS,  LBRC,RSHIFT,
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                    LGUI, LOWER,   SPC,      ENT, RAISE, ALTKN
   //                            `--------------------'  `--------------------'
@@ -103,11 +101,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT_kc(
   //,-----------------------------------------.                ,-----------------------------------------.
-        ESC,  EXLM,    AT,  HASH,   DLR,  PERC,                   CIRC,  AMPR,  ASTR,  LPRN,  RPRN,  BSPC,
+      XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-         F1,    F2,    F3,    F4,    F5,    F6,                   MINS,   EQL,  LCBR,  RCBR,  PIPE,   DEL,
+         F1,    F2,    F3,    F4,    F5,    F6,                     F7,    F8,    F9,   F10,   F11,   F12,
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-         F7,    F8,    F9,   F10,   F11,   F12,                   UNDS,  PLUS,  LBRC,  BSLS,  TILD,  LSFT,
+      XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                    LGUI, LOWER,   SPC,      ENT, RAISE, ALTKN
   //                            `--------------------'  `--------------------'
