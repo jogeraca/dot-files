@@ -66,6 +66,7 @@ enum {
 
 
 #define KC_RSHIFT TD(TD_CAPLOCK) // act as LOWER when hold, as KC_LANG2(=English) when tapped
+//#define KC_LCS TD(TD_LCS)
 #define KC_ALT TD(TD_ALT)
 #define KC_ALTKN ALT_T(KC_LANG1) 
 
@@ -74,13 +75,13 @@ enum {
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-[_QWERTY] = LAYOUT_kc( 
+[_QWERTY] = LAYOUT_kc(
   //|-----------------------------------------.                ,-----------------------------------------.
         ESC,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
         TAB,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      LCTRL,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  LSFT,
+      RCTRL,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  LSFT,
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                    LGUI, LOWER,   SPC,      ENT, RAISE,   ALT
   //                            `--------------------'  `--------------------'
@@ -92,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
         GRV,  PGUP,  PGDN,  HOME,   END,  PSCR,                    DEL,  LEFT,  DOWN,    UP, RIGHT,   EQL,
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      CTLTB,  MUTE,  VOLD,  VOLU,  MPLY, XXXXX,                  XXXXX, XXXXX,  NUBS,  RBRC,  LBRC,RSHIFT,
+      CTLTB,  MUTE,  VOLD,  VOLU,  MPLY, XXXXX,                  XXXXX, XXXXX,  BSLS,  RBRC,  LBRC,RSHIFT,
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                    LGUI, LOWER,   SPC,      ENT, RAISE, ALTKN
   //                            `--------------------'  `--------------------'
@@ -129,6 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Tap Dance definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
   // Tap once for rshift, twice for capslock
+  //[TD_LCS] = ACTION_TAP_DANCE_DOUBLE(KC_LCTRL, KC_LSFT),
   [TD_CAPLOCK] = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_CAPS),
   [TD_ALT] = ACTION_TAP_DANCE_DOUBLE(KC_RALT, KC_LALT),
 };
