@@ -24,10 +24,18 @@ if !filereadable(vimplug_exists)
 
   autocmd VimEnter * PlugInstall
 endif
-
-
-Plug 'elixir-lsp/elixir-ls', { 'for': ['elixir','eelixir'],'do': { -> g:ElixirLS.compile() } }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+if has('nvim-0.5')
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-lua/completion-nvim'
+  Plug 'ojroques/nvim-lspfuzzy'
+  Plug 'norcalli/nvim-colorizer.lua'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'justinmk/vim-dirvish'
+  Plug 'elixir-editors/vim-elixir', {'for': ['elixir', 'eelixir']}
+else
+  Plug 'elixir-lsp/elixir-ls', { 'for': ['elixir','eelixir'],'do': { -> g:ElixirLS.compile() } }
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'

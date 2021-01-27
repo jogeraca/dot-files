@@ -1,5 +1,8 @@
+#
+
+so="$(uname -s)"
 alias tmux='tmux -2'
-alias vim='nvim'
+#alias vim='~/src/nvim-osx64/bin/nvim'
 alias vi='nvim'
 alias ll='ls -l'
 alias la='ls -A'

@@ -1,0 +1,15 @@
+#vi: ft=tmux
+
+bind C-p run "wl-paste --no-newline | tmux load-buffer - ; tmux paste-buffer"
+bind-key -T copy-mode-vi 'r' send -X rectangle-toggle
+
+
+set -g status-left "#[bg=colour7]#[fg=black]#{?client_prefix,#[bg=green],} ❐ #S  #[fg=colour24]#h #[bg=black]#[fg=colour7]#{?client_prefix,#[fg=green],} #{?window_zoomed_flag,🔍 ,}"
+set -g status-right "#[bg=colour238]#[fg=green]#[bg=green]#[fg=black] #{b:pane_current_path} #[bg=green]#[fg=colour8]#[bg=colour8]#[fg=colour7] #(~/dot-files/tmux_scripts/cpu.sh)#(~/dot-files/tmux_scripts/keyboard_layout.sh) #(~/dot-files/tmux_scripts/capslock_state.sh)  #[bg=colour8]#[fg=yellow]#[bg=yellow]#[fg=black] 🕑%I:%M %p %d-%b  "
+
+
+# Customize how windows are displayed in the status line
+set -g window-status-separator ""
+set -g window-status-current-format "#{?#{==:#I,1},#[fg=black]#[bg=blue],}#[fg=colour7]#[bg=colour24] #I#F #[fg=colour7] #W #[fg=#(~/dot-files/tmux_scripts/window_color.sh fg #{session_windows} #I #{session_stack}})]#[bg=#(~/dot-files/tmux_scripts/window_color.sh bg #{session_windows} #I #{session_stack}})]"
+set -g window-status-format "#{?#{==:#I,1},#[fg=black]#[bg=black],}#[fg=colour250]#[bg=black]#I#F#[fg=colour244]  #W #[fg=#(~/dot-files/tmux_scripts/window_color.sh fg #{session_windows} #I #{session_stack}})]#[bg=#(~/dot-files/tmux_scripts/window_color.sh bg #{session_windows} #I #{session_stack}})]"
+

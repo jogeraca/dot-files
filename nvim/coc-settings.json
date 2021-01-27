@@ -34,6 +34,7 @@
   "yank.highlight.duration": 300,
 
   // suggest
+  "suggest.noselect": false,
   "suggest.timeout":  5000,
   "diagnostic.checkCurrentLine": true,
   "suggest.autoTrigger": "trigger",
