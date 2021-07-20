@@ -1,9 +1,11 @@
 {
   "solargraph.useBundler": true,
+  "solargraph.autoformat": true,
+  "solargraph.bundlerPath": "~/.asdf/shims/bundle",
   "codeLens.enable": true,
-  "highlight.disableLanguages": [
-    "cocactions"
-  ],
+  //"highlight.disableLanguages": [
+    //"cocactions"
+  //],
   // diagnostic-languageserver
   "diagnostic-languageserver.filetypes": {
     "email":    "languagetool",
@@ -16,9 +18,10 @@
     "elixir":  "mix_format",
     "eelixir": "mix_format"
   },
+  "elixirLS.dialyzerEnabled": true, 
   "coc.preferences.jumpCommand": "drop",
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "python", "haskell", "elixir", "elixir"],
-  "coc.preferences.snippets.enable": true,
+  //"coc.preferences.snippets.enable": true,
   "coc.preferences.colorSupport": true,
   // diagnostic
   "diagnostic.infoSign":            "☑",
@@ -26,7 +29,7 @@
   "diagnostic.warningSign":         "⚠",
   "diagnostic.errorSign":           "☒",
   "diagnostic.enable":              true,
-  "diagnostic.signOffset":          9999999,
+  //"diagnostic.signOffset":          9999999,
   "diagnostic.highlightOffset":     9999999,
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic.virtualText": true,
@@ -78,19 +81,19 @@
   "prettier.stylelintIntegration": true,
   "prettier.statusItemText": "",
   // eslint
-  "eslint.filetypes": [
-    "javascript",
-    "javascript.jsx",
-    "javascriptreact"
-  ],
-  "eslint.autoFix": true,
+  //"eslint.filetypes": [
+    //"javascript",
+    //"javascript.jsx",
+    //"javascriptreact"
+  //],
+  //"eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
 
   // tslint
   "tslint.enable": true,
   "tslint.autoFixOnSave": true,
 
-  "python.formatting.provider": "autopep8",
+  "python.formatting.provider": "black",
   "python.formatting.blackArgs": [],
   "python.sortImports.path": "isort",
   "python.jediEnabled": true,
@@ -139,6 +142,7 @@
   //"cSpellExt.enableDictionaries": ["spanish"],
   //"cSpell.language": "en,es",
 
+  //"editor.formatOnSave": true,
   "languageserver": {
     "dockerfile": {
         "command": "docker-langserver",

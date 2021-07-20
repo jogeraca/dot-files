@@ -4,7 +4,8 @@ let g:mapleader=","
 nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
 nnoremap <silent> <S-t> :tabnew<CR>
-noremap <leader>c :bd<CR>
+noremap <leader>c :ene <CR>:bp<CR>
+noremap <leader>d :bd<CR>
 
 "" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
@@ -35,6 +36,8 @@ vnoremap <silent> <leader>ft :column --table<CR>
 " select all {{{
 map <Leader>sa ggVG
 
+"cursor keys
+
 "*****************************************************************************
 "" Abbreviations
 "*****************************************************************************
@@ -52,3 +55,6 @@ cnoreabbrev Qall qall
 
 " EasyMotion
 nmap <Leader>s <Plug>(easymotion-s2)
+
+nnoremap <Leader>v :e $MYVIMRC<cr>
+nnoremap <Leader><Leader>r :call ReloadConfig()<cr>

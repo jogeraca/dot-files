@@ -43,8 +43,64 @@ enum {
     TD_SLA,
     TD_CAPLOCK,
     TD_ALT,
+    TD_BCK
 };
 
+typedef struct {
+  bool is_press_action;
+  int state;
+} tap;
+
+enum {
+  SINGLE_TAP = 1,
+  SINGLE_HOLD = 2,
+  DOUBLE_TAP = 3,
+  DOUBLE_HOLD = 4,
+  DOUBLE_SINGLE_TAP = 5,
+  TRIPLE_TAP = 6,
+  TRIPLE_HOLD = 7
+};
+
+
+//tapdance state evaluation
+int cur_dance(qk_tap_dance_state_t *state) {
+  int press = 0;
+  switch(state->count) {
+    case 1:
+      press = (state->interrupted || !state->pressed)
+        ? SINGLE_TAP
+        : SINGLE_HOLD;
+      break;
+     case 2:
+      press = DOUBLE_TAP;
+      break;
+    case 3:
+      press = TRIPLE_TAP;
+  }
+  return press;
+}
+
+void back_tap(qk_tap_dance_state_t *state, void *user_data) { tap_code(KC_BSPACE); }
+
+void dash_finished(qk_tap_dance_state_t *state, void *user_data) {
+  int td_state = cur_dance(state);
+  switch(td_state) {
+    case SINGLE_TAP:
+      tap_code(KC_PMNS);
+      break;
+    case SINGLE_HOLD:
+      register_mods(MOD_BIT(KC_LALT));
+      tap_code(KC_KP_0);
+      tap_code(KC_KP_1);
+      tap_code(KC_KP_5);
+      tap_code(KC_KP_1);
+      unregister_mods(MOD_BIT(KC_LALT));
+      break;
+    case DOUBLE_TAP:
+      tap_code(KC_PMNS);
+      tap_code(KC_PMNS);
+  }
+}
 
 #define KC______ KC_TRNS
 #define KC_LOWER LOWER
@@ -66,6 +122,7 @@ enum {
 
 
 #define KC_RSHIFT TD(TD_CAPLOCK) // act as LOWER when hold, as KC_LANG2(=English) when tapped
+#define KC_BCK TD(TD_BCK) 
 //#define KC_LCS TD(TD_LCS)
 #define KC_ALT TD(TD_ALT)
 #define KC_ALTKN ALT_T(KC_LANG1) 
@@ -79,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-----------------------------------------.                ,-----------------------------------------.
         ESC,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-        TAB,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,
+        TAB,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  BCK, //QUOT,
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       RCTRL,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  LSFT,
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
@@ -133,6 +190,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   //[TD_LCS] = ACTION_TAP_DANCE_DOUBLE(KC_LCTRL, KC_LSFT),
   [TD_CAPLOCK] = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_CAPS),
   [TD_ALT] = ACTION_TAP_DANCE_DOUBLE(KC_RALT, KC_LALT),
+  [TD_BCK] = ACTION_TAP_DANCE_FN_ADVANCED(back_tap, back_finished, NUL)
 };
 
 int RGB_current_mode;

@@ -1,8 +1,11 @@
+echo -e "\e[3m Setting alias \e[23m \n"
+export XDG_CURRENT_DESKTOP=sway
+
 #
 
 so="$(uname -s)"
 alias tmux='tmux -2'
-#alias vim='~/src/nvim-osx64/bin/nvim'
+alias vim='/opt/nvim-linux64/bin/nvim'
 alias vi='nvim'
 alias ll='ls -l'
 alias la='ls -A'

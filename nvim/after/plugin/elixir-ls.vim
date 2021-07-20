@@ -1,4 +1,4 @@
-if !has('nvim-0.5')
+if !has('nvim-0.6')
   let g:ElixirLS = {}
   "let ElixirLS.path = stdpath('config').'/plugged/elixir-ls'
   let ElixirLS.path="~/.local/share/nvim/plugged/elixir-ls"
@@ -50,5 +50,6 @@ if !has('nvim-0.5')
 
       
 
+hi Statement   guifg=#8ac6f2     gui=italic,bold
   "" call coc#config('elixir.pathToElixirLS', ElixirLS.lsp)
 endif

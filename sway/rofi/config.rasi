@@ -1,8 +1,8 @@
 configuration {
-    display-drun:                   "Apps";
-    display-window:                 "Window";
-    terminal: "kitty";
-    show-icons:true;
+    display-drun:			"Apps";
+    display-window:			"Window";
+    terminal:				"kitty";
+    show-icons: true;
 
     font: "SF Pro Text 16";
 	levenshtein-sort: true;
@@ -20,4 +20,3 @@ configuration {
 
 	theme: "~/.config/rofi/denvit.rasi";
 }
-

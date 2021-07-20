@@ -1,6 +1,5 @@
-# If you come from bash you might have to change your $PATH.
+#  you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:~/.local/bin:~/dot-files/bin:~/src/liftit/geolib
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#676676,bold"
 CASE_SENSITIVE="true"
 ZSH_AUTOSUGGEST_USE_ASYNC='true'
@@ -16,6 +15,7 @@ if [[ $(tty) = /dev/tty1 ]]
     then
     ZSH_THEME="risto"
     sudo ntpd -qg &
+    bluetooth.sh on
     sway
 else
     ZSH_THEME="agnoster"
@@ -121,33 +121,16 @@ ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
-# section export
-export _JAVA_AWT_WM_NONREPARENTING=1
-export GDK_BACKEND=wayland,x11
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
-# section configuration
 source $ZSH/oh-my-zsh.sh
 #
 bindkey -v
 bindkey "^R" history-incremental-search-backward
 
-. $HOME/.asdf/asdf.sh
-
-. $HOME/.asdf/completions/asdf.bash
-
-source ~/dot-files/bash_aliases
-. ~/.asdf/plugins/java/set-java-home.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.fzf/shell/key-bindings.zsh
 
 source ~/.fzf/shell/completion.zsh
-
-#export TERM="xterm-256color"
-export COLORTERM='truecolor'
-if  [[ $(tty) != /dev/tty1 ]]; then
-	tmux
-fi
 
 [ -f /usr/share/zsh/site-functions/git-flow-completion.zsh ] \
 	&& source /usr/share/zsh/site-functions/git-flow-completion.zsh
@@ -155,3 +138,7 @@ fi
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /home/yoser/.cache/yay/httptoolkit/src/httptoolkit/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/yoser/.cache/yay/httptoolkit/src/httptoolkit/node_modules/tabtab/.completions/electron-forge.zsh
+
+source ~/dot-files/bash_aliases
+source ~/dot-files/bash_export
+

@@ -46,10 +46,15 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-" UI Config {{{
+" UI Config 
+set cmdheight=2     " Give more space for displaying messages.
 set showcmd         " show command in bottom bar
 set cursorline      " highlight current line
-set termguicolors
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 filetype indent on  " load filetype-specific index files
 
 " search
@@ -58,6 +63,11 @@ set smartcase
 set ignorecase
 set incsearch
 set ws! ws?
+
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
 
 " mouse
 set mouse+=a
@@ -68,11 +78,11 @@ set mousehide
 set list
 set listchars=tab:▸\ ,nbsp:␣,trail:·,extends:>,precedes:<,eol:¬
 
-" window scroll {{{}
+" window scroll }
  set winminheight=0
  set scrolloff=3
  set splitright
- " }}}
+ " 
 
 "
 "set t_Co=256
@@ -84,13 +94,13 @@ set listchars=tab:▸\ ,nbsp:␣,trail:·,extends:>,precedes:<,eol:¬
 "set modeline
 "set modelines=10
 
-"" Folding {{{
+"" Folding 
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 set foldmethod=indent "syntax    fold based on syntax
 set foldlevel=1
-" }}}
+" 
 "
 if system('uname -s') == "Linux\n"
   " Wayland clipboard
@@ -100,14 +110,19 @@ if system('uname -s') == "Linux\n"
   set clipboard=unnamedplus
 endif
 
-"let g:ruby_host_prog = '~/.gem/ruby/2.7.0/bin/neovim-ruby-host'
 "set listchars=tab:›\ ,trail:-,extends:#,nbsp:.
 "
-if has('python')
-   set pyx=3
+let g:python_host_prog='/home/yoser/.pyenv/versions/neovim2/bin/python'
+
+if has('python3')
+  let g:python3_host_prog='/home/yoser/.pyenv/versions/neovim3/bin/python'
 endif
 
-if has('nvim-0.5')
+if has('ruby')
+  let g:ruby_host_prog='~/.asdf/shims/neovim-ruby-host'
+endif
+
+if has('nvim-0.6')
   augroup vimrcEx
     autocmd!
 
@@ -140,3 +155,37 @@ if has('nvim-0.5')
     autocmd VimResized * :wincmd =
   augroup END
 endif
+
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" exe 'hi '.synIDattr(synstack(line('.'), col('.'))[-1], 'name')
+"#highlight Attributes cterm=italic guplugi=italic
+"#autocmd ColorScheme * 
+"highlight pythonString cterm=italic gui=italic 
+" Syntax highlighting
+"hi Comment 		guifg=#99968b gui=italic
+"hi Todo 		guifg=#yellow gui=italic
+"hi Constant 		guifg=#e5786d gui=none
+"hi String 		guifg=#95e454 gui=italic
+"hi Identifier 		guifg=#cae682 gui=none
+"hi Function 		guifg=#cae682 gui=none
+"hi Type 		guifg=#cae682 gui=none
+"hi Keyword   guifg=#8ac6f2 gui=italic
+"hi PreProc 		guifg=#e5786d gui=none
+"hi Special		guifg=#e7f6da gui=none
+"hi Statement guifg=#8ac6f2 gui=italic
+
+"hi Error cterm=underline gui=underline
+
+
+"hi link Keyword yellow 
+
+
+"hi Number		guifg=#e5786d gui=none
+"
+

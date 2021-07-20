@@ -5,13 +5,14 @@ set fileencoding=utf8
 let $vimdir="~/.config/nvim"
 let s:scriptPath = expand('<sfile>:p:h')
 let s:sourceList = [
+	\ 'functions',
 	\ 'plugins',
 	\ 'settings',
 	\ 'bindings',
 	\ ]
 
 for s:item in s:sourceList
-	exec 'source ' . s:scriptPath . '/viml/' . s:item . '.vim'
+  exec 'source ' . s:scriptPath . '/viml/' . s:item . '.vim'
 endfor
 
 unlet s:scriptPath

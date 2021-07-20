@@ -21,7 +21,7 @@ set $term kitty
 
 set $menu_cmd 'bemenu --prompt "cmd" -i --tf "#dcdccc" --nb "#3f3f3f" --nf "#dcdccc" --fn "pango:DejaVu Sans Mono 14"'
 set $menus rofi -show drun
-set $menu wofi --show drun
+#set $menu wofi --show drun
 
 set $pomodoro "crx_ngceodoilcgpmkijopinlkmohnfifjfb"
 #set $menu dmenu_run
@@ -58,7 +58,24 @@ output * bg /home/yoser/images/background/Linux-wallpapers.jpg fill
 #-output HDMI-A-1 res 2580x1080 pos 1366 0 scale 1
 # Otra
 
-output HDMI-A-1 resolution 1920x1080 pos 0,0 scale 1
+output USBC resolution 1920x1080 pos 0,0  scale 1
+output HDMI-A-1 resolution 1920x1080 pos 1920,0  scale 0
+#output USBC pos 1920 0
+#output HDMI-A-1 resolution 1920x1080 pos 0,0 scale 1
+
+#output USBC  resolution 1920x1080 pos 1920,0
+#output USBC pos 1920 0 scale 2
+
+workspace 1 output HDMI-A-1
+workspace 3 output HDMI-A-1
+workspace 5 output HDMI-A-1
+workspace 7 output HDMI-A-1
+workspace 9 output HDMI-A-1
+workspace 0 output USBC
+workspace 2 output USBC
+workspace 4 output USBC
+workspace 6 output USBC
+workspace 8 output USBC
 # 2580x1080
 # 1920*1080
 #
@@ -79,12 +96,11 @@ output HDMI-A-1 resolution 1920x1080 pos 0,0 scale 1
 #       middle_emulation enabled
 #   }
 #
-
 #
 input * {
-    xkb_layout  "dvp-it,us"
-    xkb_variant "dvp,"
-    xkb_options grp:lctrl_lwin_rctrl_menu
+    xkb_layout  "us, dvp-it"
+    #xkb_variant "us, dvp"
+    xkb_options grp:win_space_toggle
 }
 #input * xkb_layout "dvp,us"
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -97,18 +113,19 @@ input * {
 
     bindsym Shift+Print exec ~/dot-files/scripts/screencap_tray.py
 
-    # start your launcher
     bindsym $mod+d exec $menus
     # start a terminal
     bindsym $mod+Return exec $term
     # kill focused window
     bindsym $mod+Shift+q kill
+
+    ###################### start your launcher #########################################
     # start browser
     bindsym XF86HomePage exec $browser
     bindsym $mod+Shift+c exec $browser
     # start dbeaver
-    bindsym $mod+Shift+b exec --no-startup-id load_app $db DBeaver $gdk_backend
-
+    bindsym $mod+Shift+F7 exec --no-startup-id load_app $db DBeaver $gdk_backend
+    bindsym $mod+Shift+v  exec $db  
     bindsym $mod+Shift+m exec --no-startup-id load_app $play Spotify
     # start insomnia
     bindsym $mod+Shift+i exec $insomnia
@@ -116,6 +133,8 @@ input * {
     bindsym $mod+Shift+g exec $gparted
     # start pcmanfmm
     bindsym $mod+Shift+p exec $explorer
+
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -124,7 +143,7 @@ input * {
     floating_modifier $mod normal
 
     #configuration hotkey volume
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pacmd lisarrowt-sinks |awk '/* index:/{print $3}') +5%
     bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
     bindsym XF86AudioMute exec pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
     bindsym XF86AudioPlay exec playerctl play-pause
@@ -153,7 +172,7 @@ input * {
         bindsym Escape mode "default"
     }
 
-bindsym $mod+Shift+s mode "$mode_system"
+    bindsym $mod+Shift+s mode "$mode_system"
 
 #
 # Moving around:
@@ -195,16 +214,16 @@ bindsym $mod+Shift+s mode "$mode_system"
     bindsym $mod+0 workspace 10
     # move focused container to workspace
     # bindsym $mod+1 move container to workspace 1
-    bindsym $mod+Alt+1 move container to workspace 1
-    bindsym $mod+Alt+2 move container to workspace 2
-    bindsym $mod+Alt+3 move container to workspace 3
-    bindsym $mod+Alt+4 move container to workspace 4
-    bindsym $mod+Alt+5 move container to workspace 5
-    bindsym $mod+Alt+6 move container to workspace 6
-    bindsym $mod+Alt+7 move container to workspace 7
-    bindsym $mod+Alt+8 move container to workspace 8
-    bindsym $mod+Alt+9 move container to workspace 9
-    bindsym $mod+Alt+0 move container to workspace 10
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
@@ -224,7 +243,7 @@ bindsym $mod+Shift+s mode "$mode_system"
 #TODO: menu  de trayicon (crow) no se sobrepone
     assign [class="Postman"] $working
 #TODO: hacer programa que devuelva el workspace  de dbeaver, si no hay que vaya a  $tools
-    assign [class="DBeaver"]  $tools
+    #assign [class="DBeaver"]  $tools
     assign [class="Google-chrome"]  $working
     assign [instance=$pomodoro] $tracking
     assign [class="Telegram"] $chat
@@ -349,7 +368,8 @@ bindsym $mod+g exec $go_mark
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 600 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
-exec swayidle -w timeout 300 '$lock' before-sleep '$lock' lock '$lock' timeout 400 'systemctl suspend'
+exec swayidle -w timeout 00 '$lock' before-sleep '$lock' lock '$lock' timeout 1000 'systemctl suspend'
+
 
 #exec swayidle \
 #    timeout 30 'swaylock -c 000000' \
@@ -387,16 +407,17 @@ for_window [class="^.*"] border pixel 3
 #
 #
 # class                     border      backgr.     text        indicator   child_border
-#client.focused              #131313ff   #131313ee   #ffffff     #6f777a     #131313ee
-client.focused              #325463     #325463     #FFFFFF     #1084ba     #02aaf2
-#client.unfocused        #232427cc #232427cc  #ffffff #2e9ef4   #232427cc
-client.focused_inactive    #222222     #5F676A     #FFFFFF     #5F676A     #5F676A
+#client.focused             #131313ff   #131313ee   #ffffff     #6f777a     #131313ee
+#client.focused              #325463     #325463     #FFFFFF     #1084ba     #02aaf2gg
+#client.unfocused           #232427cc   #232427cc  #ffffff #2e9ef4   #232427cc
+client.focused_inactive     #222222     #5F676A     #FFFFFF     #5F676A     #5F676A
 #client.unfocused           #333333     #222222     #888888     #222222     #333333
-client.urgent              #222222     #c0392b     #FFFFFF     #c0392b     #222222
-client.placeholder         #000000     #0C0C0C     #FFFFFF     #0C0C0C     #000000
+client.urgent               #222222     #c0392b     #FFFFFF     #c0392b     #222222
+client.placeholder          #000000     #0C0C0C     #FFFFFF     #0C0C0C     #000000
 #
 #client.background       #000000
 
 include /etc/sway/config.d/*
 
-
+exec "systemctl --user import-environment"
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway JAVA_HOME

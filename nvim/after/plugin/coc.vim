@@ -1,12 +1,12 @@
 " Configuration Coc
-if !has('nvim-0.5')
+if !has('nvim-0.6')
+  "" \ 'coc-highlight',
   let g:coc_global_extensions = [
      \ 'coc-css',
      \ 'coc-diagnostic',
      \ 'coc-eslint',
      \ 'coc-explorer',
      \ 'coc-git',
-     \ 'coc-highlight',
      \ 'coc-html',
      \ 'coc-json',
      \ 'coc-lists',
@@ -18,8 +18,6 @@ if !has('nvim-0.5')
      \ 'coc-tag',
      \ 'coc-tslint',
      \ 'coc-tslint-plugin',
-     \ 'coc-spell-checker',
-     \ 'coc-cspell-dicts',
      \ 'coc-snippets',
      \ 'coc-tsserver',
      \ 'coc-vimlsp',
@@ -209,9 +207,9 @@ if !has('nvim-0.5')
   nmap <expr> <silent> <C-d> <SID>select_current_word()
 
   function! s:select_current_word()
-        if !get(g:, 'coc_cursors_activated', 0)
-                return "\<Plug>(coc-cursors-word)"
-                  endif
-                    return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
-                endfunc
+    if !get(g:, 'coc_cursors_activated', 0)
+      return "\<Plug>(coc-cursors-word)"
+    endif
+    return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+  endfunc
 endif

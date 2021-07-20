@@ -7,6 +7,8 @@ param=$3
 if ps -C "$program" >/dev/null; then
     swaymsg "[class=\"$class\"] focus"
 else
-    echo "aqui"
+    echo $program >> /tmp/dataaa
+    echo $class>> /tmp/dataaa
+    echo $param>> /tmp/dataaa
     swaymsg "exec $param $program"
 fi
