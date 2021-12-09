@@ -1,5 +1,20 @@
+# System operative
+sudo
+base-dev
 yay
+NetworkManager
+dhcpcd
+openssh
+efibootmgr
+sway
+wayland
+firefox
+rofi
+waybar
+# Develop
+git
 neovim
+dbeaver
+#Utils
 unzip
 pyenv
-dbeaver
