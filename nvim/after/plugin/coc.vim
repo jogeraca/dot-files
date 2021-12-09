@@ -1,5 +1,5 @@
 " Configuration Coc
-if !has('nvim-0.6')
+if !has('nvim-0.8')
   "" \ 'coc-highlight',
   let g:coc_global_extensions = [
      \ 'coc-css',
@@ -22,8 +22,11 @@ if !has('nvim-0.6')
      \ 'coc-tsserver',
      \ 'coc-vimlsp',
      \ 'coc-elixir',
+     \ 'coc-clojure',
+     \ 'coc-go',
      \ 'coc-java',
      \ 'coc-solargraph',
+     \ 'coc-vimtex',
      \ 'coc-yaml']
 
 

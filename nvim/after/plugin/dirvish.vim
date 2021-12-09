@@ -1,4 +1,4 @@
-if has('nvim-0.6')
+if has('nvim-0.8')
   nmap <silent> - :<C-U>call <SID>dirvish_toggle()<CR>
   nmap <silent> <leader>b :call <SID>dirvish_toggle()<CR>
 

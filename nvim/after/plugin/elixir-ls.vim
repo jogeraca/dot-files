@@ -1,4 +1,4 @@
-if !has('nvim-0.6')
+if !has('nvim-0.8')
   let g:ElixirLS = {}
   "let ElixirLS.path = stdpath('config').'/plugged/elixir-ls'
   let ElixirLS.path="~/.local/share/nvim/plugged/elixir-ls"

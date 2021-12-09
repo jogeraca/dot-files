@@ -24,7 +24,7 @@ if !filereadable(vimplug_exists)
 
   autocmd VimEnter * PlugInstall
 endif
-if has('nvim-0.6')
+if has('nvim-0.8')
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/completion-nvim'
   Plug 'ojroques/nvim-lspfuzzy'
@@ -64,8 +64,8 @@ Plug 'tpope/vim-fugitive'
 " Plantuml
 "Plug 'scrooloose/vim-slumlord'
 "plug 'aklt/plantuml-syntax'
-Plug 'davidhalter/jedi-vim'
 "
+Plug 'davidhalter/jedi-vim'
 " keyhot
 Plug 'easymotion/vim-easymotion'
 call plug#end()

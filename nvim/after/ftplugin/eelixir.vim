@@ -1,3 +1,3 @@
-if has('nvim-0.6')
+if has('nvim-0.8')
   setlocal colorcolumn=
 end

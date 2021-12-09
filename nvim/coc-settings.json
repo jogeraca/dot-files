@@ -19,6 +19,8 @@
     "eelixir": "mix_format"
   },
   "elixirLS.dialyzerEnabled": true, 
+  "elixirLS.mixEnv": "dev",
+  "elixirLS.mixTarget": "test",
   "coc.preferences.jumpCommand": "drop",
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "python", "haskell", "elixir", "elixir"],
   //"coc.preferences.snippets.enable": true,

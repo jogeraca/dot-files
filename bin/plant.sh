@@ -1,5 +1,5 @@
 while :
 do
-    inotifywait -q -e modify --format "%w" *.puml | xargs java -jar ~/dot-files/bin/plantuml.jar -tsvg 
+    inotifywait -q -e modify -e create --format "%w" . | xargs java -jar ~/dot-files/bin/plantuml.jar -tsvg 
     echo "============ rebuild ============"
 done

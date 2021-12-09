@@ -1,4 +1,4 @@
-if has('nvim-0.6')
+if has('nvim-0.8')
   " Highlight character that marks where line is too long
   setlocal textwidth=120
   setlocal colorcolumn=+1

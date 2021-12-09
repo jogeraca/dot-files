@@ -1,4 +1,4 @@
-if has('nvim-0.6')
+if has('nvim-0.8')
  :lua << LUA
   local a = vim.api
   local lspconfig = require('lspconfig')

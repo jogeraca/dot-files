@@ -16,7 +16,7 @@ configuration {
 
 	columns: 1;
 
-	combi-modi: "drun,run,ssh";
+combi-modi: "drun,run,ssh";
 
-	theme: "~/.config/rofi/denvit.rasi";
+	/*theme: "~/.config/rofi/denvit.rasi";*/
 }

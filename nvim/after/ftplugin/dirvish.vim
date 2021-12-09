@@ -1,4 +1,4 @@
-if has('nvim-0.6')
+if has('nvim-0.8')
   silent! :call dirvish#add_icon_fn({p -> p[-1:] == '/' ? '  ' : '🗎  '})
   silent! unmap <buffer> <C-p>
   

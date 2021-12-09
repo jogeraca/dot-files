@@ -5,7 +5,9 @@ nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
 nnoremap <silent> <S-t> :tabnew<CR>
 noremap <leader>c :ene <CR>:bp<CR>
-noremap <leader>d :bd<CR>
+noremap <leader>d  :bp<bar>sp<bar>bn<bar>bd<CR>
+noremap <leader>snw :set nowrap
+noremap <leader>sw :set wrap
 
 "" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
@@ -36,6 +38,9 @@ vnoremap <silent> <leader>ft :column --table<CR>
 " select all {{{
 map <Leader>sa ggVG
 
+
+" 
+nnoremap <leader>kp :let @*=expand("%")<CR>
 "cursor keys
 
 "*****************************************************************************

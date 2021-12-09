@@ -122,7 +122,7 @@ if has('ruby')
   let g:ruby_host_prog='~/.asdf/shims/neovim-ruby-host'
 endif
 
-if has('nvim-0.6')
+if has('nvim-0.8')
   augroup vimrcEx
     autocmd!
 
