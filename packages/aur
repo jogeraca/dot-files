@@ -25,3 +25,5 @@ google-cloud-sdk
     ttf-font-awesome-4
 rofi-dmenu
     dmenu-lpass-nu
+#kubernetes
+sterm

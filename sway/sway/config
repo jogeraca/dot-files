@@ -1,4 +1,4 @@
-# vim: filetype=i3config
+# nvim: filetype=i3config
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
@@ -27,7 +27,7 @@ set $pomodoro "crx_ngceodoilcgpmkijopinlkmohnfifjfb"
 #set $menu dmenu_run
 
 set $play spotify
-set $browser google-chrome-stable
+set $browser firefox 
 set $gdk_backend GDK_BACKEND=x11
 set $db dbeaver
 set $insomnia GDK_BACKEND=x11 insomnia

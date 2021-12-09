@@ -1,0 +1,60 @@
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#676676,bold"
+CASE_SENSITIVE="true"
+ZSH_AUTOSUGGEST_USE_ASYNC='true'
+
+
+if [[ $(tty) = /dev/tty1 ]]
+    then
+    sudo ntpd -qg &
+    sway
+else
+    ZSH_THEME="agnoster"
+fi
+
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+#DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+plugins=(
+  git
+  z
+  tmux
+  vi-mode
+  copydir
+  colorize
+  copybuffer
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  colored-man-pages
+)
+
+
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+#
+bindkey -v
+bindkey "^R" history-incremental-search-backward
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/.fzf/shell/key-bindings.zsh
+
+source ~/.fzf/shell/completion.zsh
+
+[ -f /usr/share/zsh/site-functions/git-flow-completion.zsh ] \
+	&& source /usr/share/zsh/site-functions/git-flow-completion.zsh
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/yoser/.cache/yay/httptoolkit/src/httptoolkit/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/yoser/.cache/yay/httptoolkit/src/httptoolkit/node_modules/tabtab/.completions/electron-forge.zsh
+
+compdef __start_kubectl k
+
+source ~/dot-files/bash_aliases
+source ~/dot-files/bash_export
+
