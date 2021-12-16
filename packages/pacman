@@ -12,9 +12,15 @@ firefox
 rofi
 waybar
 # Develop
+docker
 git
 neovim
 dbeaver
 #Utils
 unzip
 pyenv
+fzf
+#k8s
+kubectl
+minikube
+lens

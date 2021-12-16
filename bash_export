@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 export PATH=$PATH:~/.local/bin:~/dot-files/bin:~/src/liftit/geolib:~/Documents/androide/platform-tools/:~/.asdf/shims
 
 # Configuration pyenv
