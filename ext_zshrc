@@ -15,9 +15,6 @@ fi
 # Uncomment the following line to disable bi-weekly auto-update checks.
 #DISABLE_AUTO_UPDATE="true"
 
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
 plugins=(
   git
   z
@@ -30,6 +27,7 @@ plugins=(
   zsh-syntax-highlighting
   colored-man-pages
 )
+
 
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
@@ -53,6 +51,9 @@ source ~/.fzf/shell/completion.zsh
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /home/yoser/.cache/yay/httptoolkit/src/httptoolkit/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/yoser/.cache/yay/httptoolkit/src/httptoolkit/node_modules/tabtab/.completions/electron-forge.zsh
 
+compdef __start_kubectl k
+
+source $ZSH/oh-my-zsh.sh
 source ~/dot-files/bash_aliases
 source ~/dot-files/bash_export
 

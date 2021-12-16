@@ -18,3 +18,8 @@ dbeaver
 #Utils
 unzip
 pyenv
+fzf
+#k8s
+kubectl
+minikube
+lens
