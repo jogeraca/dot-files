@@ -1,5 +1,4 @@
 echo -e "\e[3m Setting alias \e[23m \n"
-export XDG_CURRENT_DESKTOP=sway
 
 #
 

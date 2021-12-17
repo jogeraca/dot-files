@@ -19,18 +19,20 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export TERM_ITALICS=true
 
 export _JAVA_AWT_WM_NONREPARENTING=1
+export CLUTTER_BACKEND=wayland
 export GDK_BACKEND=wayland,x11
-export XDG_SESSION_TYPE=wayland
-export XDG_CURRENT_DESKTOP=sway
-export JAVA_HOME=/home/yoser/.asdf/installs/java/openjdk-13
-export LIFTIT_HOME=~/scr/liftit/
+#export XDG_SESSION_TYPE=wayland
+#export XDG_CURRENT_DESKTOP=sway
+# firefox
+#export MOZ_ENABLE_WAYLAND=1
+#export JAVA_HOME=/home/yoser/.asdf/installs/java/openjdk-13
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
-. ~/.asdf/plugins/java/set-java-home.zsh
+#. ~/.asdf/plugins/java/set-java-home.zsh
 
 
-export TERM="tmux-256color"
+#export TERM="tmux-256color"
 export COLORTERM='truecolor'
 if  [[ $(tty) != /dev/tty1 ]]; then
 	tmux -2
