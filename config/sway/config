@@ -21,7 +21,7 @@ set $term kitty
 
 set $menu_cmd 'bemenu --prompt "cmd" -i --tf "#dcdccc" --nb "#3f3f3f" --nf "#dcdccc" --fn "pango:DejaVu Sans Mono 14"'
 set $menus rofi -show drun
-#set $menu wofi --show drun
+set $menus wofi --show drun
 
 set $pomodoro "crx_ngceodoilcgpmkijopinlkmohnfifjfb"
 #set $menu dmenu_run
@@ -42,7 +42,7 @@ set $lock swaylock -f
 ### Output configuration
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/yoser/images/background/Linux-wallpapers.jpg fill
+output * bg ~/dot-files/images/background/elixir.jpg fill
 #output LVDS-1 enable
 # output HDMI-A-1 res 2580x1080 pos 0 0 scale 1
 # output LVDS-1 pos 2580 0
@@ -99,7 +99,6 @@ workspace 8 output USBC
 #
 input * {
     xkb_layout  "us, dvp-it"
-    #xkb_variant "us, dvp"
     xkb_options grp:win_space_toggle
 }
 #input * xkb_layout "dvp,us"
@@ -383,14 +382,6 @@ exec swayidle -w timeout 00 '$lock' before-sleep '$lock' lock '$lock' timeout 10
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     swaybar_command waybar
-   # status_command i3status
-   # position top
-   # font Source Code Pro 9
-   # colors {
-   #     statusline #ffffff
-   #     background #323232
-   #     inactive_workspace #32323200 #32323200 #5c5c5c
-   # }
 }
 
 #exec xrdb ~/.Xresources

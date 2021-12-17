@@ -1,0 +1,88 @@
+
+# The directory Mix will write compiled artifacts to.
+/_build
+
+# If you run "mix test --cover", coverage assets end up here.
+/cover
+
+# The directory Mix downloads your dependencies sources to.
+/deps
+utils/core_utils/deps
+
+# Where 3rd-party dependencies like ExDoc output generated docs.
+/doc
+
+# If the VM crashes, it generates a dump, let's ignore it too.
+erl_crash.dump
+
+# Also ignore archive artifacts (built via "mix archive.build").
+*.ez
+
+*.env
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Server secrets
+.ebextensions/environmental_variables.config
+*.secret.exs
+*debug.py
+__pycache__
+.cache
+
+# Apiary documentation
+docs/api/gen/*.md
+*.test.apib
+
+# Coveral HTML report generated running `mix coveralls.html`
+apps/gateway/cover/
+report.xml
+*.coverdata
+.vim/
+.pylintrc
+.mypy_cache
+.ropeproject/
+# npm locks
+package-lock.json
+
+# env files
+.env.*
+.env
+/**/.venv
+*/**/.env.*
+*.env
+.credo.exs
+Session.vim
+
+.reference_pr
+.plant.sh
+# JetBrains
+.idea/
+
+.vscode
+../.pytest_cache/
+.pytest_cache/
+
+
+# Emacs temporal files
+.\#*
+# Vim temporal files
+*.swo
+*.swp
+
+.elixir_ls
+
+.DS_Store
+
+# Temporal files
+*~
+
+# Compilation logs
+log/
+
+.tool-versions
+
+pytest.log
+

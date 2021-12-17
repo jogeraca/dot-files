@@ -1,3 +1,4 @@
+#!/bin/bash
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#676676,bold"
 CASE_SENSITIVE="true"
 ZSH_AUTOSUGGEST_USE_ASYNC='true'
@@ -5,7 +6,6 @@ ZSH_AUTOSUGGEST_USE_ASYNC='true'
 
 if [[ $(tty) = /dev/tty1 ]]
     then
-    sudo ntpd -qg &
     sway
 else
     ZSH_THEME="agnoster"
