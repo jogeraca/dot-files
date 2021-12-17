@@ -26,4 +26,11 @@ google-cloud-sdk
 rofi-dmenu
     dmenu-lpass-nu
 #kubernetes
-sterm
+stern
+
+
+firefox-extension-amazon-container
+firefox-extension-privacybadger
+firefox-extension-https-everywhere 
+firefox-extension-facebook-container
+firefox-extension-containerise
