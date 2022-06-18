@@ -10,7 +10,7 @@ bind-key -T copy-mode-vi 'r' send -X rectangle-toggle
 set -g status-left "#[bg=colour7]#[fg=black]#{?client_prefix,#[bg=green],} ❐ #S  #[fg=colour24]#h #[bg=black]#[fg=colour7]#{?client_prefix,#[fg=green],} #{?window_zoomed_flag,🔍 ,}"
 
 
-set -g status-right "#[bg=colour238]#[fg=green]#[bg=green]#[fg=black] #{b:pane_current_path} #[bg=green]#[fg=colour8]#[bg=colour8]#[fg=colour7] #(#{path_scripts}/cpu.sh)#(#{path_scripts}/pyenv_activate.sh)#(#{path_scripts}/keyboard_layout.sh) #(~/dot-files/tmux_scripts/capslock_state.sh)  #[bg=colour8]#[fg=yellow]#[bg=yellow]#[fg=black] 🕑%I:%M %p %d-%b  "
+set -g status-right "#[bg=colour238]#[fg=green]#[bg=green]#[fg=black] #{b:pane_current_path} #[bg=green]#[fg=colour8]#[bg=colour8]#[fg=colour7] #(#{path_scripts}/cpu.sh)#(#{path_scripts}/pyenv_activate.sh)#(#{path_scripts}/cluster_current.sh) #(~/dot-files/tmux_scripts/capslock_state.sh)  #[bg=colour8]#[fg=yellow]#[bg=yellow]#[fg=black] 🕑%I:%M %p %d-%b  "
 
 
 # Customize how windows are displayed in the status line

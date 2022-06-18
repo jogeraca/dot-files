@@ -22,7 +22,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export CLUTTER_BACKEND=wayland
 export GDK_BACKEND=wayland,x11
 #export XDG_SESSION_TYPE=wayland
-#export XDG_CURRENT_DESKTOP=sway
+export XDG_CURRENT_DESKTOP=sway
 # firefox
 #export MOZ_ENABLE_WAYLAND=1
 #export JAVA_HOME=/home/yoser/.asdf/installs/java/openjdk-13
@@ -30,7 +30,13 @@ export GDK_BACKEND=wayland,x11
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 #. ~/.asdf/plugins/java/set-java-home.zsh
-
+export LANG="es_CO.UTF-8"
+export LC_CTYPE="es_CO.UTF-8"
+#export LC_COLLATE="en_US.UTF-8"
+#export LC_TIME="es_CO.UTF-8"
+#export LC_NUMERIC="en_CO.UTF-8"
+#export LC_MONETARY="es_CO.UTF-8"
+#export LC_MESSAGES="en_US.UTF-8"
 
 #export TERM="tmux-256color"
 export COLORTERM='truecolor'

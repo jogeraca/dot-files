@@ -1,0 +1,11 @@
+#!/bin/bash
+if [[ $(curl -skm 1 https://coversheet.app.lht.ham.dlh.de/actuator/health | grep UP) ]]; then
+    echo 2
+elif [[ $(nmcli connection show --active | grep LGA) ]]; then
+    # unreachable but proxy set
+    echo 3
+elif [[ $(curl -skm 2 https://www.google.com | grep doctype) ]]; then
+    echo 1
+else
+    echo 0
+fi

@@ -1,0 +1,169 @@
+{
+  "solargraph.useBundler": true,
+  "solargraph.autoformat": true,
+  "solargraph.bundlerPath": "~/.asdf/shims/bundle",
+  "codeLens.enable": true,
+  //"highlight.disableLanguages": [
+    //"cocactions"
+  //],
+  // diagnostic-languageserver
+  "diagnostic-languageserver.filetypes": {
+    "email":    "languagetool",
+    "markdown": [ "write-good", "markdownlint" ],
+    "sh":       "shellcheck",
+    "elixir":   ["mix_credo", "mix_credo_compile"],
+    "eelixir":  ["mix_credo", "mix_credo_compile"]
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "elixir":  "mix_format",
+    "eelixir": "mix_format"
+  },
+  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
+  "elixirLS.dialyzerEnabled": true, 
+  "elixirLS.mixEnv": "dev",
+  "elixirLS.mixTarget": "test",
+  "coc.preferences.jumpCommand": "drop",
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "python", "haskell", "elixir", "elixir"],
+  //"coc.preferences.snippets.enable": true,
+  "coc.preferences.colorSupport": true,
+  // diagnostic
+  "diagnostic.infoSign":            "☑",
+  "diagnostic.hintSign":            "☝",
+  "diagnostic.warningSign":         "⚠",
+  "diagnostic.errorSign":           "☒",
+  "diagnostic.enable":              true,
+  //"diagnostic.signOffset":          9999999,
+  "diagnostic.highlightOffset":     9999999,
+  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.virtualText": true,
+
+  "yank.highlight.duration": 300,
+
+  // suggest
+  "suggest.noselect": false,
+  "suggest.timeout":  5000,
+  "diagnostic.checkCurrentLine": true,
+  "suggest.autoTrigger": "trigger",
+  "suggest.snippetIndicator": "►",
+  "suggest.detailField": "abbr",
+  "suggest.maxCompleteItemCount": 50,
+  "suggest.enablePreview": true,
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.detailMaxLength": 30,
+  "suggest.completionItemKindLabels": {
+    "keyword":       "\uf1de",
+    "variable":      "\ue79b",
+    "value":         "\uf89f",
+    "operator":      "\u03a8",
+    "function":      "\u0192",
+    "reference":     "\ufa46",
+    "constant":      "\uf8fe",
+    "method":        "\uf09a",
+    "struct":        "\ufb44",
+    "class":         "\uf0e8",
+    "interface":     "\uf417",
+    "text":          "\ue612",
+    "enum":          "\uf435",
+    "enumMember":    "\uf02b",
+    "module":        "\uf40d",
+    "color":         "\ue22b",
+    "property":      "\ue624",
+    "field":         "\uf9be",
+    "unit":          "\uf475",
+    "event":         "\ufacd",
+    "file":          "\uf723",
+    "folder":        "\uf114",
+    "snippet":       "\ue60b",
+    "typeParameter": "\uf728",
+    "default":       "\uf29c"
+  },
+
+  // prettier
+  //"prettier.eslintIntegration": true,
+  //"prettier.tslintIntegration": true,
+  //"prettier.stylelintIntegration": true,
+  "prettier.statusItemText": "",
+  // eslint
+  //"eslint.filetypes": [
+    //"javascript",
+    //"javascript.jsx",
+    //"javascriptreact"
+  //],
+  //"eslint.autoFix": true,
+  "eslint.autoFixOnSave": true,
+  // tslint
+  "tslint.enable": true,
+  "tslint.autoFixOnSave": true,
+
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": [],
+  "python.sortImports.path": "isort",
+  "python.jediEnabled": true,
+  "python.linting.flake8Args": ["--ignore=a"],
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "python.linting.mypyEnabled": true,
+
+  //java
+  "java.home": "~/.asdf/installs/java/openjdk-11",
+
+  "explorer.width": 40,
+  "explorer.icon.expanded": "▾",
+  "explorer.icon.enableNerdfont": true,
+ //"explorer.file.column.indent.topLevel": false,
+ // "explorer.file.autoReveal": true,
+  "explorer.floating.height": -20,
+  "explorer.floating.width": -10,
+  "explorer.keyMappings.global": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  },
+  "explorer.openAction.strategy": "sourceWindow",
+  "explorer.quitOnOpen": true,
+
+  "tsserver.formatOnType": true,
+  "coc.preferences.formatOnType": true,
+  "prettier.requireConfig": true,
+  // git
+  "git.enableGutters":              true,
+  "git.virtualTextPrefix":          "     ",
+  "git.addGBlameToVirtualText":     true,
+  "git.addGBlameToBufferVar":       true,
+  "git.addedSign.hlGroup":          "GitGutterAdd",
+  "git.changedSign.hlGroup":        "GitGutterChange",
+  "git.removedSign.hlGroup":        "GitGutterDelete",
+  "git.topRemovedSign.hlGroup":     "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup":  "GitGutterChangeDelete",
+
+  // html 
+  "html.enable": false,
+  "html.autoClosingTags": true,
+  "html.validate.styles": true,
+  "html.validate.scripts": true
+  // spell
+  //"cSpellExt.enableDictionaries": ["spanish"],
+  //"cSpell.language": "en,es",
+
+  //"editor.formatOnSave": true,
+  //"languageserver": {
+    //"dockerfile": {
+        //"command": "docker-langserver",
+        //"filetypes": ["dockerfile"],
+        //"args": ["--stdio"]
+    //},
+    //"sh": {
+      //"command": "bash-language-server",
+      //"args": ["start", "--stdio"],
+      //"filetypes": ["sh"],
+      //"cwd": "./",
+      //"initializationOptions": {},
+      //"ignoredRootPaths": ["~"],
+      //"settings": {}
+    //}
+  //},
+  //"typescript.suggestionActions.enabled": true,
+  //#"javascript.suggestionActions.enabled": true
+  //"cSpell.userWords": [
+   //"eelixir"
+  //]
+}

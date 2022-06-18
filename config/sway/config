@@ -42,7 +42,28 @@ set $lock swaylock -f
 ### Output configuration
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/dot-files/images/background/elixir.jpg fill
+output eDP-1 bg ~/dot-files/images/background/elixir.jpg fill
+output DP-2 bg ~/dot-files/images/background/chess.jpg fill
+output HDMI-A-1 bg ~/dot-files/images/background/code.jpg fill
+
+#output HDMI 
+#output eDP-1 
+#output HDMI-A-1 res 3840x2160 pos 0,0 scale 1
+
+#output HDMI2 resolution 2560x1440 position 1920,1080 
+
+#output HDMI1 { #position 1920 0 #resolution 1920x1080 #transform 180 #}
+
+#output DP-3 resolution 3840x2160 position 0,0 
+output HDMI-A-1 position 3840,0 transform 90
+
+#bindsym $mod+Next  exec swaymsg output HDMI-A-1 
+#bindsym $mod+Prior exec swaymsg output HDMI-A-1 transform  0
+
+bindsym $mod+Shift+a exec swaymsg output eDP-1 enable
+bindsym $mod+Shift+p exec swaymsg output eDP-1 disable
+
+
 #output LVDS-1 enable
 # output HDMI-A-1 res 2580x1080 pos 0 0 scale 1
 # output LVDS-1 pos 2580 0
@@ -58,8 +79,8 @@ output * bg ~/dot-files/images/background/elixir.jpg fill
 #-output HDMI-A-1 res 2580x1080 pos 1366 0 scale 1
 # Otra
 
-output USBC resolution 1920x1080 pos 0,0  scale 1
-output HDMI-A-1 resolution 1920x1080 pos 1920,0  scale 0
+#output USBC resolution 1920x1080 pos 0,0  scale 1
+##output HDMI-A-1 resolution 1920x1080 pos 1920,0  scale 0
 #output USBC pos 1920 0
 #output HDMI-A-1 resolution 1920x1080 pos 0,0 scale 1
 
@@ -71,11 +92,11 @@ workspace 3 output HDMI-A-1
 workspace 5 output HDMI-A-1
 workspace 7 output HDMI-A-1
 workspace 9 output HDMI-A-1
-workspace 0 output USBC
-workspace 2 output USBC
-workspace 4 output USBC
-workspace 6 output USBC
-workspace 8 output USBC
+workspace 0 output HDMI
+workspace 2 output HDMI
+workspace 4 output HDMI
+workspace 6 output HDMI
+workspace 8 output HDMI
 # 2580x1080
 # 1920*1080
 #
@@ -110,9 +131,9 @@ input * {
     bindsym $mod+Control+l exec $lock
 
 
-    bindsym Shift+Print exec ~/dot-files/scripts/screencap_tray.py
+    #bindsym Print exec ~/dot-files/scripts/screencap_tray.py
 
-    bindsym $mod+d exec $menus
+    bindsym $mod+D exec $menus
     # start a terminal
     bindsym $mod+Return exec $term
     # kill focused window
@@ -126,12 +147,12 @@ input * {
     bindsym $mod+Shift+F7 exec --no-startup-id load_app $db DBeaver $gdk_backend
     bindsym $mod+Shift+v  exec $db  
     bindsym $mod+Shift+m exec --no-startup-id load_app $play Spotify
-    # start insomnia
+# start insomnia
     bindsym $mod+Shift+i exec $insomnia
     # start gparted
     bindsym $mod+Shift+g exec $gparted
     # start pcmanfmm
-    bindsym $mod+Shift+p exec $explorer
+    bindsym $mod+Shift+e exec $explorer
 
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -356,8 +377,8 @@ bindsym $mod+r mode "resize"
 
 ## Mark window
 show_marks yes
-set $get_mark echo | rofi -dmenu -p "Mark:" | xargs swaymsg mark
-set $go_mark echo | rofi -dmenu -p "Goto:" | xargs -I{} swaymsg '[con_mark="{}"] focus'
+set $get_mark echo | wofi -dmenu -p "Mark:" | xargs swaymsg mark
+set $go_mark echo | wofi -dmenu -p "Goto:" | xargs -I{} swaymsg '[con_mark="{}"] focus'
 bindsym $mod+m exec $get_mark
 bindsym $mod+g exec $go_mark
 
@@ -411,4 +432,4 @@ client.placeholder          #000000     #0C0C0C     #FFFFFF     #0C0C0C     #000
 include /etc/sway/config.d/*
 
 exec "systemctl --user import-environment"
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway JAVA_HOME
+#exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway JAVA_HOME

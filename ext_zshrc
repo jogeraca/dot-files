@@ -6,7 +6,8 @@ ZSH_AUTOSUGGEST_USE_ASYNC='true'
 
 if [[ $(tty) = /dev/tty1 ]]
     then
-    sway
+  #sway -d > /tmp/sway.log
+  sway > /tmp/sway.log 2>&1
 else
     ZSH_THEME="agnoster"
 fi
@@ -20,7 +21,7 @@ plugins=(
   z
   tmux
   vi-mode
-  copydir
+  copypath
   colorize
   copybuffer
   zsh-autosuggestions
@@ -56,4 +57,6 @@ compdef __start_kubectl k
 source $ZSH/oh-my-zsh.sh
 source ~/dot-files/bash_aliases
 source ~/dot-files/bash_export
+source ~/dot-files/bash_hotkeys
+
 

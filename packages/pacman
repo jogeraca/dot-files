@@ -1,4 +1,4 @@
-G
+
 sudo
 base-dev
 yay
@@ -55,9 +55,24 @@ xdg-desktop-portal-wlr
 libpipewire02
 bc
 
-
+kubectl
 pulseaudio
 pipewire
 pipewire-pulse
 pipewire-alsa
 blueman
+nerd-fonts-complete
+pavucontrol
+
+xournal
+k9s
+kubectx
+helm
+minikube 
+
+neofetch
+imv
+
+wl-clipboard
+
+ iptables-nft
