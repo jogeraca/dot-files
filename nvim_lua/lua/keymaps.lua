@@ -38,7 +38,6 @@ map("n", "<leader><space>", ":set hls!<cr>", noremap_opts)
 map("n", "<leader>fo", "<cmd>FormatOnSave", noremap_opts)
 
 
-map("n", "cn", ":cnext<cr>", noremap_opts)
 map("n", "<leader>ev", ":vsplit ~/.config/nvim/init.lua<cr>", noremap_opts)
 map("n", "<leader>sv", [[:luafile $MYVIMRC<cr>]], noremap_opts)
 map("n", "<c-p>", ":Files<cr>", noremap_opts)

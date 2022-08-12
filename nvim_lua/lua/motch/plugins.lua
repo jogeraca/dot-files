@@ -17,10 +17,10 @@ startup({
     use("nvim-lua/plenary.nvim")
     use("folke/which-key.nvim")
     -- LSP
-    use("neovim/nvim-lspconfig")
-    use("williamboman/nvim-lsp-installer")
-    use('wakatime/vim-wakatime')
+    use({"neovim/nvim-lspconfig", commit = "148c99bd09b44cf3605151a06869f6b4d4c24455"})
+    use({"williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6"})
 
+    use('wakatime/vim-wakatime')
     -- Navigation
     use {
       'kyazdani42/nvim-tree.lua',
@@ -57,7 +57,6 @@ startup({
 
 
     use("mhanberg/zk.nvim")
-    -- use("elixir-editors/vim-elixir")
     use("ruanyl/vim-gh-line")
     use("APZelos/blamer.nvim")
     use("AndrewRadev/splitjoin.vim")
@@ -109,10 +108,10 @@ startup({
 
     use({ "simrat39/symbols-outline.nvim" })
 
-    use({ "mhanberg/elixir.nvim" })
-    use({ "mfussenegger/nvim-dap" })
+    use("mhanberg/elixir.nvim")
+    use("mfussenegger/nvim-dap")
 
-    use("Pocco81/TrueZen.nvim")
+    use("Pocco81/true-zen.nvim")
 
     use_rocks({ "underscore" })
     use_rocks({ "ansicolors" })

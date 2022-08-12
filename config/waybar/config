@@ -26,7 +26,7 @@
 },
 {
   "layer": "bottom",
-  "output": ["eDP-1", "DP-2"],
+  "output": ["eDP-1", "DP-1"],
   "position": "top",
   "icon-size": 33,
   "height": 33, 

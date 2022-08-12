@@ -69,11 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["TrueZen.nvim"] = {
-    loaded = true,
-    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/TrueZen.nvim",
-    url = "https://github.com/Pocco81/TrueZen.nvim"
-  },
   ["blamer.nvim"] = {
     loaded = true,
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/blamer.nvim",
@@ -281,6 +276,11 @@ _G.packer_plugins = {
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/thicc_forest",
     url = "https://github.com/mhanberg/thicc_forest"
   },
+  ["true-zen.nvim"] = {
+    loaded = true,
+    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/true-zen.nvim",
+    url = "https://github.com/Pocco81/true-zen.nvim"
+  },
   ["vim-carbon-now-sh"] = {
     loaded = true,
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/vim-carbon-now-sh",
@@ -390,6 +390,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
+  },
+  ["vim-wakatime"] = {
+    loaded = true,
+    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/vim-wakatime",
+    url = "https://github.com/wakatime/vim-wakatime"
   },
   ["which-key.nvim"] = {
     loaded = true,

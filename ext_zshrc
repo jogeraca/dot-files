@@ -2,17 +2,15 @@
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#676676,bold"
 CASE_SENSITIVE="true"
 ZSH_AUTOSUGGEST_USE_ASYNC='true'
-
+#ZSH_TMUX_AUTOSTART='true'
 
 if [[ $(tty) = /dev/tty1 ]]
-    then
-  #sway -d > /tmp/sway.log
-  sway > /tmp/sway.log 2>&1
+  then
+    initx=startx
 else
+    initx=""
     ZSH_THEME="agnoster"
 fi
-
-
 # Uncomment the following line to disable bi-weekly auto-update checks.
 #DISABLE_AUTO_UPDATE="true"
 
@@ -35,7 +33,7 @@ ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
-#
+
 bindkey -v
 bindkey "^R" history-incremental-search-backward
 
@@ -59,4 +57,19 @@ source ~/dot-files/bash_aliases
 source ~/dot-files/bash_export
 source ~/dot-files/bash_hotkeys
 
+if [[ $initx != "" ]]
+    then
+#  export XDG_SESSION_DESKTOP=sway
+  #export XDG_CURRENT_DESKTOP=sway
+  #export XDG_SESSION_TYPE=wayland
+  #export QT_QPA_PLATFORM="wayland"
+  #export QT_QPA_PLATFORMTHEME=qt5ct
+  #export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+  #sway -d > /tmp/sway.log
+#  exec sway > /tmp/sway.log 2>&1
+# $initx
+else 
+  tmux -2
+fi
 
+function mix_test () {(source .env.test && mix $@);}

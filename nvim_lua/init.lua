@@ -1,9 +1,17 @@
 dofile(os.getenv("HOME") .. "/.config/nvim/settings.lua")
-require("utils")
-require("motch.plugins")
-require("keymaps")
-require("general")
-require("functions")
+local subdir=""
+local config_files = {
+  "utils",
+  "motch.plugins",
+  "motch.language_servers",
+  "general",
+  "functions",
+  "keymaps",
+}
+
+for _ , file  in ipairs(config_files ) do
+  require(subdir .. "." .. file)
+end
 
 _G.motch = {}
 
@@ -70,7 +78,7 @@ opt.foldlevelstart = 99
 opt.smartindent = true
 opt.tabstop = 2
 opt.shiftwidth = 2
-opt.expandtab = true
+--opt.expandtab = true
 opt.number = true
 opt.termguicolors = true
 opt.backupdir = vim.fn.expand("~/.tmp/backup")
@@ -232,14 +240,14 @@ local LSP = require("motch.lsp")
 local elixirls = require("elixir")
 
 elixirls.setup({
-  -- cmd = { vim.fn.expand("~/.local/share/nvim/lsp_servers/elixir/elixir-ls/rel/language_server.sh") },
+  ----  cmd = { vim.fn.expand("~/.local/share/nvim/lsp_servers/elixir/elixir-ls/rel/language_server.sh") },
   repo = "mhanberg/elixir-ls",
   branch = "mh/all-workspace-symbols",
   settings = elixirls.settings({
     dialyzerEnabled = true,
     suggestSpecs = true,
-    fetchDeps= false,
-    enableTestLenses=false
+    fetchDeps= true,
+    enableTestLenses=true
   }),
 
   log_level = vim.lsp.protocol.MessageType.Log,

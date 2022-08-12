@@ -5,7 +5,7 @@ echo -e "\e[3m Setting alias \e[23m \n"
 so="$(uname -s)"
 alias vim='nvim'
 alias tmux='tmux -2'
-alias vi='XDG_CONFIG_HOME=~/dot-files/nvim_coc nvim'
+alias vi='nvim'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
@@ -55,3 +55,5 @@ alias pShow="pacman -Qe"
 
 #muestra toda la lista de paquetes qeue no pertenecen a los repositorios oficiales
 alias pShow="pacman -Qm"
+
+alias update-nvim-nightly='asdf uninstall neovim nightly && asdf install neovim nightly'
