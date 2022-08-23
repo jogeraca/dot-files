@@ -1,6 +1,5 @@
 require("notify").setup {
-  background_colour = "#121212",
-  active=true,
+	background_colour = "#000000",
   stages = "fade",
   timeout = 3000,
   fps=30,

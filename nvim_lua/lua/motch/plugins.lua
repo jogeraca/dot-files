@@ -17,8 +17,8 @@ startup({
     use("nvim-lua/plenary.nvim")
     use("folke/which-key.nvim")
     -- LSP
-    use({"neovim/nvim-lspconfig", commit = "148c99bd09b44cf3605151a06869f6b4d4c24455"})
-    use({"williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6"})
+    use({"neovim/nvim-lspconfig"})
+    use({"williamboman/nvim-lsp-installer"})
 
     use('wakatime/vim-wakatime')
     -- Navigation
@@ -108,7 +108,7 @@ startup({
 
     use({ "simrat39/symbols-outline.nvim" })
 
-    use("mhanberg/elixir.nvim")
+		use({ "mhanberg/elixir.nvim", commit="a77e1ac652b8a66ce29c7477e32ef73b6156b8c7", requires = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" }})
     use("mfussenegger/nvim-dap")
 
     use("Pocco81/true-zen.nvim")

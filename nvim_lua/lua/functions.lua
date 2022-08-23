@@ -34,7 +34,7 @@ FormatOnSave = function()
 	local enabled = api.nvim_get_var("formatOnSave")
 	if enabled then
 		if AsyncFormatting then
-			vim.lsp.buf.formatting()
+			vim.lsp.buf.format()
 		else
 			vim.lsp.buf.formatting_sync()
 		end

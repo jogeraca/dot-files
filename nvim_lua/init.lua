@@ -71,40 +71,6 @@ opt.fillchars = {
   verthoriz = "╋",
 }
 
-opt.colorcolumn = "999"
-opt.guifont = "JetBrains Mono"
-opt.foldmethod = "syntax"
-opt.foldlevelstart = 99
-opt.smartindent = true
-opt.tabstop = 2
-opt.shiftwidth = 2
---opt.expandtab = true
-opt.number = true
-opt.termguicolors = true
-opt.backupdir = vim.fn.expand("~/.tmp/backup")
-opt.directory = vim.fn.expand("~/.tmp/swp")
-opt.splitbelow = true
-opt.splitright = true
-opt.lazyredraw = true
-opt.showmode = false
-opt.incsearch = true
-opt.ignorecase = true
-opt.smartcase = true
-opt.undofile = true
-opt.undodir = vim.fn.expand("~/.tmp")
-opt.mouse = "a"
-opt.errorbells = false
-opt.visualbell = true
--- opt.t_vb = ""
-opt.cursorline = true
-opt.inccommand = "nosplit"
-opt.background = "dark"
-opt.autoread = true
-
-opt.title = true
-
-vim.g.forest_night_enable_italic = 1
-vim.g.forest_night_diagnostic_text_highlight = 1
 
 -- vim.cmd([[color thicc_forest]])
 
@@ -236,35 +202,6 @@ vim.lsp.handlers["window/logMessage"] = function(err, result, ...)
 end
 
 local LSP = require("motch.lsp")
-
-local elixirls = require("elixir")
-
-elixirls.setup({
-  ----  cmd = { vim.fn.expand("~/.local/share/nvim/lsp_servers/elixir/elixir-ls/rel/language_server.sh") },
-  repo = "mhanberg/elixir-ls",
-  branch = "mh/all-workspace-symbols",
-  settings = elixirls.settings({
-    dialyzerEnabled = true,
-    suggestSpecs = true,
-    fetchDeps= true,
-    enableTestLenses=true
-  }),
-
-  log_level = vim.lsp.protocol.MessageType.Log,
-  message_level = vim.lsp.protocol.MessageType.Log,
-  on_attach = function(client, bufnr)
-    LSP.on_attach(client, bufnr)
-
-    vim.keymap.set("n", "<space>r", vim.lsp.codelens.run, { buffer = true, noremap = true })
-    vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
-    vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
-    vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
-
-    -- dap
-    vim.keymap.set("n", "<space>db", require("dap").toggle_breakpoint, { buffer = true, silent = true })
-    vim.keymap.set("n", "<space>dc", require("dap").continue, { buffer = true, silent = true })
-  end,
-})
 
 LSP.setup("efm", {
   filetypes = {

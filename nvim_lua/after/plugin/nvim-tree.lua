@@ -2,7 +2,7 @@ require'nvim-tree'.setup {
   disable_netrw = true,
 	sync_root_with_cwd = true,
 	view = {
-		side = "right",
+		side = "left",
 	},
 	diagnostics = {
 		enable = true,

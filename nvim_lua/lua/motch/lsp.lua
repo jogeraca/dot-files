@@ -46,7 +46,7 @@ end
 
 if
   vim.fn.executable(
-    vim.fn.expand("~/.cache/nvim/nlua/sumneko_lua/lua-language-server/bin/lua-language-server")
+    vim.fn.expand("~/.cache/nvim/sumneko_lua/lua-language-server/bin/lua-language-server")
   ) > 0
 then
   require("nlua.lsp.nvim").setup(require("lspconfig"), {
