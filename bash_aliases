@@ -57,3 +57,9 @@ alias pShow="pacman -Qe"
 alias pShow="pacman -Qm"
 
 alias update-nvim-nightly='asdf uninstall neovim nightly && asdf install neovim nightly'
+alias update-nvim-stable='asdf uninstall neovim stable && asdf install neovim stable'
+
+##git commands
+
+alias grpo-dry="git remote prune origin --dry-run"
+alias grpo-done="git remote prune origin"

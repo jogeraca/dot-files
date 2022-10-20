@@ -5,181 +5,28 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
-#xwayland disable
-### Variables
-#
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-#
-# setting the applications favorites
-#
-set $term kitty
 
-set $menu_cmd 'bemenu --prompt "cmd" -i --tf "#dcdccc" --nb "#3f3f3f" --nf "#dcdccc" --fn "pango:DejaVu Sans Mono 14"'
-set $menus rofi -show drun
-set $menus wofi --show drun
+include "config.d/base.conf"
+include "config.d/color.conf"
+include "config.d/output.conf"
+include "config.d/workspace.conf"
+include "config.d/keybinds.conf"
+include "config.d/sway.conf"
+include "config.d/startup.conf"
+include "config.d/bar.conf"
+include "config.d/script.conf"
+include "config.d/keyboard.conf"
 
-set $pomodoro "crx_ngceodoilcgpmkijopinlkmohnfifjfb"
-#set $menu dmenu_run
-
-set $play spotify
-set $browser firefox 
-set $gdk_backend GDK_BACKEND=x11
-set $db dbeaver
-set $insomnia GDK_BACKEND=x11 insomnia
-set $gparted GDK_BACKEND=x11 gparted
-set $explorer caja
-set $images_block "/home/yoser/images/background/lock.jpg"
-set $lock swaylock -f
-#i $images_block
 
 #set $grim  `grim -g "$(slurp)" screenshot3.png"`
 
 ### Output configuration
 
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output eDP-1 bg ~/dot-files/images/background/elixir.jpg fill
-output DP-1 bg ~/dot-files/images/background/chess.jpg fill
-output HDMI-A-1 bg ~/dot-files/images/background/code.jpg fill
-
-#output HDMI 
-#output eDP-1 
-#output HDMI-A-1 res 3840x2160 pos 0,0 scale 1
-
-#output HDMI2 resolution 2560x1440 position 1920,1080 
-
-#output HDMI1 { #position 1920 0 #resolution 1920x1080 #transform 180 #}
-
-output DP-1 mode 2560x1080@59.978Hz position 0,0 adaptive_sync on
-output HDMI-A-1 mode 1920x1080@60Hz position 2560,0 transform 90
-#output HDMI-A-1 mode 2560x1080@59.978Hz position 0,0 adaptive_sync on
-
-#bindsym $mod+Next  exec swaymsg output HDMI-A-1 
-#bindsym $mod+Prior exec swaymsg output HDMI-A-1 transform  0
-
-bindsym $mod+Shift+a exec swaymsg output eDP-1 enable
-bindsym $mod+Shift+p exec swaymsg output eDP-1 disable
-#bindsym $mod+CTRL+shift+h exec swaymsg output  HDMI-A-1 transform 0
-
-
 bindsym --border button4 exec sway-exec-limit focus left
 bindsym --border button5 exec sway-exec-limit focus right
-#output LVDS-1 enable
-# output HDMI-A-1 res 2580x1080 pos 0 0 scale 1
-# output LVDS-1 pos 2580 0
-#
-# Casa
-#output LVDS-1 pos 1920 0
-#output DP-1 resolution 2580x1080 position 0,0 scale 1
-#output HDMI-A-1 res 1920x1080 pos 3,3 scale 1
-#output HDMI-A-1 res 3840x2160 pos 0,0 scale 1
-#
-# Oficina
-#-output LVDS-1 pos 0 0
-#-output HDMI-A-1 res 2580x1080 pos 1366 0 scale 1
-# Otra
-
-#output USBC resolution 1920x1080 pos 0,0  scale 1
-##output HDMI-A-1 resolution 1920x1080 pos 1920,0  scale 0
-#output USBC pos 1920 0
-#output HDMI-A-1 resolution 1920x1080 pos 0,0 scale 1
-
-#output USBC  resolution 1920x1080 pos 1920,0
-#output USBC pos 1920 0 scale 2
-
-workspace 1 output HDMI-A-1
-workspace 3 output HDMI-A-1
-workspace 5 output HDMI-A-1
-workspace 7 output HDMI-A-1
-workspace 9 output HDMI-A-1
-workspace 0 output HDMI
-workspace 2 output HDMI
-workspace 4 output HDMI
-workspace 6 output HDMI
-workspace 8 output HDMI
-# 2580x1080
-# 1920*1080
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-input *  {
-  xkb_layout  "us, dvp-it"
-  xkb_options grp:win_space_toggle
-}
-#input * xkb_layout "dvp,us"
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-### Key bindings
-    #lock session
-    bindsym $mod+Control+l exec $lock
 
 
-    #bindsym Print exec ~/dot-files/scripts/screencap_tray.py
 
-    bindsym $mod+D exec $menus
-    # start a terminal
-    bindsym $mod+Return exec $term
-    # kill focused window
-    bindsym $mod+Shift+q kill
-
-    ###################### start your launcher #########################################
-    # start browser
-    bindsym XF86HomePage exec $browser
-    bindsym $mod+Shift+c exec $browser
-    # start dbeaver
-    bindsym $mod+Shift+F7 exec --no-startup-id load_app $db DBeaver $gdk_backend
-    bindsym $mod+Shift+v  exec $db  
-    bindsym $mod+Shift+m exec --no-startup-id load_app $play Spotify
-# start insomnia
-    bindsym $mod+Shift+i exec $insomnia
-    # start gparted
-    bindsym $mod+Shift+g exec $gparted
-    # start pcmanfmm
-    bindsym $mod+Shift+e exec $explorer
-
-
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
-
-    #configuration hotkey volume
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pacmd lisarrowt-sinks |awk '/* index:/{print $3}') +5%
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
-    bindsym XF86AudioMute exec pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
-    bindsym XF86AudioPlay exec playerctl play-pause
-
-    bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-
-    # reload the configuration file
-    bindsym $mod+Shift+r reload
-
-#   this hotkey copies the screenshot on clipboard
-    bindsym --release Print exec grim -g "$(slurp)" - | wl-copy
 
 #commands to exit of SO or GUI
     set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
@@ -198,87 +45,10 @@ input *  {
 
     bindsym $mod+Shift+s mode "$mode_system"
 
-#
-# Moving around:
-#
-    # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
-
-    # _move_ the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-    # ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
-#
 # Workspaces:
 #
-    # switch to workspace #TODO: Validations
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
-    # move focused container to workspace
-    # bindsym $mod+1 move container to workspace 1
-    bindsym $mod+Shift+1 move container to workspace 1
-    bindsym $mod+Shift+2 move container to workspace 2
-    bindsym $mod+Shift+3 move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
-    bindsym $mod+Shift+5 move container to workspace 5
-    bindsym $mod+Shift+6 move container to workspace 6
-    bindsym $mod+Shift+7 move container to workspace 7
-    bindsym $mod+Shift+8 move container to workspace 8
-    bindsym $mod+Shift+9 move container to workspace 9
-    bindsym $mod+Shift+0 move container to workspace 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
 
-    set $programming 1
-    set $working 2
-    set $tools 3
-    set $notes 6
-    set $chat 7
-    set $play 8
-    set $tracking 9
-    set $leisure 10
-
-    workspace_auto_back_and_forth yes
-
-    workspace_layout tabbed
-
-#TODO: menu  de trayicon (crow) no se sobrepone
-    assign [class="Postman"] $working
-#TODO: hacer programa que devuelva el workspace de dbeaver, si no hay que vaya a  $tools
-    #assign [class="DBeaver"]  $tools
-    assign [class="Google-chrome"]  $working
-    assign [instance=$pomodoro] $tracking
-    assign [class="Telegram"] $chat
-    for_window [class="Spotify"] move to workspace $leisure
-    for_window [title=".*[C|c]hess.*"] move to workspace $play
-    for_window [title=".*[C|c]hess.*"] move to workspace $play
-    for_window [title=".*Workplace.*"] move to workspace $chat
-    for_window [title=".*Workplace.*"] move to workspace $chat
-    for_window [title=".*meet.*"] move to workspace $chat
-
-    bindsym $mod+Shift+n [class="Google-chrome" instance=$pomodoro] focus
+    #bindsym $mod+Shift+n [class="Google-chrome" instance=$pomodoro] focus
 
 
    for_window [window_role="pop-up"] floating enable
@@ -308,48 +78,11 @@ input *  {
         #move down 158px # Adjust manually so menus fit
         move absolute position 1630 25
     }
-#
-# Layout stuff:
-#
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+b splith #TODO: validations
-    bindsym $mod+v splitv #TODO: validations
 
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split #TODO: validations
-
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
-
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
-
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+Control+space focus mode_toggle
-
-    # move focus to the parent container
-    bindsym $mod+a focus parent
-    #
-    # Scratchpad:
-    #
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
 #
 #
  # Resizing containers:
 #
-bindsym $mod+F5 sticky toggle
 
 
 mode "resize" {
@@ -379,13 +112,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-## Mark window
-show_marks yes
-set $get_mark echo | wofi -dmenu -p "Mark:" | xargs swaymsg mark
-set $go_mark echo | wofi -dmenu -p "Goto:" | xargs -I{} swaymsg '[con_mark="{}"] focus'
-bindsym $mod+m exec $get_mark
-bindsym $mod+g exec $go_mark
-
 
 ### Idle configuration
 
@@ -402,37 +128,18 @@ bindsym $mod+g exec $go_mark
 #    before-sleep 'swaylock -c 000000'
 
 #
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-  swaybar_command waybar
-}
 
 #exec xrdb ~/.Xresources
 
 #smart_borders on 
-titlebar_padding 10 5 
 #smart_gaps on
 #default_border none
-#focus_follows_mouse no
 
-for_window [class="^.*"] border pixel 3
 #
 #gaps inner 1
 #gaps outer 1
 #
 #
-# class                     border      backgr.     text        indicator   child_border
-#client.focused             #131313ff   #131313ee   #ffffff     #6f777a     #131313ee
-#client.focused              #325463     #325463     #FFFFFF     #1084ba     #02aaf2gg
-#client.unfocused           #232427cc   #232427cc  #ffffff #2e9ef4   #232427cc
-client.focused_inactive     #222222     #5F676A     #FFFFFF     #5F676A     #5F676A
-#client.unfocused           #333333     #222222     #888888     #222222     #333333
-client.urgent               #222222     #c0392b     #FFFFFF     #c0392b     #222222
-client.placeholder          #000000     #0C0C0C     #FFFFFF     #0C0C0C     #000000
-#
-#client.background       #000000
 
 include /etc/sway/config.d/*
 

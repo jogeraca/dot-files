@@ -2,7 +2,7 @@ vim.g.formatOnSave = FormatOnSave
 vim.g.auto_save = true
 vim.o.clipboard = "unnamedplus"
 vim.o.hidden = true -- Allow multiple buffers to be open
-vim.wo.relativenumber = true 
+vim.wo.relativenumber = true
 vim.lsp.set_log_level(LogLevel)
 
 local opt = vim.opt
@@ -42,5 +42,3 @@ opt.title = true
 
 vim.g.forest_night_enable_italic = 1
 vim.g.forest_night_diagnostic_text_highlight = 1
---vim.highlight="Substitute"
-

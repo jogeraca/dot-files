@@ -346,3 +346,9 @@ gen_locale(){
   ln -sf /usr/share/zoneinfo/$TZ /etc/localtime  && \
          hwclock --systohc --utc
 }
+
+default_firefox(){
+
+xdg-settings get default-web-browser
+xdg-settings set default-web-browser firefox.desktop
+}

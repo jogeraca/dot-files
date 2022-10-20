@@ -53,7 +53,6 @@ local nmappings = {
 	c = { "<cmd>SessionSave<cr>", "save session" },
 	e = { "<cmd>NvimTreeToggle<cr>", "explorer" },
 
-
 	I = { "<cmd>IndentBlanklineToggle<cr>", "toggle indent lines" },
 	H = { "<cmd>Dashboard<cr>", "home" },
 
@@ -86,7 +85,8 @@ local nmappings = {
 	C = {
 		name= "Config nvim",
     e= {":vsplit ~/.config/nvim/init.lua<cr>", "Edit config a"},
-		r= {"<cmd>luafile $MYVIMRC<cr>", "reset nvim"},
+		o = { "<cmd>Telescope vim_options<cr>", "options" },
+		r= {"<cmd>lua ReloadConfig()<cr>", "reset nvim"},
 	},
 	b = {
 		name = "buffers",
@@ -95,7 +95,7 @@ local nmappings = {
 		b = { "<cmd>Telescope buffers<cr>", "buffers" },
 		B = { "<cmd>Buffers<cr>", "list buffers" },
     d = {"<cmd>bp<bar>sp<bar>bn<bar>bd<cr>", "delete buffer"},
-		p = { "<cmd>BufferPick<cr>", "pick buffer" },
+		P = { "<cmd>BufferPick<cr>", "pick buffer" },
 		x = { "<cmd>BufferClose<cr>", "close buffer" },
 		c = { "<cmd>BufferCloseAllButCurrent<cr>", "close all other buffers" },
 		p = { "<cmd>BufferPin<cr>", "pin buffer" },
@@ -129,13 +129,21 @@ local nmappings = {
 	},
   E = {
     name = "Editing",
-	  ['"'] = { 'ciw"<C-r>""<esc>', '""' },
-	  u = { "'u", "undo 'undo jump'" },
-    ["'"] = { "ciw'<C-r>\"'<esc>", "''" },
-    ["("] = { 'ciw(<C-r>")<esc>', "()" },
-    ["["] = { 'ciw[<C-r>"]<esc>', "[]" },
-    ["`"] = { 'ciw`<C-r>"`<esc>', "``" },
-    ["{"] = { 'ciw{<C-r>"}<esc>', "{}" },
+		f = {
+			'<cmd>Telescope grep_string search="" only_sort_text=true<cr>',
+			"text",
+		},
+		F = { "<cmd>Telescope live_grep<cr>", "exact text" },
+		o = {
+			name= "Others",
+			u = { "'u", "undo 'undo jump'" },
+			['"'] = { 'ciw"<C-r>""<esc>', '""' },
+			["'"] = { "ciw'<C-r>\"'<esc>", "''" },
+			["("] = { 'ciw(<C-r>")<esc>', "()" },
+			["["] = { 'ciw[<C-r>"]<esc>', "[]" },
+			["`"] = { 'ciw`<C-r>"`<esc>', "``" },
+			["{"] = { 'ciw{<C-r>"}<esc>', "{}" },
+		}
   },
 	f = {
 		name = "File explorer",
@@ -168,23 +176,22 @@ local nmappings = {
 		--u = { "<cmd>Git undo_stage_hunk<CR>", "undo stage hunk" },
 		A = { "<cmd>Git stage_buffer<cr>", "stage buffer" },
 		D = { "<cmd>Git diffthis<CR>", "file diff" },
-		a = { "<cmd>Git stage_hunk<CR>", "stage hunk" },
+    a = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
 		b = { "<cmd>Telescope git_branches<cr>", "git branches" },
+    d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff"},
 		g = { "<cmd>lua LazygitToggle()<CR>", "lazygit" },
 		n = { "<cmd>Git next_hunk<CR>", "next hunk" },
+    N = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+    p = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+    P = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
 		q = { "<cmd>Git setqflist<CR>", "quickfix" },
 		w = { "<cmd>Git toggle_word_diff<CR>", "word diff" },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-    d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff"},
-    hs = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-    j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
     l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+    s = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-    s = { "<cmd>:Git<cr>", "Status" },
+    S = { "<cmd>:Git<cr>", "Status" },
     u = {
       "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
       "Undo Stage Hunk"
@@ -204,7 +211,7 @@ local nmappings = {
 		T = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "type defintion" },
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "code action" },
 		d = { "<cmd>Telescope lsp_document_diagnostics<cr>", "document diagnostics" },
-    f = { "<cmd>lua vim.lsp.buf.formatting_async()<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
 		i = { "<cmd>normal A  # type: ignore<cr>bbbbhhh", "pyright ignore" },
     j = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
     k = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
@@ -270,12 +277,6 @@ local nmappings = {
 		h = { "<cmd>Telescope command_history<cr>", "cmd history" },
 		m = { "<cmd>Telescope marks<cr>", "marks" },
 		M = { "<cmd>Telescope man_pages<cr>", "manuals" },
-		o = { "<cmd>Telescope vim_options<cr>", "options" },
-		t = {
-			'<cmd>Telescope grep_string search="" only_sort_text=true<cr>',
-			"text",
-		},
-		T = { "<cmd>Telescope live_grep<cr>", "exact text" },
 		s = {
 			'<cmd>lua require("plugins.telescope").search_dir()<cr>',
 			"search dir",

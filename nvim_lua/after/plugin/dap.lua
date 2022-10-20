@@ -2,7 +2,7 @@ local dap = require("dap")
 
 dap.adapters.mix_task = {
   type = "executable",
-  command = vim.fn.expand("~/.local/share/nvim/lsp_servers/elixir/elixir-ls/debugger.sh"), -- debugger.bat for windows
+  command = vim.fn.expand("~/.local/share/nvim/lsp_servers/elixir-ls/elixir-ls/debugger.sh"), -- debugger.bat for windows
   args = {},
 }
 

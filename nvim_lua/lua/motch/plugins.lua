@@ -16,6 +16,7 @@ startup({
     use({ "wbthomason/packer.nvim", opt = true })
     use("nvim-lua/plenary.nvim")
     use("folke/which-key.nvim")
+		use("akinsho/toggleterm.nvim")
     -- LSP
     use({"neovim/nvim-lspconfig"})
     use({"williamboman/nvim-lsp-installer"})
@@ -31,7 +32,7 @@ startup({
         require("nvim-tree").setup({ respect_buf_cwd = true })
       end
     }
-    use("nvim-lua/telescope.nvim")
+		--use("nvim-lua/telescope.nvim")
     use("nvim-telescope/telescope.nvim")
     use("nvim-telescope/telescope-fzy-native.nvim")
     use("nvim-telescope/telescope-media-files.nvim")
@@ -55,7 +56,24 @@ startup({
     })
     use("cuducos/yaml.nvim")
 
-
+-- windows maximizer
+	use {
+		"anuvyklack/windows.nvim",
+		requires = {
+			"anuvyklack/middleclass",
+			"anuvyklack/animation.nvim"
+		},
+		config = function()
+			vim.o.winwidth = 10
+			vim.o.winminwidth = 10
+			vim.o.equalalways = false
+			require('windows').setup({
+				animation = {
+					duration = 100,
+				}
+			})
+		end
+	}
     use("mhanberg/zk.nvim")
     use("ruanyl/vim-gh-line")
     use("APZelos/blamer.nvim")
@@ -81,6 +99,7 @@ startup({
     use("tpope/vim-dispatch")
     use("tpope/vim-eunuch")
     use("tpope/vim-fugitive")
+    use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
     use("tpope/vim-projectionist")
     use("tpope/vim-repeat")
     use("tpope/vim-rsi")
@@ -94,13 +113,13 @@ startup({
       end,
     })
     use({ "gfanto/fzf-lsp.nvim" })
-    use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
     use({ "lukas-reineke/indent-blankline.nvim" })
     use({ "mg979/vim-visual-multi", branch = "master" })
     use({ "mhanberg/thicc_forest", requires = { "rktjmp/lush.nvim" } })
     use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
     use({ "nvim-treesitter/playground" })
 
+		use({ "xiyaowong/nvim-transparent"} )
     use("lukas-reineke/cmp-rg")
 
     use({ "kristijanhusak/vim-carbon-now-sh" })
@@ -108,7 +127,7 @@ startup({
 
     use({ "simrat39/symbols-outline.nvim" })
 
-		use({ "mhanberg/elixir.nvim", commit="a77e1ac652b8a66ce29c7477e32ef73b6156b8c7", requires = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" }})
+		use({ "mhanberg/elixir.nvim", requires = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" }})
     use("mfussenegger/nvim-dap")
 
     use("Pocco81/true-zen.nvim")

@@ -13,12 +13,13 @@ M.on_attach = function(_, bufnr)
   vim.keymap.set("n", "df", "<cmd>lua vim.lsp.buf.format()<cr>", map_opts)
   vim.keymap.set("n", "gd", "<cmd>lua vim.diagnostic.open_float()<cr>", map_opts)
   vim.keymap.set("n", "<leader>dt", "<cmd>lua vim.lsp.buf.definition()<cr>", map_opts)
+  vim.keymap.set("n", "<C-Enter>", "<cmd>lua vim.lsp.buf.definition()<cr>", map_opts)
   vim.keymap.set("n", "<C-i>", "<cmd>lua vim.lsp.buf.definition()<cr>", map_opts)
   vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", map_opts)
   vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.implementation()<cr>", map_opts)
   vim.keymap.set("n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", map_opts)
   vim.keymap.set("n", "1gD", "<cmd>lua vim.lsp.buf.type_definition()<cr>", map_opts)
-  vim.keymap.set("n", "Space-s", "<cmd>lua vim.lsp.codelens.run()<cr>", map_opts)
+  vim.keymap.set("n", "space-s", "<cmd>lua vim.lsp.codelens.run()<cr>", map_opts)
   vim.keymap.set("n", "gr", ":References<cr>", map_opts)
   vim.keymap.set("n", "g0", ":DocumentSymbols<cr>", map_opts)
   vim.keymap.set("n", "gW", ":WorkspaceSymbols<cr>", map_opts)
@@ -28,7 +29,6 @@ M.on_attach = function(_, bufnr)
   vim.cmd([[imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']])
   vim.cmd([[smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']])
 
-  require("cmp_nvim_lsp").update_capabilities(capabilities)
 end
 
 M.setup = function(name, opts)
@@ -38,21 +38,20 @@ M.setup = function(name, opts)
     lspconfig[name].setup(vim.tbl_extend("force", {
       log_level = vim.lsp.protocol.MessageType.Log,
       message_level = vim.lsp.protocol.MessageType.Log,
-      capabilities = capabilities,
+--      capabilities = capabilities,
       on_attach = M.on_attach,
     }, opts))
   end
 end
-
+print("entro")
 if
   vim.fn.executable(
-    vim.fn.expand("~/.cache/nvim/sumneko_lua/lua-language-server/bin/lua-language-server")
+    vim.fn.expand("~/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server")
   ) > 0
 then
   require("nlua.lsp.nvim").setup(require("lspconfig"), {
     on_attach = M.on_attach,
-    globals = { "vim", "hs" },
-    library = { [vim.fn.expand("~/.hammerspoon/Spoons/EmmyLua.spoon/annotations")] = true },
+    globals = { "vim", "hs" }
   })
 end
 

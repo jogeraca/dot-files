@@ -66,6 +66,10 @@ M.git_branches = function()
     )
 end
 
+M.git_status= function()
+    require("telescope.builtin").git_status()
+end
+
 M.search_dotfiles = function()
     require("telescope.builtin").find_files(
         {prompt_title = " Config ", cwd = "$DOTFILES/.config/nvim"}
