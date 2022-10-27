@@ -17,13 +17,16 @@ firefox-dark-reader
 firefox-ublock-origin
 fd
 the_silver_searcher
+lua
+lua-language-server
+btop
 
 rofi
 wofi
 waybar
 alacritty
-alsa-utils 
-alsa-plugins 
+alsa-utils
+alsa-plugins
 alsa-oss
 # Develop
 docker
@@ -51,7 +54,7 @@ xorg-xlsclients
 qt5-wayland
 glfw-wayland
 
-xdg-desktop-portal-wlr 
+xdg-desktop-portal-wlr
 libpipewire02
 bc
 
@@ -68,7 +71,7 @@ xournal
 k9s
 kubectx
 helm
-minikube 
+minikube
 
 neofetch
 imv

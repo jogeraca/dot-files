@@ -11,10 +11,10 @@
 #       middle_emulation enabled
 #   }
 #
-input *  {
-  xkb_layout  "us, dvp-it"
-  xkb_options grp:win_space_toggle
-}
+#input *  {
+  #xkb_layout  "us, dvp-it"
+  #xkb_options grp:win_space_toggle
+#}
 #input * xkb_layout "dvp,us"
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.

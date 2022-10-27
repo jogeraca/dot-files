@@ -15,11 +15,16 @@ startup({
     -- Utils
     use({ "wbthomason/packer.nvim", opt = true })
     use("nvim-lua/plenary.nvim")
+    use("rcarriga/nvim-notify")
     use("folke/which-key.nvim")
 		use("akinsho/toggleterm.nvim")
-    -- LSP
-    use({"neovim/nvim-lspconfig"})
-    use({"williamboman/nvim-lsp-installer"})
+		use("Chiel92/vim-autoformat")
+    use({
+      "nvim-treesitter/nvim-treesitter",
+      run = function()
+        vim.cmd([[TSUpdate]])
+      end,
+    })
 
     use('wakatime/vim-wakatime')
     -- Navigation
@@ -38,6 +43,20 @@ startup({
     use("nvim-telescope/telescope-media-files.nvim")
     use("nvim-telescope/telescope-file-browser.nvim")
 
+		-- languages
+		use("jamespeapen/swayconfig.vim")
+    use({"williamboman/nvim-lsp-installer"})
+    use({"neovim/nvim-lspconfig"})
+    use("sheerun/vim-polyglot")
+		--use({ "nvim-lua/lsp-status.nvim" })
+		use({ "mhanberg/elixir.nvim", requires = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" }})
+    use("aklt/plantuml-syntax")
+		use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn install" })
+
+		-- git
+    use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
+    use("tpope/vim-fugitive")
+
     -- Completion
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-cmdline")
@@ -47,14 +66,6 @@ startup({
     use("hrsh7th/nvim-cmp")
     use("f3fora/cmp-spell")
     use("tpope/vim-surround")
-    -- programming
-    use({
-      "nvim-treesitter/nvim-treesitter",
-      run = function()
-        vim.cmd([[TSUpdate]])
-      end,
-    })
-    use("cuducos/yaml.nvim")
 
 -- windows maximizer
 	use {
@@ -74,7 +85,7 @@ startup({
 			})
 		end
 	}
-    use("mhanberg/zk.nvim")
+
     use("ruanyl/vim-gh-line")
     use("APZelos/blamer.nvim")
     use("AndrewRadev/splitjoin.vim")
@@ -91,15 +102,12 @@ startup({
     use("kristijanhusak/vim-dadbod-ui")
     use("norcalli/nvim.lua")
     use("onsails/lspkind-nvim")
-    use("rcarriga/nvim-notify")
     use("stsewd/fzf-checkout.vim")
     use("tjdevries/nlua.nvim")
     use("tpope/vim-commentary")
     use("tpope/vim-dadbod")
     use("tpope/vim-dispatch")
     use("tpope/vim-eunuch")
-    use("tpope/vim-fugitive")
-    use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
     use("tpope/vim-projectionist")
     use("tpope/vim-repeat")
     use("tpope/vim-rsi")
@@ -127,7 +135,6 @@ startup({
 
     use({ "simrat39/symbols-outline.nvim" })
 
-		use({ "mhanberg/elixir.nvim", requires = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" }})
     use("mfussenegger/nvim-dap")
 
     use("Pocco81/true-zen.nvim")

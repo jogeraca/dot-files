@@ -10,4 +10,4 @@ client.focused_inactive     #222222     #5F676A     #FFFFFF     #5F676A     #5F6
 client.urgent               #222222     #c0392b     #FFFFFF     #c0392b     #222222
 client.placeholder          #000000     #0C0C0C     #FFFFFF     #0C0C0C     #000000
 #
-#client.background       #000000
+client.background       #ffffff

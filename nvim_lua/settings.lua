@@ -1,5 +1,5 @@
 AlwaysTrimWhitespace= true
-AsyncFormatting = true 
+AsyncFormatting = true
 FormatOnSave = true
 LeaderKey = ","
 ScrollOff = 4

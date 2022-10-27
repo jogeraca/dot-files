@@ -1,6 +1,6 @@
 function SafeRequire(modname)
   local is_ok, mod = pcall(require, tostring(modname))
-  if not is_ok then
+  if not is_ok or  mod == nil or mod == '' then
     error("Error cargando la configuracion de " .. tostring(modname))
     return
   else

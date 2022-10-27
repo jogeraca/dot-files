@@ -2,11 +2,11 @@
 
 ### Output configuration
 
-#output HDMI 
-#output eDP-1 
+#output HDMI
+#output eDP-1
 #output HDMI-A-1 res 3840x2160 pos 0,0 scale 1
 
-#output HDMI2 resolution 2560x1440 position 1920,1080 
+#output HDMI2 resolution 2560x1440 position 1920,1080
 
 #output HDMI1 { #position 1920 0 #resolution 1920x1080 #transform 180 #}
 

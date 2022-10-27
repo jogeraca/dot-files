@@ -1,3 +1,4 @@
+exec "systemctl --user import-environment"
 # alt+tab window select
 #bindsym $alt+Tab exec --no-startup-id "~/.config/i3/scripts/tab_windows.sh"
 #exec --no-startup-id "~/.config/i3/scripts/back_and_forth.sh"
@@ -33,7 +34,7 @@ exec --no-startup-id "pasystray"
 exec --no-startup-id "systemctl --user start pipewire pipewire-pulse wireplumber"
 
 # espanso
-exec --no-startup-id "systemctl --user start espanso"
+#exec --no-startup-id "systemctl --user start espanso"
 
 # bluetooth
 exec --no-startup-id "blueman-applet"

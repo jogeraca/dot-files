@@ -3,7 +3,7 @@
 # reload the configuration file
 bindsym --release $mod+Shift+r exec "swaymsg reload"
 
-titlebar_padding 10 5 
+titlebar_padding 10 5
 
 # mouse
 seat * hide_cursor 5000

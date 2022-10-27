@@ -179,6 +179,11 @@ _G.packer_plugins = {
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/lush.nvim",
     url = "https://github.com/rktjmp/lush.nvim"
   },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
   middleclass = {
     loaded = true,
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/middleclass",
@@ -246,6 +251,11 @@ _G.packer_plugins = {
     path = "/home/yoser/.local/share/nvim/site/pack/packer/opt/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  ["plantuml-syntax"] = {
+    loaded = true,
+    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/plantuml-syntax",
+    url = "https://github.com/aklt/plantuml-syntax"
+  },
   playground = {
     loaded = true,
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/playground",
@@ -305,6 +315,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/true-zen.nvim",
     url = "https://github.com/Pocco81/true-zen.nvim"
+  },
+  ["vim-autoformat"] = {
+    loaded = true,
+    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/vim-autoformat",
+    url = "https://github.com/Chiel92/vim-autoformat"
   },
   ["vim-carbon-now-sh"] = {
     loaded = true,
@@ -431,16 +446,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/windows.nvim",
     url = "https://github.com/anuvyklack/windows.nvim"
-  },
-  ["yaml.nvim"] = {
-    loaded = true,
-    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/yaml.nvim",
-    url = "https://github.com/cuducos/yaml.nvim"
-  },
-  ["zk.nvim"] = {
-    loaded = true,
-    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/zk.nvim",
-    url = "https://github.com/mhanberg/zk.nvim"
   }
 }
 

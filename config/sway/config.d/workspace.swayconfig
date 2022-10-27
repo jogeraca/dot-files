@@ -1,4 +1,4 @@
-#nvim: filetype=sway:foldmethod=marker:foldlevel=0
+# nvim: filetype=swayconfig
 
 # Workspaces:
 
@@ -14,7 +14,7 @@ workspace 6 output HDMI
 workspace 8 output HDMI
 
 
-# switch to workspace #TODO: Validations
+# switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3

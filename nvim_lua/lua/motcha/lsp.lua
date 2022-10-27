@@ -2,8 +2,12 @@ local lspconfig = require("lspconfig")
 
 M = {}
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities.window = {
+  workDoneProgress = true,
+}
+--local capabilities = vim.lsp.protocol.make_client_capabilities()
+--capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local has_run = {}
 
@@ -46,7 +50,7 @@ end
 print("entro")
 if
   vim.fn.executable(
-    vim.fn.expand("~/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server")
+    vim.fn.expand("~/.cache/nvim/sumneko_lua/lua-language-server/bin/lua-language-server")
   ) > 0
 then
   require("nlua.lsp.nvim").setup(require("lspconfig"), {

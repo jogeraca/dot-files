@@ -6,17 +6,18 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-include "config.d/base.conf"
-include "config.d/color.conf"
-include "config.d/output.conf"
-include "config.d/workspace.conf"
-include "config.d/keybinds.conf"
-include "config.d/sway.conf"
-include "config.d/startup.conf"
-include "config.d/bar.conf"
-include "config.d/script.conf"
-include "config.d/keyboard.conf"
+include "config.d/base.swayconfig"
+include "config.d/color.swayconfig"
+include "config.d/output.swayconfig"
+include "config.d/workspace.swayconfig"
+include "config.d/keybinds.swayconfig"
+include "config.d/sway.swayconfig"
+include "config.d/startup.swayconfig"
+include "config.d/bar.swayconfig"
+include "config.d/script.swayconfig"
+include "config.d/keyboard.swayconfig"
 
+include /etc/sway/config.d/*
 
 #set $grim  `grim -g "$(slurp)" screenshot3.png"`
 
@@ -131,7 +132,7 @@ bindsym $mod+r mode "resize"
 
 #exec xrdb ~/.Xresources
 
-#smart_borders on 
+#smart_borders on
 #smart_gaps on
 #default_border none
 
@@ -141,7 +142,5 @@ bindsym $mod+r mode "resize"
 #
 #
 
-include /etc/sway/config.d/*
 
-exec "systemctl --user import-environment"
 #exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway JAVA_HOME

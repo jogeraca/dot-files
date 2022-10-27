@@ -1,20 +1,19 @@
-local LSP = require("motch.lsp")
-
 local elixirls = require("elixir")
-
 elixirls.setup({
-	cmd = { vim.fn.expand("~/.local/share/nvim/lsp_servers/elixir/elixir-ls/language_server.sh") },
+	--cmd = { vim.fn.expand("~/.local/share/nvim/lsp_servers/elixir/elixir-ls/language_server.sh") },
   repo = "mhanberg/elixir-ls",
   branch = "mh/all-workspace-symbols",
   settings = elixirls.settings({
     dialyzerEnabled = true,
     suggestSpecs = true,
+	--	dialyzerFormat = "dialyxir_long",
     fetchDeps= true,
     enableTestLenses=true
   }),
 
   log_level = vim.lsp.protocol.MessageType.Log,
   message_level = vim.lsp.protocol.MessageType.Log,
+	capabilities = capabilities,
   on_attach = function(client, bufnr)
     LSP.on_attach(client, bufnr)
 
