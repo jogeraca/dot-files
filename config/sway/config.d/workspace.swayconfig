@@ -51,6 +51,11 @@ set $leisure 10
 
 workspace_auto_back_and_forth yes
 
+# to identity the class or title use the xprop command
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Organizer"] floating enable
 
 #TODO: menu  de trayicon (crow) no se sobrepone
 assign [class="Postman"] $working
@@ -60,9 +65,32 @@ assign [class="Google-chrome"]  $working
 assign [instance=$pomodoro] $tracking
 assign [class="Telegram"] $chat
 for_window [class="Spotify"] move to workspace $leisure
+
+# Chess
+
 for_window [title=".*[C|c]hess.*"] move to workspace $play
 for_window [title=".*[C|c]hess.*"] move to workspace $play
+
 for_window [title=".*Workplace.*"] move to workspace $chat
 for_window [title=".*Workplace.*"] move to workspace $chat
 for_window [title=".*meet.*"] move to workspace $chat
 
+# Gimp
+assign [class="Gimp"] 5
+for_window [title="GIMP Startup"] move workspace $tools
+for_window [class="Gimp"] move workspace $tools
+for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
+for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
+
+# DBeaver
+for_window [class="DBeaver"] move to workspace $tools
+for_window [title="Find/Replace"] move to workspace $tools
+for_window [title="Find/Replace"] floating enable, resize grow width 100 down 130px
+
+#Telegram
+assign [class="^Telegram$"] $chat
+for_window [title="^Telegram$"] move workspace $chat
+
+# slack
+assign [class="^Slack$"] $chat
+for_window [title="^Slack$"] move workspace $chat
