@@ -1,3 +1,4 @@
+# nvim: filetype:bash
 
 # guide to install https://gist.github.com/linderd/71ec30048e78813115ba3f634e1b0817
 TARGET=~/dot-files
@@ -145,6 +146,7 @@ sed -i 's/^COMPRESSLRZ.*/COMPRESSLRZ=(lrzip -9 -q)/' /etc/makepkg.conf && \
 sed -i 's/^COMPRESSLZO.*/COMPRESSLZO=(lzop -q --best)/' /etc/makepkg.conf && \
 sed -i 's/^COMPRESSZ.*/COMPRESSZ=(compress -c -f)/' /etc/makepkg.conf && \
 sed -i 's/^COMPRESSLZ4.*/COMPRESSLZ4=(lz4 -q --best)/' /etc/makepkg.conf
+
 }
 configure_pacman(){
   sed -i 's/#UseSyslog/UseSyslog/' /etc/pacman.conf && \
@@ -152,7 +154,9 @@ configure_pacman(){
   sed -i 's/Color\\/Color/' /etc/pacman.conf && \
   sed -i 's/#TotalDownload/TotalDownload/' /etc/pacman.conf && \
   sed -i 's/#CheckSpace/CheckSpace/' /etc/pacman.conf
+  echo 'ParallelDownloads = 5' >> /etc/pacman.conf
 }
+
 security_and_performance() {
   sed -i 's/^umask.*/umask\ 077/' /etc/profile && \
 chmod 700 /etc/{iptables,arptables,nftables.conf} && \
@@ -348,7 +352,6 @@ gen_locale(){
 }
 
 default_firefox(){
-
-xdg-settings get default-web-browser
-xdg-settings set default-web-browser firefox.desktop
+  xdg-settings get default-web-browser
+  xdg-settings set default-web-browser firefox.desktop
 }

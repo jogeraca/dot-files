@@ -22,7 +22,6 @@ lua-language-server
 btop
 
 rofi
-wofi
 waybar
 alacritty
 alsa-utils

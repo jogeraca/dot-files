@@ -11,13 +11,28 @@
 #       middle_emulation enabled
 #   }
 #
-#input *  {
-  #xkb_layout  "us, dvp-it"
-  #xkb_options grp:win_space_toggle
-#}
+input "1:1:AT_Translated_Set_2_keyboard" {
+  repeat_delay 300
+  xkb_layout  "us, dvp-it"
+  xkb_options grp:win_space_toggle
+}
 #input * xkb_layout "dvp,us"
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+input "1118:1957:Microsoft_Microsoft___2.4GHz_Transceiver_v9.0_Mouse" {
+  pointer_accel 0.5
+	dwt enabled
+	accel_profile "flat"
+	scroll_factor 1.2
+}
 
-
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
+	accel_profile "adaptive"
+	pointer_accel 0.95
+	scroll_factor 1.2
+}
