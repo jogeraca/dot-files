@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo -e "\e[3m Setting alias \e[23m \n"
 
 #
@@ -10,6 +12,7 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias ag='ag --color --group'
+
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -19,6 +22,23 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+fi
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+    alias d="fd"
+    alias c="/usr/bin/cat"
+    alias cat="/usr/bin/cat"
+    alias grep="/usr/bin/grep --color=auto"
+    alias g="/usr/bin/grep --color=auto"
+    alias gh="/usr/bin/grep --color=auto --context=4"
+else
+    alias cat="bat"
+    alias grep="rg"
+    #alias g="rg"
+    #alias gh="rg --context=4"
+    #alias reboot="loginctl reboot"
+    #alias xx="loginctl reboot"
 fi
 
 alias k=kubectl
@@ -63,3 +83,17 @@ alias update-nvim-stable='asdf uninstall neovim stable && asdf install neovim st
 
 alias grpo-dry="git remote prune origin --dry-run"
 alias grpo-done="git remote prune origin"
+
+# exa cammands
+alias e="exa --icons --group-directories-first -F"
+alias el="exa --icons --group-directories-first --git --color-scale -F -h -l -a"
+alias ea="exa --icons --group-directories-first --git --color-scale -F -h -l -a"
+alias et="exa --icons --group-directories-first -F --tree -L 3"
+alias etl="exa --icons --group-directories-first --git --color-scale -F --tree -L 3 -h -l -a"
+alias elt="exa --icons --group-directories-first --git --color-scale -F --tree -L 3 -h -l -a"
+alias ec="exa --icons --group-directories-first -F -s time -r"
+alias ecl="exa --icons --group-directories-first --git --color-scale -F -h -l -a -s time -r"
+alias eca="exa --icons --group-directories-first --git --color-scale -F -h -l -a -s time -r"
+alias ect="exa --icons --group-directories-first -F --tree -L -3 -s time -r"
+alias eclt="exa --icons --group-directories-first --git --color-scale -F -h -l -a --tree -L 3 -s time -r"
+alias etlc="exa --icons --group-directories-first --git --color-scale -F -h -l -a --tree -L 3 -s time -r"

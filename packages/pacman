@@ -30,6 +30,7 @@ alsa-oss
 # Develop
 docker
 git
+git-delta
 dbeaver
 neovim
 dbeaver
@@ -55,8 +56,7 @@ glfw-wayland
 
 xdg-desktop-portal-wlr
 libpipewire02
-bc
-
+wl-clipboard
 kubectl
 pulseaudio
 pipewire
@@ -74,7 +74,10 @@ minikube
 
 neofetch
 imv
+bat
+duf
+tig
 
-wl-clipboard
+iptables-nft
 
- iptables-nft
+
