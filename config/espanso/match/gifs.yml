@@ -1,0 +1,7 @@
+matches:
+  - trigger: ":paddlin:"
+    replace: |
+      https://media.giphy.com/media/B0YZtGyakHaMg/giphy.gif
+  - trigger: ":preening:"
+    replace: |
+      https://media.giphy.com/media/RoJbe4ha8CTfO/giphy.gif

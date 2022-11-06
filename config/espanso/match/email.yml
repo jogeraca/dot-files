@@ -2,7 +2,8 @@
 # Original file: user/emails.yml
 
 matches:
-  - trigger: ";firma"
+  - trigger: ":firma:"
     replace: |
       Saludos
-      Lorenzo <a.k.a atareao>
+
+      Jose German Ramirez Cabrera

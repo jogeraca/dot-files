@@ -1,0 +1,6 @@
+# Original file: user/leisure.yml
+
+matches:
+  - trigger: ":chess:"
+    replace: |
+      www.lichess.org
