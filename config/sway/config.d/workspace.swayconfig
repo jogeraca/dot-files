@@ -67,7 +67,6 @@ assign [class="Telegram"] $chat
 for_window [class="Spotify"] move to workspace $leisure
 
 # Chess
-
 for_window [title=".*[C|c]hess.*"] move to workspace $play
 for_window [title=".*[C|c]hess.*"] move to workspace $play
 
@@ -83,9 +82,10 @@ for_window [window_role="gimp-dock"] floating disable; move left; resize shrink 
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 
 # DBeaver
-for_window [class="DBeaver"] move to workspace $tools
-for_window [title="Find/Replace"] move to workspace $tools
-for_window [title="Find/Replace"] floating enable, resize grow width 100 down 130px
+assign [class="DBeaver"] $tools
+for_window [class="DBeaver"] move workspace $tools
+#for_window [title="Find/Replace"] move to workspace $tools
+#for_window [title="Find/Replace"] floating enable, resize grow width 100 down 130px
 
 #Telegram
 assign [class="^Telegram$"] $chat
