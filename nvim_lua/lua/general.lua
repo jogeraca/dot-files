@@ -40,5 +40,13 @@ opt.autoread = true
 
 opt.title = true
 
-vim.g.forest_night_enable_italic = 1
-vim.g.forest_night_diagnostic_text_highlight = 1
+local g = vim.g
+
+g.forest_night_enable_italic = 1
+g.forest_night_diagnostic_text_highlight = 1
+
+g.loaded_python_provider = 0 -- Disable Python2 support
+g.loaded_perl_provider = 0 -- Disable perl provider
+g.loaded_ruby_provider = 0 -- Disable ruby provider
+g.python3_host_prog = "/home/yoser/.pyenv/shims/python"
+

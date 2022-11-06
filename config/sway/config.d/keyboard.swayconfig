@@ -12,9 +12,7 @@
 #   }
 #
 input "1:1:AT_Translated_Set_2_keyboard" {
-  repeat_delay 300
-  xkb_layout  "us, dvp-it"
-  xkb_options grp:win_space_toggle
+  xkb_layout  "us"
 }
 #input * xkb_layout "dvp,us"
 # You can get the names of your inputs by running: swaymsg -t get_inputs
