@@ -67,25 +67,6 @@ startup({
     use("f3fora/cmp-spell")
     use("tpope/vim-surround")
 
--- windows maximizer
-	use {
-		"anuvyklack/windows.nvim",
-		requires = {
-			"anuvyklack/middleclass",
-			"anuvyklack/animation.nvim"
-		},
-		config = function()
-			vim.o.winwidth = 10
-			vim.o.winminwidth = 10
-			vim.o.equalalways = false
-			require('windows').setup({
-				animation = {
-					duration = 100,
-				}
-			})
-		end
-	}
-
     use("ruanyl/vim-gh-line")
     use("APZelos/blamer.nvim")
     use("AndrewRadev/splitjoin.vim")
