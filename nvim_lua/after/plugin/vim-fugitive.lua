@@ -13,7 +13,7 @@ map("n", "<leader>Gb", "<cmd>Gwq<cr>", noremap_opts)
 map("n", "<leader>Gvh", "<cmd>Gvdiffsplit<cr>", noremap_opts)
 map("n", "<leader>Ghh", "<cmd>Gdiffsplit<cr>", noremap_opts)
 
-map("n", "<leader>gd", ":silent !tmux popup -K -w '90\\%' -h '90\\%' -R 'git diff'<cr>", noremap_opts)
+map("n", "<leader>Ggd", ":silent !tmux popup -K -w '90\\%' -h '90\\%' -R 'git diff'<cr>", noremap_opts)
 
 -- resolv conflicts
 map("n", "<S-l>", ":diffget LO <cr>", noremap_opts)
