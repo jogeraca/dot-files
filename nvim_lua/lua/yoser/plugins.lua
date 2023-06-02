@@ -12,13 +12,21 @@ local startup = require("packer").startup
 
 startup({
   function(use, use_rocks)
+		-- lua
+    use("nvim-lua/plenary.nvim")
     -- Utils
     use({ "wbthomason/packer.nvim", opt = true })
-    use("nvim-lua/plenary.nvim")
+		use("norcalli/nvim-colorizer.lua")
     use("rcarriga/nvim-notify")
     use("folke/which-key.nvim")
 		use("akinsho/toggleterm.nvim")
 		use("Chiel92/vim-autoformat")
+		use("folke/todo-comments.nvim")
+    use('wakatime/vim-wakatime')
+    use('luochen1990/rainbow')
+
+		--use("kevinhwang91/nvim-bqf")
+
     use({
       "nvim-treesitter/nvim-treesitter",
       run = function()
@@ -26,7 +34,6 @@ startup({
       end,
     })
 
-    use('wakatime/vim-wakatime')
     -- Navigation
     use {
       'kyazdani42/nvim-tree.lua',
@@ -47,28 +54,34 @@ startup({
 		use("jamespeapen/swayconfig.vim")
     use({"williamboman/nvim-lsp-installer"})
     use({"neovim/nvim-lspconfig"})
-    use("sheerun/vim-polyglot")
+    --#use("sheerun/vim-polyglot")
 		--use({ "nvim-lua/lsp-status.nvim" })
-		use({ "mhanberg/elixir.nvim", requires = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" }})
+		--
+
+		use({ "elixir-tools/elixir-tools.nvim", requires = { "nvim-lua/plenary.nvim" }})
+		--#use({ "mhanberg/elixir.nvim", requires = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" }})
+		--#use({ "jogeraca/elixir.nvim", branch="otp_24", requires = { "nvim-lua/plenary.nvim" }})
     use("aklt/plantuml-syntax")
 		use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn install" })
 
 		-- git
     use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
     use("tpope/vim-fugitive")
+		use("akinsho/git-conflict.nvim")
+    use("APZelos/blamer.nvim")
 
     -- Completion
+    use("hrsh7th/nvim-cmp")
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-cmdline")
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-nvim-lua")
     use("hrsh7th/cmp-path")
-    use("hrsh7th/nvim-cmp")
     use("f3fora/cmp-spell")
     use("tpope/vim-surround")
+    use("junegunn/fzf.vim")
 
-    use("ruanyl/vim-gh-line")
-    use("APZelos/blamer.nvim")
+		---- validar:
     use("AndrewRadev/splitjoin.vim")
     use("alvan/vim-closetag")
     use("christoomey/vim-tmux-navigator")
@@ -77,7 +90,6 @@ startup({
     use("hrsh7th/cmp-emoji")
     use("hrsh7th/cmp-vsnip")
     use("hrsh7th/vim-vsnip")
-    use("junegunn/fzf.vim")
     -- use("junegunn/goyo.vim")
     use("kristijanhusak/vim-dadbod-completion")
     use("kristijanhusak/vim-dadbod-ui")

@@ -29,7 +29,6 @@ dap.configurations.elixir = {
   },
 }
 
-_G.motch.dap = dap
 
 -- nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
 -- nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>

@@ -124,10 +124,10 @@ _G.packer_plugins = {
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
-  ["elixir.nvim"] = {
+  ["elixir-tools.nvim"] = {
     loaded = true,
-    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/elixir.nvim",
-    url = "https://github.com/mhanberg/elixir.nvim"
+    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/elixir-tools.nvim",
+    url = "https://github.com/elixir-tools/elixir-tools.nvim"
   },
   fzf = {
     loaded = true,
@@ -148,6 +148,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
+  },
+  ["git-conflict.nvim"] = {
+    loaded = true,
+    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/git-conflict.nvim",
+    url = "https://github.com/akinsho/git-conflict.nvim"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
@@ -188,6 +193,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-dap"] = {
     loaded = true,
@@ -256,6 +266,11 @@ _G.packer_plugins = {
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  rainbow = {
+    loaded = true,
+    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/rainbow",
+    url = "https://github.com/luochen1990/rainbow"
+  },
   ["rest.nvim"] = {
     loaded = true,
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/rest.nvim",
@@ -300,6 +315,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/thicc_forest",
     url = "https://github.com/mhanberg/thicc_forest"
+  },
+  ["todo-comments.nvim"] = {
+    loaded = true,
+    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
+    url = "https://github.com/folke/todo-comments.nvim"
   },
   ["toggleterm.nvim"] = {
     loaded = true,
@@ -366,20 +386,10 @@ _G.packer_plugins = {
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
-  ["vim-gh-line"] = {
-    loaded = true,
-    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/vim-gh-line",
-    url = "https://github.com/ruanyl/vim-gh-line"
-  },
   ["vim-lastplace"] = {
     loaded = true,
     path = "/home/yoser/.local/share/nvim/site/pack/packer/start/vim-lastplace",
     url = "https://github.com/farmergreg/vim-lastplace"
-  },
-  ["vim-polyglot"] = {
-    loaded = true,
-    path = "/home/yoser/.local/share/nvim/site/pack/packer/start/vim-polyglot",
-    url = "https://github.com/sheerun/vim-polyglot"
   },
   ["vim-projectionist"] = {
     loaded = true,

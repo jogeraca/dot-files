@@ -1,10 +1,9 @@
 local map = vim.api.nvim_set_keymap
 local noremap_opts = { noremap = true, silent = true }
 
-local cnoremap_opts = { cnoremap = true, silent = true }
+--local cnoremap_opts = { cnoremap = true, silent = true }
 --
-vim.g.mapleader = LeaderKey 
---vim.g.maplocalleader = ","
+vim.g.mapleader = LeaderKey
 
 vim.cmd([[command! Q q]])
 vim.cmd([[command! Qall qall]])
@@ -22,7 +21,6 @@ map("n", "<S-TAB>", "<cmd>bprevious<cr>", noremap_opts)
 map("n", "<leader>cb", "<cmd>ene<cr>", noremap_opts)
 map("n", "<leader>db", "<cmd>bp<bar>sp<bar>bn<bar>bd<cr>", noremap_opts)
 
-
 --show
 map("n", "<leader>snw", "<cmd>set nowrap<cr>", noremap_opts)
 map("n", "<leader>sw", "<cmd>set wrap<cr>", noremap_opts)
@@ -34,9 +32,8 @@ map("n", "Y", "y$", noremap_opts)
 -- searching text
 map("n", "<leader><space>", ":set hls!<cr>", noremap_opts)
 
---syntax 
+--syntax
 map("n", "<leader>fo", "<cmd>FormatOnSave", noremap_opts)
-
 
 map("n", "<leader>ev", ":vsplit ~/.config/nvim/init.lua<cr>", noremap_opts)
 map("n", "<space>sv", [[:luafile $MYVIMRC<cr>]], noremap_opts)
@@ -52,7 +49,39 @@ map("n", "<leader>c", ":botright copen 20<cr>", noremap_opts)
 map("n", "<leader>d", ":lua motch.gdiff()<cr>", noremap_opts)
 map("n", "<leader><leader>m", ":Mix<cr>", noremap_opts)
 
-vim.cmd([[tnoremap <esc> <C-\><C-n>]])
+-- Commentary
+map("n", "<C-c>", "<esc>:Commentary<CR>", noremap_opts)
+map("i", "<leader>/", "<esc>:Commentary<CR>", noremap_opts)
+map("v", "<C-c>", ":Commentary<CR>", noremap_opts)
+
+-- Vim-fugitivie
+map("n", "<c-p>", ":GitFiles<cr>", noremap_opts)
+map("n", "<leader>gs", "<cmd>Git<cr>", noremap_opts)
+map("n", "<leader>gw", "<cmd>Gwrite<cr>", noremap_opts)
+map("n", "<leader>gc", "<cmd>Gcommit<cr>", noremap_opts)
+map("n", "<leader>gsh", "<cmd>Git push<cr>", noremap_opts)
+map("n", "<leader>gll", "<cmd>Gpull<cr>", noremap_opts)
+map("n", "<leader>Gw", "<cmd>Gwq<cr>", noremap_opts)
+map("n", "<leader>Gb", "<cmd>Gwq<cr>", noremap_opts)
+map("n", "<leader>Gvh", "<cmd>Gvdiffsplit<cr>", noremap_opts)
+map("n", "<leader>Ghh", "<cmd>Gdiffsplit<cr>", noremap_opts)
+map("n", "<leader>Ggd", ":silent !tmux popup -K -w '90\\%' -h '90\\%' -R 'git diff'<cr>", noremap_opts)
+
+
+map("n", "<leader>tr", "<cmd>Telescope lsp_references", noremap_opts)
+-- resolv conflicts
+map("n", "<S-l>", ":diffget LO <cr>", noremap_opts)
+map("n", "<S-r>", ":diffget RE<cr>", noremap_opts)
+map("n", "<S-b>", ":diffget BA<cr>", noremap_opts)
+--vim.keymap.set("n", "<leader>gs", ":silent !tmux popup -K -w '90\\%' -h '90\\%' -R 'git status'<cr>")
+
+-- Vim-sings
+map("n", "<S-gl>", ":diffget :2<cr>", noremap_opts)
+map("n", "<S-gr>", ":diffget :3<cr>", noremap_opts)
+map("n", "<S-c>", ":Gitsigns diffthis<cr>", noremap_opts)
+map("n", "<S-h>", ":/<<<<<<<\\|=======\\|>>>>>>><cr>", noremap_opts)
+
+--vim.cmd([[tnoremap <esc> <C-\><C-n>]])
 
 vim.g.dispatch_handlers = { "job" }
 

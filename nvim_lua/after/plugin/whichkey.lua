@@ -47,7 +47,6 @@ vim.g.mapleader = LeaderKey
 -- Normal mode
 local nmappings = {
 	[","] = "which_key_ignore",
-	["/"] = { "<cmd>CommentToggle<cr>", "toggle comment" },
 	["?"] = { "<cmd>NvimTreeFindFile<cr>", "find current file" },
 	["."] = { "<cmd>luafile %<cr>", "source file" },
 	c = { "<cmd>SessionSave<cr>", "save session" },
@@ -177,6 +176,7 @@ local nmappings = {
 		A = { "<cmd>Git stage_buffer<cr>", "stage buffer" },
 		C = { "<cmd>Git commit<CR>", "Commit"},
 		D = { "<cmd>Git diffthis<CR>", "file diff" },
+		I = { "lua require('telescope.builtin').git_diff()<CR>", "diff" },
     N = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     P = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
