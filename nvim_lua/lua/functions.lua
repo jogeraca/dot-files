@@ -33,7 +33,7 @@ FormatOnSave = function()
 	end
 	local enabled = api.nvim_get_var("formatOnSave")
 	if enabled then
-		vim.lsp.buf.format{async=true}
+		vim.lsp.buf.format({ async = true })
 		if not AlwaysTrimWhitespace then
 			TrimWhitespace()
 		end
@@ -41,17 +41,16 @@ FormatOnSave = function()
 end
 Utils.make_command("FormatOnSave")
 
-
 ReloadConfig = function()
-  local hls_status = vim.v.hlsearch
- 	for name,_ in pairs(package.loaded) do
-    package.loaded[name] = nil
-  end
+	local hls_status = vim.v.hlsearch
+	for name, _ in pairs(package.loaded) do
+		package.loaded[name] = nil
+	end
 	dofile(vim.env.MYVIMRC)
 	vim.notify("Nvim configuration reloaded!", vim.log.levels.INFO)
 	if hls_status == 0 then
-        vim.opt.hlsearch = false
-  end
+		vim.opt.hlsearch = false
+	end
 end
 Utils.make_command("ReloadConfig")
 

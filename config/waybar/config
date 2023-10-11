@@ -5,7 +5,7 @@
         "height": 33,
         "icon-size": 33,
         "spacing": 0,
-        "output": ["eDP-1", "DP-1"],
+        "output": ["eDP-1", "HDMI-A-1"],
         "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
         "modules-center": ["custom/weather"],
         "modules-right": ["pulseaudio", "cpu", "memory", "battery", "backlight", "sway/language", "custom/clock", "tray"],
@@ -15,7 +15,7 @@
             "enable-bar-scroll": true,
             "smooth-scrolling-threshold": 20,
             "disable-scroll": true,
-            "all-outputs": true,
+            //"all-outputs": true,
             "format-icons": {
                 "1": "",
                 "2": "爵",
@@ -110,12 +110,12 @@
         "position": "top",
         "height": 33,
         "spacing": 0,
-        "output": "HDMI-A-1",
+        "output": "DP-1",
         "modules-left": ["sway/workspaces", "sway/window"],
         "modules-right": ["network", "disk", "custom/clock"],
         "sway/workspaces": {
             "disable-scroll": true,
-            "all-outputs": true,
+            //"all-outputs": true,
             "format": "{icon}",
             "format-icons": {
                 "1": "",

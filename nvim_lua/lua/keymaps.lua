@@ -5,13 +5,6 @@ local noremap_opts = { noremap = true, silent = true }
 --
 vim.g.mapleader = LeaderKey
 
-vim.cmd([[command! Q q]])
-vim.cmd([[command! Qall qall]])
-vim.cmd([[command! QA qall]])
-vim.cmd([[command! E e]])
-vim.cmd([[command! W w]])
-vim.cmd([[command! Wq wq]])
-
 map("n", "XX", "<cmd>quitall<cr>", noremap_opts)
 map("n", "<C-s>", "<cmd>w<cr>", noremap_opts)
 
@@ -46,13 +39,17 @@ map("n", "<space>a", ":GlobalProjectSearch<cr>", noremap_opts)
 map("n", "<leader>gr", ":grep<cr>", noremap_opts)
 map("n", "<leader>c", ":botright copen 20<cr>", noremap_opts)
 
-map("n", "<leader>d", ":lua motch.gdiff()<cr>", noremap_opts)
+-- map("n", "<leader>d", ":lua motch.gdiff()<cr>", noremap_opts)
 map("n", "<leader><leader>m", ":Mix<cr>", noremap_opts)
 
 -- Commentary
 map("n", "<C-c>", "<esc>:Commentary<CR>", noremap_opts)
 map("i", "<leader>/", "<esc>:Commentary<CR>", noremap_opts)
 map("v", "<C-c>", ":Commentary<CR>", noremap_opts)
+-- Copy namefile with path and only name
+map("n", "<F2>", ":let @+ = expand('%:p')<CR>", noremap_opts)
+map("n", "<F3>", ":let @+ = expand('%:~:.')<CR>", noremap_opts)
+map("n", "<F4>", ":let @+ = expand('%:t')<CR>", noremap_opts)
 
 -- Vim-fugitivie
 map("n", "<c-p>", ":GitFiles<cr>", noremap_opts)
@@ -67,7 +64,6 @@ map("n", "<leader>Gvh", "<cmd>Gvdiffsplit<cr>", noremap_opts)
 map("n", "<leader>Ghh", "<cmd>Gdiffsplit<cr>", noremap_opts)
 map("n", "<leader>Ggd", ":silent !tmux popup -K -w '90\\%' -h '90\\%' -R 'git diff'<cr>", noremap_opts)
 
-
 map("n", "<leader>tr", "<cmd>Telescope lsp_references", noremap_opts)
 -- resolv conflicts
 map("n", "<S-l>", ":diffget LO <cr>", noremap_opts)
@@ -81,9 +77,14 @@ map("n", "<S-gr>", ":diffget :3<cr>", noremap_opts)
 map("n", "<S-c>", ":Gitsigns diffthis<cr>", noremap_opts)
 map("n", "<S-h>", ":/<<<<<<<\\|=======\\|>>>>>>><cr>", noremap_opts)
 
+map("n", "<leader>rg", ":Telescope live_grep<cr>", noremap_opts)
 --vim.cmd([[tnoremap <esc> <C-\><C-n>]])
 
 vim.g.dispatch_handlers = { "job" }
 
 -- ctags
 map("n", "<leader>ct", ":!ctags -R .<cr>", noremap_opts)
+
+-- Editing
+-- map("n", "<C-BS>", "<C-W>", noremap_opts)
+map("i", "<C-BS>", "<C-W>", noremap_opts)

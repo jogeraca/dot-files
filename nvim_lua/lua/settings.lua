@@ -3,7 +3,7 @@ local opt = vim.opt
 local g = vim.g
 
 function M.settings()
-    -- filetype plugin on
+	-- filetype plugin on
 	M.globals()
 	M.options()
 	M.window_options()
@@ -11,6 +11,11 @@ function M.settings()
 	M.netrw()
 	M.grep()
 	M.plugins()
+	M.terminal()
+end
+
+function M.terminal()
+	g.lazy_nvim_alacritty = 1
 end
 
 function M.globals()
@@ -118,4 +123,3 @@ function M.plugins()
 end
 
 return M
-
