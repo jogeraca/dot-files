@@ -1,4 +1,4 @@
-# nvim: filetype:bash
+#!/bin/bash
 
 # guide to install https://gist.github.com/linderd/71ec30048e78813115ba3f634e1b0817
 TARGET=~/dot-files
@@ -9,10 +9,10 @@ export TZ="America/Bogota" # Replace Europe/London with your Region/City
 
 install_zsh(){
   echo "Starting the installation oh my zsh"
-# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
- git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
- git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
- sed -i "\$a source $1/ext_zshrc" ~/.zshrc
+  # sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  sed -i "\$a source $1/ext_zshrc" ~/.zshrc
 }
 #install_zsh $TARGET
 install_asdf(){
@@ -28,14 +28,15 @@ install_asdf(){
   $asdf install erlang 24.1.2
   $asdf global erlang 24.1.2
 }
+
 dvp_it_ins(){
   ln -s ${TARGET}/dot-files/dvp-it/dvp-it /usr/share/X11/xkb/symbols/.
 }
 
 install_python(){
-  pyenv install 3.9.9
+  pyenv install 3.10.7
   git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
-  pyenv virtualenv 3.9.9 neovim3
+  pyenv virtualenv 3.10.7 neovim3
   pyenv activate neovim3
   pyenv install 2.7.18 
   pyenv activate neovim2
@@ -75,7 +76,7 @@ build_docker(){
   sudo chown root:docker /var/run/docker.sock
   sudo usermod -aG docker yoser
   docker pull postgres:alpine
-#  docker run -d -p 5432:5432 --name psqlcont-liftit-local-tms -e POSTGRES_PASSWORD=postgres -v $HOME/liftit/backup/LIFTIT_DB_TMS:/var/lib/postgresql/data postgis/postgis:11-3.0-alpine
+  # docker run -d -p 5432:5432 --name psqlcont-liftit-local-tms -e POSTGRES_PASSWORD=postgres -v $HOME/liftit/backup/LIFTIT_DB_TMS:/var/lib/postgresql/data postgis/postgis:11-3.0-alpine
   docker run -d -p 5432:5432 --name postgresql -e POSTGRES_PASSWORD=postgres
 }
 
@@ -84,11 +85,11 @@ set_timedatectl(){
 }
 
 install_grloud(){
-curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-367.0.0-linux-x86_64.tar.gz
-./google-cloud-sdk/install.sh
-./google-cloud-sdk/bin/gcloud init
-
+  curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-367.0.0-linux-x86_64.tar.gz
+  ./google-cloud-sdk/install.sh
+  ./google-cloud-sdk/bin/gcloud init
 }
+
 install_bluethooth(){
   sudo systemctl enable bluetooth
 }
@@ -132,22 +133,22 @@ zram_size=\$(( RAM_SIZE / 4 ))
 EOF
 }
 optimize_makepkg(){
-sed -i 's/^CFLAGS.*/CFLAGS="-march=native -mtune=native -O2 -pipe -fstack-protector-strong --param=ssp-buffer-size=4 -fno-plt"/' /etc/makepkg.conf && \
-sed -i 's/^CXXFLAGS.*/CXXFLAGS="-march=native -mtune=native -O2 -pipe -fstack-protector-strong --param=ssp-buffer-size=4 -fno-plt"/' /etc/makepkg.conf && \
-sed -i 's/^#RUSTFLAGS.*/RUSTFLAGS="-C opt-level=2 -C target-cpu=native"/' /etc/makepkg.conf && \
-sed -i 's/^#BUILDDIR.*/BUILDDIR=\/tmp\/makepkg/' /etc/makepkg.conf && \
-sed -i 's/^#MAKEFLAGS.*/MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN) --quiet"/' /etc/makepkg.conf && \
-sed -i 's/^COMPRESSGZ.*/COMPRESSGZ=(pigz -c -f -n)/' /etc/makepkg.conf && \
-sed -i 's/^COMPRESSBZ2.*/COMPRESSBZ2=(pbzip2 -c -f)/' /etc/makepkg.conf && \
-sed -i 's/^COMPRESSXZ.*/COMPRESSXZ=(xz -T "$(getconf _NPROCESSORS_ONLN)" -c -z --best -)/' /etc/makepkg.conf && \
-sed -i 's/^COMPRESSZST.*/COMPRESSZST=(zstd -c -z -q --ultra -T0 -22 -)/' /etc/makepkg.conf && \
-sed -i 's/^COMPRESSLZ.*/COMPRESSLZ=(lzip -c -f)/' /etc/makepkg.conf && \
-sed -i 's/^COMPRESSLRZ.*/COMPRESSLRZ=(lrzip -9 -q)/' /etc/makepkg.conf && \
-sed -i 's/^COMPRESSLZO.*/COMPRESSLZO=(lzop -q --best)/' /etc/makepkg.conf && \
-sed -i 's/^COMPRESSZ.*/COMPRESSZ=(compress -c -f)/' /etc/makepkg.conf && \
-sed -i 's/^COMPRESSLZ4.*/COMPRESSLZ4=(lz4 -q --best)/' /etc/makepkg.conf
-
+  sed -i 's/^CFLAGS.*/CFLAGS="-march=native -mtune=native -O2 -pipe -fstack-protector-strong --param=ssp-buffer-size=4 -fno-plt"/' /etc/makepkg.conf && \
+  sed -i 's/^CXXFLAGS.*/CXXFLAGS="-march=native -mtune=native -O2 -pipe -fstack-protector-strong --param=ssp-buffer-size=4 -fno-plt"/' /etc/makepkg.conf && \
+  sed -i 's/^#RUSTFLAGS.*/RUSTFLAGS="-C opt-level=2 -C target-cpu=native"/' /etc/makepkg.conf && \
+  sed -i 's/^#BUILDDIR.*/BUILDDIR=\/tmp\/makepkg/' /etc/makepkg.conf && \
+  sed -i 's/^#MAKEFLAGS.*/MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN) --quiet"/' /etc/makepkg.conf && \
+  sed -i 's/^COMPRESSGZ.*/COMPRESSGZ=(pigz -c -f -n)/' /etc/makepkg.conf && \
+  sed -i 's/^COMPRESSBZ2.*/COMPRESSBZ2=(pbzip2 -c -f)/' /etc/makepkg.conf && \
+  sed -i 's/^COMPRESSXZ.*/COMPRESSXZ=(xz -T "$(getconf _NPROCESSORS_ONLN)" -c -z --best -)/' /etc/makepkg.conf && \
+  sed -i 's/^COMPRESSZST.*/COMPRESSZST=(zstd -c -z -q --ultra -T0 -22 -)/' /etc/makepkg.conf && \
+  sed -i 's/^COMPRESSLZ.*/COMPRESSLZ=(lzip -c -f)/' /etc/makepkg.conf && \
+  sed -i 's/^COMPRESSLRZ.*/COMPRESSLRZ=(lrzip -9 -q)/' /etc/makepkg.conf && \
+  sed -i 's/^COMPRESSLZO.*/COMPRESSLZO=(lzop -q --best)/' /etc/makepkg.conf && \
+  sed -i 's/^COMPRESSZ.*/COMPRESSZ=(compress -c -f)/' /etc/makepkg.conf && \
+  sed -i 's/^COMPRESSLZ4.*/COMPRESSLZ4=(lz4 -q --best)/' /etc/makepkg.conf
 }
+
 configure_pacman(){
   sed -i 's/#UseSyslog/UseSyslog/' /etc/pacman.conf && \
   sed -i 's/#Color/Color\\\nILoveCandy/' /etc/pacman.conf && \
@@ -159,11 +160,11 @@ configure_pacman(){
 
 security_and_performance() {
   sed -i 's/^umask.*/umask\ 077/' /etc/profile && \
-chmod 700 /etc/{iptables,arptables,nftables.conf} && \
-echo "auth optional pam_faildelay.so delay=4000000" >> /etc/pam.d/system-login && \
-echo "tcp_bbr" > /etc/modules-load.d/bbr.conf && \
-echo "write-cache" > /etc/apparmor/parser.conf
-cat << EOF >/etc/sysctl.d/99-sysctl-performance-tweaks.conf
+  chmod 700 /etc/{iptables,arptables,nftables.conf} && \
+  echo "auth optional pam_faildelay.so delay=4000000" >> /etc/pam.d/system-login && \
+  echo "tcp_bbr" > /etc/modules-load.d/bbr.conf && \
+  echo "write-cache" > /etc/apparmor/parser.conf
+  cat << EOF >/etc/sysctl.d/99-sysctl-performance-tweaks.conf
 # The swappiness sysctl parameter represents the kernel's preference (or avoidance) of swap space. Swappiness can have a value between 0 and 100, the default value is 60. 
 # A low value causes the kernel to avoid swapping, a higher value causes the kernel to try to use swap space. Using a low value on sufficient memory is known to improve responsiveness on many systems.
 vm.swappiness=10
@@ -354,4 +355,12 @@ gen_locale(){
 default_firefox(){
   xdg-settings get default-web-browser
   xdg-settings set default-web-browser firefox.desktop
+}
+
+chromium_with_wayland(){
+  
+}
+
+gparted_with_wayland(){
+  xhost +SI:localuser:root
 }

@@ -35,10 +35,8 @@ require("lazy").setup({
 		-- version = "*", -- try installing the latest stable version for plugins that support semver
 	},
 	-- cSpell:word tokyonight habamax
-	install = { colorscheme = { "tokyonight", "habamax", "everforest" } },
-	ui = {
-		border = "single",
-	},
+	install = { colorscheme = { "tokyonight", "kanagawa", "habamax", "everforest" } },
+	ui = { border = "single", },
 	checker = { enabled = true }, -- automatically check for plugin updates
 	performance = {
 		rtp = {
@@ -56,6 +54,45 @@ require("lazy").setup({
 		},
 	},
 })
+
+
+_G.yoser = {}
+local theme = "kanagawa"
+
+_G.yoser.set_dark_theme = function()
+  vim.g.everforest_colors_override = {
+    -- bg8 = { "#000000", 235 },
+    bg0 = { "#273433", "235" },
+    bg1 = { "#394C4A", "236" },
+    bg2 = { "#425755", "237" },
+    bg3 = { "#4B6361", "238" },
+    bg4 = { "#56716F", "239" },
+  }
+  vim.opt.background = "dark"
+  vim.cmd.colorscheme(theme)
+end
+_G.yoser.set_light_theme = function()
+  vim.g.everforest_colors_override = {
+    bg8 = { "#000000", 235 },
+  }
+  vim.opt.background = "light"
+
+  vim.cmd.colorscheme(theme)
+end
+
+_G.yoser.toggle_theme = function()
+  if vim.opt.background:get() == "dark" then
+    yoser.set_light_theme()
+  else
+    yoser.set_dark_theme()
+  end
+end
+
+vim.api.nvim_create_user_command(
+  "ToggleColorscheme",
+  yoser.toggle_theme,
+  { desc = "Toggle the theme from dark mode to light mode" }
+)
 
 vim.opt.statuscolumn = "%s %l %C"
 vim.cmd([[command! -nargs=0 GoToFile :Telescope find_files]])

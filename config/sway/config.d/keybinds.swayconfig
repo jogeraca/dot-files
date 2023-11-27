@@ -19,7 +19,7 @@ bindsym $mod+Shift+q kill
 bindsym XF86HomePage exec $browser
 bindsym $mod+Shift+c exec $browser
 # start dbeaver
-bindsym $mod+Shift+b  exec $db
+bindsym $mod+Shift+b exec $db
 bindsym $mod+Shift+m exec --no-startup-id load_app $play Spotify
 # start insomnia
 bindsym $mod+Shift+i exec $insomnia

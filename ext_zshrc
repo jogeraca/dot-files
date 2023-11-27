@@ -1,37 +1,36 @@
 #!/bin/bash
+
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#676676,bold"
 CASE_SENSITIVE="true"
 ZSH_AUTOSUGGEST_USE_ASYNC='true'
 #ZSH_TMUX_AUTOSTART='true'
 
-if [[ $(tty) = /dev/tty1 ]]
-  then
-    initx=startx
+if [[ $(tty) = /dev/tty1 ]]; then
+	initx=wayland
+	#startx
 else
-    initx=""
-    ZSH_THEME="agnoster"
+	initx=""
+	ZSH_THEME="eastwood"
 fi
 # Uncomment the following line to disable bi-weekly auto-update checks.
 #DISABLE_AUTO_UPDATE="true"
 
 plugins=(
-  git
-  z
-  tmux
-  vi-mode
-  copypath
-  colorize
-  copybuffer
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  colored-man-pages
+	git
+	z
+	tmux
+	vi-mode
+	copypath
+	colorize
+	copybuffer
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+	colored-man-pages
 )
-
-
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
+	mkdir $ZSH_CACHE_DIR
 fi
 
 bindkey -v
@@ -43,8 +42,8 @@ source ~/.fzf/shell/key-bindings.zsh
 
 source ~/.fzf/shell/completion.zsh
 
-[ -f /usr/share/zsh/site-functions/git-flow-completion.zsh ] \
-	&& source /usr/share/zsh/site-functions/git-flow-completion.zsh
+[ -f /usr/share/zsh/site-functions/git-flow-completion.zsh ] &&
+	source /usr/share/zsh/site-functions/git-flow-completion.zsh
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
@@ -57,19 +56,30 @@ source ~/dot-files/bash_aliases
 source ~/dot-files/bash_export
 source ~/dot-files/bash_hotkeys
 
-if [[ $initx != "" ]]
-    then
-#  export XDG_SESSION_DESKTOP=sway
-  #export XDG_CURRENT_DESKTOP=sway
-  #export XDG_SESSION_TYPE=wayland
-  #export QT_QPA_PLATFORM="wayland"
-  #export QT_QPA_PLATFORMTHEME=qt5ct
-  #export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-  #sway -d > /tmp/sway.log
-#  exec sway > /tmp/sway.log 2>&1
-# $initx
-else 
-  tmux -2
+if [[ $initx != "" ]]; then
+	echo "iniciando sway"
+	export XDG_SESSION_DESKTOP=sway
+	export XDG_CURRENT_DESKTOP=sway
+	export XDG_SESSION_TYPE=wayland
+	export QT_QPA_PLATFORM="wayland-egl"
+	export QT_QPA_PLATFORMTHEME=qt5ct
+	export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+	export WLR_WL_OUTPUTS=2
+	export MOZ_ENABLE_WAYLAND=1
+	#export WAYLAND_DISPLAY="wayland-0"
+	#
+	#echo 0x19F | sudo tee /sys/module/drm/parameters/debug # Enable verbose DRM logging
+	#sudo dmesg -C # Clear kernel logs
+	#dmesg -w >dmesg.log & # Continuously write DRM logs to a file, in the background
+	#exec sway -d >>/tmp/sway.log 2>&1 # Reproduce the bug, then exit sway
+	#
+	##
+	#---XDG_SESSION_TYPE=wayland dbus-run-session /usr/bin/gnome-shell
+	#
+	# exec dbus-run-session sway
+	# $initx
+else
+	tmux -2
 fi
 
-function mix_test () {(source .env.test && mix $@);}
+function mix_test() { (source .env.test && mix $@); }

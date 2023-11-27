@@ -1,6 +1,9 @@
 vim.g.formatOnSave = FormatOnSave
 vim.g.auto_save = true
 
+vim.g.autoformat = false
+vim.b.autoformat = true
+
 vim.g.rainbow_active = 1
 vim.o.clipboard = "unnamedplus"
 vim.o.hidden = true -- Allow multiple buffers to be open
@@ -11,7 +14,7 @@ local opt = vim.opt
 vim.g.default_colorcolumn = "81"
 opt.scrolloff = ScrollOff
 opt.colorcolumn = "999"
-opt.guifont = "Cartograph CF"
+-- opt.guifont = "Cartograph CF"
 opt.foldmethod = "syntax"
 opt.foldlevelstart = 99
 opt.smartindent = true
@@ -45,11 +48,11 @@ opt.title = true
 
 local g = vim.g
 
-g.forest_night_enable_italic = 1
+-- g.forest_night_enable_italic = 1
 g.forest_night_diagnostic_text_highlight = 1
 
 g.loaded_python_provider = 0 -- Disable Python2 support
 g.loaded_perl_provider = 0 -- Disable perl provider
 g.loaded_ruby_provider = 0 -- Disable ruby provider
 g.python3_host_prog = "~/.pyenv/shims/python"
-g.lazyvim_font = "Cartograph CF"
+-- g.lazyvim_font = "Cartograph CF"

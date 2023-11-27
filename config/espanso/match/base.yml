@@ -54,7 +54,7 @@ matches:
     form: |
       Hola [[campeón]],
       Esto es una prueba
-  - trigger: ;a
+  - trigger: ":a:"
     form: "<a href=\"[[url]]\">[[web]]</a>"
   - trigger: ;form
     form: |

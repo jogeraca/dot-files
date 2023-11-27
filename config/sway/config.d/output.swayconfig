@@ -4,24 +4,25 @@
 
 #output HDMI
 #output eDP-1
-output HDMI-A-1 scale 1.5
+# output HDMI-A-1 scale 1.7
 
 #output HDMI2 resolution 2560x1440 position 1920,1080
-
+# output HDMI1-A-1 pos 0 0 res 3200x1800
 #output HDMI1 { #position 1920 0 #resolution 1920x1080 #transform 180 #}
 
 
-output DP-1 mode 2560x1080@59.978Hz position 0,0 adaptive_sync on
+ # output DP-1 res 2560x1080 position 1600,0 adaptive_sync on
+# output DP-1 mode 2560x1080@59.978Hz position 1600,0 adaptive_sync on
 # output HDMI-A-1 mode 2560x1080@59.978Hz position 0,0 adaptive_sync on
 #output HDMI-A-1 mode 1920x1080@60Hz position 2560,0
-#output HDMI-A-1 mode 2560x1080@59.978Hz position 0,0 adaptive_sync on
+# output HDMI-A-1 mode 2560x1440@59.96Hz position 0,0 adaptive_sync on
 #
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 
 output eDP-1 bg ~/dot-files/images/background/elixir.jpg fill
 #output DP-1 bg ~/dot-files/images/background/chess.jpg fill
-#output HDMI-A-1 bg ~/dot-files/images/background/code.jpg fill
+output HDMI-A-1 bg ~/dot-files/images/background/code.jpg fill
 
 bindsym $mod+Shift+a exec swaymsg output eDP-1 enable
 bindsym $mod+Shift+p exec swaymsg output eDP-1 disable

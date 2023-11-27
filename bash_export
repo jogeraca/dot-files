@@ -8,7 +8,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export WORKON_HOME=$HOME/.virtualenvs
 #export PROJECT_HOME=$HOME/repo/prj
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
+	eval "$(pyenv init --path)"
 fi
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
@@ -41,8 +41,8 @@ export XDG_CURRENT_DESKTOP=sway
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 #. ~/.asdf/plugins/java/set-java-home.zsh
-export LANG="es_CO.UTF-8"
-export LC_CTYPE="es_CO.UTF-8"
+export LANG="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 #export LC_COLLATE="en_US.UTF-8"
 #export LC_TIME="es_CO.UTF-8"
 #export LC_NUMERIC="en_CO.UTF-8"
@@ -53,6 +53,5 @@ export LC_CTYPE="es_CO.UTF-8"
 export TERM_ITALICS=true
 export COLORTERM='truecolor'
 #if  [[ $(tty) != /dev/tty1 ]]; then
-	#tmux -2
+#tmux -2
 #fi
-

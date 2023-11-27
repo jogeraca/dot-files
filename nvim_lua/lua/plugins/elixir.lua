@@ -49,31 +49,31 @@ return {
 		-- else
 		-- nextls_opts = { enable = true }
 		local nextls = {
-			enable = false, -- defaults to false
+			enable = true, -- defaults to false
 			port = 9000, -- connect via TCP with the given port. mutually exclusive with `cmd`. defaults to nil
-			cmd = "~/.cache/elixir-tools/nextls/bin/nextls", -- path to the executable. mutually exclusive with `port`
+			cmd = "~/.local/share/nvim/mason/bin/nextls", -- path to the executable. mutually exclusive with `port`
 			init_options = {
 				mix_env = "dev",
 				mix_target = "host",
 			},
-			on_attach = function(client, bufnr)
+			-- on_attach = function(client, bufnr)
 				-- custom keybinds
-			end,
+			-- end,
 		}
 		-- end
 
 		elixir.setup({
 			credo = { enable = false },
-			nextls = { enable = false },
+			nextls = nextls,
 			elixirls = {
-				-- repo = "elixir-lsp/elixir-ls",
-				-- branch = "master",
-				enable = false,
+				repo = "elixir-lsp/elixir-ls",
+				branch = "master",
+				enable = true,
 				settings = elixirls.settings({
-					dialyzerEnabled = false,
+					dialyzerEnabled = true,
 					enableTestLenses = false,
 					fetchDeps = false,
-					suggestSpecs = false,
+					suggestSpecs = true,
 				}),
 				-- log_level = vim.lsp.protocol.MessageType.Log,
 				-- message_level = vim.lsp.protocol.MessageType.Log,

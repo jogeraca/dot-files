@@ -63,8 +63,9 @@ map("n", "<leader>Gb", "<cmd>Gwq<cr>", noremap_opts)
 map("n", "<leader>Gvh", "<cmd>Gvdiffsplit<cr>", noremap_opts)
 map("n", "<leader>Ghh", "<cmd>Gdiffsplit<cr>", noremap_opts)
 map("n", "<leader>Ggd", ":silent !tmux popup -K -w '90\\%' -h '90\\%' -R 'git diff'<cr>", noremap_opts)
-
+---
 map("n", "<leader>tr", "<cmd>Telescope lsp_references", noremap_opts)
+
 -- resolv conflicts
 map("n", "<S-l>", ":diffget LO <cr>", noremap_opts)
 map("n", "<S-r>", ":diffget RE<cr>", noremap_opts)
@@ -88,3 +89,6 @@ map("n", "<leader>ct", ":!ctags -R .<cr>", noremap_opts)
 -- Editing
 -- map("n", "<C-BS>", "<C-W>", noremap_opts)
 map("i", "<C-BS>", "<C-W>", noremap_opts)
+
+-- sql
+map("n",  "<leader>fs", "%s/\\<update\\>\\|\\<select\\>\\|\\<from\\>\\|\\<where>\\|\\<left join\\>\\|\\<inner join\\>\\|\\<group by\\>\\|\\<order by\\>/\r\\U&/ge<cr>nesc>", noremap_opts)

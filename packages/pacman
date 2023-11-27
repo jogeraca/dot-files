@@ -20,7 +20,7 @@ the_silver_searcher
 lua
 lua-language-server
 btop
-
+entr
 rofi
 waybar
 alacritty

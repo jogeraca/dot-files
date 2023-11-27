@@ -5,7 +5,7 @@
         "height": 33,
         "icon-size": 33,
         "spacing": 0,
-        "output": ["eDP-1", "HDMI-A-1"],
+        "output": ["eDP-1", "HDMI-A-1", "DP-1"],
         "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
         "modules-center": ["custom/weather"],
         "modules-right": ["pulseaudio", "cpu", "memory", "battery", "backlight", "sway/language", "custom/clock", "tray"],
@@ -110,7 +110,7 @@
         "position": "top",
         "height": 33,
         "spacing": 0,
-        "output": "DP-1",
+        "output": "DP-12",
         "modules-left": ["sway/workspaces", "sway/window"],
         "modules-right": ["network", "disk", "custom/clock"],
         "sway/workspaces": {

@@ -29,11 +29,11 @@ set $menu_cmd 'bemenu --prompt "cmd" -i --tf "#dcdccc" --nb "#3f3f3f" --nf "#dcd
 set $menus rofi -show drun
 
 
-set $gdk_backend GDK_BACKEND=x11
+set $gdk_backend GDK_BACKEND=""
 set $pomodoro "crx_ngceodoilcgpmkijopinlkmohnfifjfb"
 
 # applications
-set $term kitty
+set $term alacritty 
 set $play spotify
 set $browser firefox
 set $db $gdk_backend dbeaver

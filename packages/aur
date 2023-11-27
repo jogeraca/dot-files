@@ -13,9 +13,12 @@ gitflow-zshcompletion-avh
     franz-bin
     visual-studio-code-insiders-bin
       anydesk
-ngrok
-    tasksh
-    windscribe-cli
+---ngrok
+   -- tasksh
+   -- windscribe-cli
+mockoon
+meld
+busybox
 crow-translate
     compton-tryone-git
     conky-cairo

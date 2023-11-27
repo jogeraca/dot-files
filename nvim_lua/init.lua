@@ -2,11 +2,11 @@ dofile(os.getenv("HOME") .. "/.config/nvim/settings.lua")
 local subdir = ""
 local config_files = {
 	--"utils",
-	--"yoser.plugins",
 	"yoser.lazy",
 	"general",
 	"keymaps",
 	"commands",
+	"yoser.autocmds",
 }
 
 for _, file in ipairs(config_files) do
