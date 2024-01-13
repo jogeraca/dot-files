@@ -49,6 +49,8 @@ source ~/.fzf/shell/completion.zsh
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /home/yoser/.cache/yay/httptoolkit/src/httptoolkit/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/yoser/.cache/yay/httptoolkit/src/httptoolkit/node_modules/tabtab/.completions/electron-forge.zsh
 
+eval "$(rtx activate zsh)"
+
 compdef __start_kubectl k
 
 source $ZSH/oh-my-zsh.sh
@@ -57,21 +59,28 @@ source ~/dot-files/bash_export
 source ~/dot-files/bash_hotkeys
 
 if [[ $initx != "" ]]; then
-	echo "iniciando sway"
-	export XDG_SESSION_DESKTOP=sway
-	export XDG_CURRENT_DESKTOP=sway
-	export XDG_SESSION_TYPE=wayland
-	export QT_QPA_PLATFORM="wayland-egl"
-	export QT_QPA_PLATFORMTHEME=qt5ct
-	export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-	export WLR_WL_OUTPUTS=2
-	export MOZ_ENABLE_WAYLAND=1
+	export HYPRLAND_LOG_WLR=1
+	export XCURSOR_THEME=Bibata-Modern-Classic
+
+	# Set a cursor size
+	export XCURSOR_SIZE=24
+	echo "iniciando interfaz grafica"
+	Hyprland
+	# dbus-run-session -- "$HOME"/Hyprland/build/src/Hyprland
+	# export XDG_SESSION_DESKTOP=sway
+	# export XDG_CURRENT_DESKTOP=sway
+	# export XDG_SESSION_TYPE=wayland
+	# export QT_QPA_PLATFORM="wayland-egl"
+	# export QT_QPA_PLATFORMTHEME=qt5ct
+	# export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+	# export WLR_WL_OUTPUTS=2
+	# export MOZ_ENABLE_WAYLAND=1
 	#export WAYLAND_DISPLAY="wayland-0"
 	#
 	#echo 0x19F | sudo tee /sys/module/drm/parameters/debug # Enable verbose DRM logging
 	#sudo dmesg -C # Clear kernel logs
 	#dmesg -w >dmesg.log & # Continuously write DRM logs to a file, in the background
-	#exec sway -d >>/tmp/sway.log 2>&1 # Reproduce the bug, then exit sway
+	# exec sway -d >>/tmp/sway.log 2>&1 # Reproduce the bug, then exit sway
 	#
 	##
 	#---XDG_SESSION_TYPE=wayland dbus-run-session /usr/bin/gnome-shell

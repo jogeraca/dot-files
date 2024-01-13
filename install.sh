@@ -22,11 +22,11 @@ install_asdf(){
   $asdf install nodejs latest
   $asdf global nodejs latest
   $asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
-  $asdf install elixir ref:a64d42f5d3cb6c32752af9d3312897e8cd5bb7ec
-  $asdf global elixir ref:a64d42f5d3cb6c32752af9d3312897e8cd5bb7ec
+  # $asdf install elixir ref:a64d42f5d3cb6c32752af9d3312897e8cd5bb7ec
+  # $asdf global elixir ref:a64d42f5d3cb6c32752af9d3312897e8cd5bb7ec
   $asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
-  $asdf install erlang 24.1.2
-  $asdf global erlang 24.1.2
+  # $asdf install erlang 24.1.2
+  # $asdf global erlang 24.1.2
 }
 
 dvp_it_ins(){
@@ -357,6 +357,7 @@ default_firefox(){
   xdg-settings set default-web-browser firefox.desktop
 }
 
+<<<<<<< Updated upstream
 chromium_with_wayland(){
   
 }
@@ -364,3 +365,7 @@ chromium_with_wayland(){
 gparted_with_wayland(){
   xhost +SI:localuser:root
 }
+=======
+
+install_asdf()
+>>>>>>> Stashed changes

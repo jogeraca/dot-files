@@ -50,12 +50,18 @@ return {
 		-- nextls_opts = { enable = true }
 		local nextls = {
 			enable = true, -- defaults to false
-			port = 9000, -- connect via TCP with the given port. mutually exclusive with `cmd`. defaults to nil
-			cmd = "~/.local/share/nvim/mason/bin/nextls", -- path to the executable. mutually exclusive with `port`
-			init_options = {
-				mix_env = "dev",
-				mix_target = "host",
-			},
+      -- cmd = "bin/nextls",
+			-- port = 9000, -- connect via TCP with the given port. mutually exclusive with `cmd`. defaults to nil
+			-- cmd = "/home/yoser/dot-files/nvim_lua/lazy/elixir-tools.nvim/bin/nextls", -- path to the executable. mutually exclusive with `port`
+			-- init_options = {
+			-- 	mix_env = "dev",
+			-- 	mix_target = "host",
+        -- experimental = {
+        --   completions = {
+        --     enable = true, -- control if completions are enabled. defaults to false
+        --   },
+        -- },
+			-- },
 			-- on_attach = function(client, bufnr)
 				-- custom keybinds
 			-- end,
@@ -63,17 +69,20 @@ return {
 		-- end
 
 		elixir.setup({
-			credo = { enable = false },
+			credo = {enable= false},
 			nextls = nextls,
 			elixirls = {
 				repo = "elixir-lsp/elixir-ls",
 				branch = "master",
 				enable = true,
 				settings = elixirls.settings({
-					dialyzerEnabled = true,
-					enableTestLenses = false,
 					fetchDeps = false,
-					suggestSpecs = true,
+					suggestSpecs = false,
+					dialyzerEnabled = false,
+					enableTestLenses = false,
+          signatureAfterComplete = false,
+          mixEnv="dev",
+          -- trace={ server = "off", }
 				}),
 				-- log_level = vim.lsp.protocol.MessageType.Log,
 				-- message_level = vim.lsp.protocol.MessageType.Log,

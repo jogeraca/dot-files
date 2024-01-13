@@ -4,7 +4,7 @@
 
 #output HDMI
 #output eDP-1
-# output HDMI-A-1 scale 1.7
+output HDMI-A-1 scale 1.7
 
 #output HDMI2 resolution 2560x1440 position 1920,1080
 # output HDMI1-A-1 pos 0 0 res 3200x1800

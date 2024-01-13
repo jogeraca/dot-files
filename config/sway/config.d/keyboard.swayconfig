@@ -12,8 +12,9 @@
 #   }
 #
 input "1:1:AT_Translated_Set_2_keyboard" {
-  xkb_layout "us,dvp-it"
-   xkb_options grp:win_space_toggle
+   xkb_layout "us" 
+  #" ,dvp-it"
+  # xkb_options grp:win_space_toggle
   #xkb_layout  "us"
 }
 #nput * xkb_layout "dvp,us"

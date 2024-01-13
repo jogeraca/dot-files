@@ -1,3 +1,29 @@
+#k8s
+kubectl
+minikube
+k9s
+kubectx
+
+helm
+lens
+
+
+# Develop
+meld
+fzf
+dbeaver
+
+git
+
+docker
+git-delta
+dbeaver
+neovim
+#Utils
+unzip
+pyenv
+ntp
+dkms
 
 sudo
 base-dev
@@ -6,7 +32,6 @@ NetworkManager
 dhcpcd
 openssh
 efibootmgr
-caja
 util-linux
 wireless_tools
 sway
@@ -15,7 +40,7 @@ firefox
 firefox-decentraleyes
 firefox-dark-reader
 firefox-ublock-origin
-fd
+--fd
 the_silver_searcher
 lua
 lua-language-server
@@ -27,26 +52,11 @@ alacritty
 alsa-utils
 alsa-plugins
 alsa-oss
-# Develop
-docker
-git
-git-delta
-dbeaver
-neovim
-dbeaver
-#Utils
-unzip
-pyenv
-fzf
-ntp
-#k8s
-kubectl
-minikube
-lens
-
-dkms
 
 build-essential
+
+
+gparted
 
 postgresql-client
 xorg-xwayland
@@ -57,7 +67,7 @@ glfw-wayland
 xdg-desktop-portal-wlr
 libpipewire02
 wl-clipboard
-kubectl
+
 pulseaudio
 pipewire
 pipewire-pulse
@@ -67,9 +77,6 @@ nerd-fonts-complete
 pavucontrol
 
 xournal
-k9s
-kubectx
-helm
 minikube
 
 neofetch
