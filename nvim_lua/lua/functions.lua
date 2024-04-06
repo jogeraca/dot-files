@@ -1,20 +1,20 @@
 local api = vim.api
 
 -- Trim whitespace
-TrimWhitespace = function()
-	local patterns = {
-		[[%s/\s\+$//e]],
-		[[%s/\($\n\s*\)\+\%$//]],
-		[[%s/\%^\n\+//]],
-		[[%s/\(\n\n\)\n\+/\1/]],
-	}
-	local save = vim.fn.winsaveview()
-	for _, v in pairs(patterns) do
-		api.nvim_exec(string.format("keepjumps keeppatterns silent! %s", v), false)
-	end
-	vim.fn.winrestview(save)
-end
-Utils.make_command("TrimWhitespace")
+-- TrimWhitespace = function()
+-- 	local patterns = {
+-- 		[[%s/\s\+$//e]],
+-- 		[[%s/\($\n\s*\)\+\%$//]],
+-- 		[[%s/\%^\n\+//]],
+-- 		[[%s/\(\n\n\)\n\+/\1/]],
+-- 	}
+-- 	local save = vim.fn.winsaveview()
+-- 	for _, v in pairs(patterns) do
+-- 		api.nvim_exec(string.format("keepjumps keeppatterns silent! %s", v), false)
+-- 	end
+-- 	vim.fn.winrestview(save)
+-- end
+-- Utils.make_command("TrimWhitespace")
 
 -- Formatting
 FormatToggle = function()
@@ -53,6 +53,19 @@ ReloadConfig = function()
 	end
 end
 Utils.make_command("ReloadConfig")
+
+PlantUmlCompile = function()
+	local puml_cmd = "!/usr/bin/plantuml " .. ' "' .. vim.fn.expand("%") .. '"'
+	vim.fn.execute(" " .. puml_cmd)
+end
+Utils.make_command("PlantUmlCompile")
+
+PlantUmlView = function()
+	vim.g.puml_viewer = "okular"
+	local puml_view = "!" .. vim.g.puml_viewer .. ' "' .. vim.fn.expand("%<") .. '.png"' .. " 2>/dev/null&"
+	vim.fn.execute("silent " .. puml_view)
+end
+Utils.make_command("PlantUmlView")
 
 -- Paste images
 --local paste_cmd = Markdown.imagePasteCommand

@@ -59,10 +59,8 @@ startup({
 		--use({ "nvim-lua/lsp-status.nvim" })
 		--
 
-		use({ "elixir-tools/elixir-tools.nvim", requires = { "nvim-lua/plenary.nvim" } })
 		--#use({ "mhanberg/elixir.nvim", requires = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" }})
 		--#use({ "jogeraca/elixir.nvim", branch="otp_24", requires = { "nvim-lua/plenary.nvim" }})
-		use("aklt/plantuml-syntax")
 		use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn install" })
 
 		-- git

@@ -1,7 +1,7 @@
 vim.g.formatOnSave = FormatOnSave
 vim.g.auto_save = true
 
-vim.g.autoformat = false
+vim.g.autoformat = true
 vim.b.autoformat = true
 
 vim.g.rainbow_active = 1
@@ -56,3 +56,6 @@ g.loaded_perl_provider = 0 -- Disable perl provider
 g.loaded_ruby_provider = 0 -- Disable ruby provider
 g.python3_host_prog = "~/.pyenv/shims/python"
 -- g.lazyvim_font = "Cartograph CF"
+--
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1

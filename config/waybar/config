@@ -5,7 +5,7 @@
         "height": 33,
         "icon-size": 33,
         "spacing": 0,
-        "output": ["eDP-1", "HDMI-A-1", "DP-1"],
+        "output": ["eDP-1", "HDMI-A-1", "DP-1", "DP-2"],
         "modules-left": ["hyprland/workspaces"],
         "modules-center": ["custom/weather"],
         "modules-right": ["pulseaudio", "cpu", "memory", "battery", "backlight",  "custom/clock", "tray"],

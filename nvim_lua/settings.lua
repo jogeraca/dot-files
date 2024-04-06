@@ -2,6 +2,7 @@ AlwaysTrimWhitespace = true
 AsyncFormatting = true
 FormatOnSave = true
 LeaderKey = ","
+LocalLeaderKey = ";"
 ScrollOff = 2
 LogLevel = "debug"
 PluginColorizerActive = true

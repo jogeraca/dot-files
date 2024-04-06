@@ -76,9 +76,9 @@ return {
 				branch = "master",
 				enable = true,
 				settings = elixirls.settings({
-					fetchDeps = false,
+					fetchDeps = true,
 					suggestSpecs = false,
-					dialyzerEnabled = false,
+					dialyzerEnabled = true,
 					enableTestLenses = false,
           signatureAfterComplete = false,
           mixEnv="dev",

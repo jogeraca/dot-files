@@ -1,4 +1,5 @@
 #!/bin/bash
+ZSH=/usr/share/oh-my-zsh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#676676,bold"
 CASE_SENSITIVE="true"
@@ -6,7 +7,7 @@ ZSH_AUTOSUGGEST_USE_ASYNC='true'
 #ZSH_TMUX_AUTOSTART='true'
 
 if [[ $(tty) = /dev/tty1 ]]; then
-	initx=wayland
+	# initx=wayland
 	#startx
 else
 	initx=""
@@ -36,22 +37,21 @@ fi
 bindkey -v
 bindkey "^R" history-incremental-search-backward
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source ~/.fzf/shell/key-bindings.zsh
-
-source ~/.fzf/shell/completion.zsh
+if [ -f ~/.fzf.zsh ]; then
+	source ~/.fzf.zsh
+	source ~/.fzf/shell/key-bindings.zsh
+	source ~/.fzf/shell/completion.zsh
+fi
 
 [ -f /usr/share/zsh/site-functions/git-flow-completion.zsh ] &&
 	source /usr/share/zsh/site-functions/git-flow-completion.zsh
 
 # tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+#uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /home/yoser/.cache/yay/httptoolkit/src/httptoolkit/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/yoser/.cache/yay/httptoolkit/src/httptoolkit/node_modules/tabtab/.completions/electron-forge.zsh
 
-eval "$(rtx activate zsh)"
-
-compdef __start_kubectl k
+eval "$(mise activate zsh)"
+#compdef __start_kubectl k
 
 source $ZSH/oh-my-zsh.sh
 source ~/dot-files/bash_aliases
@@ -88,7 +88,6 @@ if [[ $initx != "" ]]; then
 	# exec dbus-run-session sway
 	# $initx
 else
-	tmux -2
 fi
 
 function mix_test() { (source .env.test && mix $@); }

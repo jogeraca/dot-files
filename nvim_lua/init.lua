@@ -1,16 +1,22 @@
 dofile(os.getenv("HOME") .. "/.config/nvim/settings.lua")
-local subdir = ""
+
 local config_files = {
 	--"utils",
-	"yoser.lazy",
-	"general",
+	"core.bootstrap",
+	"config.lazy",
+	-- pending
+	"config.autocmds",
 	"keymaps",
+	-- nothing
+	"general",
 	"commands",
-	"yoser.autocmds",
+	"settings",
+	"utils/utils",
+	"functions",
 }
 
 for _, file in ipairs(config_files) do
-	require(subdir .. "." .. file)
+	require("." .. file)
 end
 
 --if SafeRequire("plenary") then
