@@ -4,6 +4,7 @@ local noremap_opts = { noremap = true, silent = true }
 --local cnoremap_opts = { cnoremap = true, silent = true }
 --
 vim.g.mapleader = LeaderKey
+vim.g.maplocalleader = LocalLeaderKey
 
 map("n", "XX", "<cmd>quitall<cr>", noremap_opts)
 map("n", "<C-s>", "<cmd>w<cr>", noremap_opts)
@@ -91,4 +92,9 @@ map("n", "<leader>ct", ":!ctags -R .<cr>", noremap_opts)
 map("i", "<C-BS>", "<C-W>", noremap_opts)
 
 -- sql
-map("n",  "<leader>fs", "%s/\\<update\\>\\|\\<select\\>\\|\\<from\\>\\|\\<where>\\|\\<left join\\>\\|\\<inner join\\>\\|\\<group by\\>\\|\\<order by\\>/\r\\U&/ge<cr>nesc>", noremap_opts)
+map(
+	"n",
+	"<leader>fs",
+	"%s/\\<update\\>\\|\\<select\\>\\|\\<from\\>\\|\\<where>\\|\\<left join\\>\\|\\<inner join\\>\\|\\<group by\\>\\|\\<order by\\>/\r\\U&/ge<cr>nesc>",
+	noremap_opts
+)
