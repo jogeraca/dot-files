@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Verificar si se proporcionaron ambos argumentos
+if [ -z "$1" ] || [ -z "$2" ]; then
+	echo "Uso: $0 <comando> <clase>"
+	exit 1
+fi
+
+# Asignar argumentos a variables
+command=$1
+class=$2
+
+# Verificar si hyprctl y gojq están instalados
+if ! command -v hyprctl &>/dev/null; then
+	echo "Error: hyprctl no está instalado."
+	exit 1
+fi
+
+if ! command -v gojq &>/dev/null; then
+	echo "Error: gojq no está instalado."
+	exit 1
+fi
+
+# Buscar la ventana con la clase especificada
+# result=$(hyprctl -j clients | gojq -r --arg class "$class" '.[] | select(.class == $class)')
+result=$(hyprctl -j clients | gojq -r ".[] | select(.class == \"$class\")")
+
+# Verificar si se encontró la ventana
+if [ -n "$result" ]; then
+	echo "Se encontró una ventana con la clase '$class'. Enfocando la ventana..."
+	hyprctl dispatch focuswindow class:"$class"
+else
+	echo "No se encontró ninguna ventana con la clase '$class'. Ejecutando el comando: $command"
+	exec $command
+fi

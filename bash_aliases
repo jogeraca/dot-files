@@ -122,15 +122,20 @@ function _mono.remote() {
 	kubectl --context=$1 --namespace=$2 exec -i -t $container -- bin/mono_banking remote
 }
 alias mono.remote.prod='_mono.remote mono-prod-eks-new mono-banking'
-alias mono.db.forward.cert_priv='kubectl --context=mono-banking-cert-new --namespace=mono-banking port-forward svc/port-forwarding-service 5433:5432'
+alias mono.remote.sandbox='_mono.remote mono-banking-sandbox mono-banking'
+
+alias mono.db.forward.cert_priv='kubectl --context=$mono_cert --namespace=mono-banking port-forward svc/port-forwarding-service 5433:5432'
 # alias mono.db.forward.prod_priv='kubectl --context=mono-prod-eks-new --namespace=mono-banking port-forward svc/port-forwarding-service 54545:5432'
-alias mono.db.forward.prod_priv='kubectl --context=arn:aws:eks:us-east-1:666665164377:cluster/eks-cluster-prod-3903db0 --namespace=mono-banking port-forward svc/port-forwarding-service 54545:5432'
+alias mono.db.forward.prod_priv='kubectl --context=$mono_prod --namespace=mono-banking port-forward svc/port-forwarding-service 54545:5432'
 alias mono.db.forward.replica_priv='kubectl --context=mono-prod-eks-new --namespace=mono-banking port-forward svc/port-forwarding-service 54546:5433'
-alias mono.db.forward.sandbox_priv='kubectl --context=mono-banking-sandbox --namespace mono-banking port-forward svc/port-forwarding-service 54540:5432'
+alias mono.db.forward.sandbox_priv='kubectl --context=$mono_sdbx --namespace mono-banking port-forward svc/port-forwarding-service 54540:5432'
 
 alias mono.deploy.logs.cert='kubectl --context=mono-banking-cert --namespace=mono-banking logs -f deployments/mono-banking-deployment'
-alias mono.deploy.logs.prod='kubectl --context=mono-banking-production --namespace=mono-banking logs -f deployments/mono-banking-deployment'
-alias mono.deploy.logs.sandbox='kubectl --context=mono-banking-sandbox --namespace mono-banking logs -f deployments/mono-banking-deployment'
+alias mono.deploy.logs.prod='kubectl --context=$mono_prod --namespace=mono-banking logs -f deployments/mono-banking-deployment'
+alias mono.deploy.logs.sandbox='kubectl --context=$mono_sdbx --namespace mono-banking logs -f deployments/mono-banking-deployment'
+
+alias mono.panda.prod='kubectl --context=$mono_prod --namespace=mono-services port-forward svc/redpanda-console 38091:8080'
+alias mono.panda.cert='kubectl --context=$mono_cert --namespace=mono-services port-forward svc/redpanda-console 38091:8080'
 
 function git_diff_by_file() {
 	commits="$1"
