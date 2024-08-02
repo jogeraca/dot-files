@@ -4,11 +4,32 @@ vim.g.mapleader = LeaderKey
 
 -- Normal mode
 local nmappings = {
-	[","] = "which_key_ignore",
-	["?"] = { "<cmd>NvimTreeFindFile<cr>", "find current file" },
-	["."] = { "<cmd>luafile %<cr>", "source file" },
-	c = { "<cmd>SessionSave<cr>", "save session" },
-	e = { "<cmd>NvimTreeToggle<cr>", "explorer" },
+	{ ".", "<cmd>luafile %<cr>", desc = "source file" },
+	-- Buffers
+	{ "<leader>b", desc = "Buffer" },
+	{ "<leader>bb", "<cmd>Telescope buffers<cr>", desc = "List buffers" },
+	{ "<leader>bd", "<cmd>bp<bar>sp<bar>bn<bar>bd<cr>", desc = "Delete buffer" },
+	{ "<leader>b>", "<cmd>BufferLineMoveNext<cr>", desc = "Move right" },
+	{ "<leader>b<", "<cmd>BufferLineMovePrev<cr>", desc = "Move left" },
+	-- lsp
+	{ "<leader>ct", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "Accept the suggestion" },
+	-- file
+	{ "<leader>f", desc = "File" },
+	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Files" },
+	{ "<leader>fl", "<cmd>Telescope file_browser<cr>", desc = "List" },
+	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent opened files" },
+	{ "<leader>fm", "<cmd>Telescope media_files<cr>", desc = "List media files" },
+	-- git
+	{ "<leader>g", desc = "Git" },
+	{ "<leader>ga", "<cmd>Git stage_buffer<cr>", desc = "Stage" },
+	{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Status" },
+	{ "<leader>gC", "<cmd>Telescope git_commits<cr>", desc = "List commits" },
+	{ "<leader>gD", "<cmd>Git diffthis<CR>", desc = "File diff" },
+	{ "<leader>gI", "lua require('telescope.builtin').git_diff()<CR>", desc = "Diff" },
+	{ "<leader>gN", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", desc = "Next Hunk" },
+	{ "<leader>gP", "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", desc = "Preview Hunk" },
+	{ "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", desc = "Reset buffer" },
+	{ "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", desc = "Reset buffer" },
 
 	I = { "<cmd>IndentBlanklineToggle<cr>", "toggle indent lines" },
 	H = { "<cmd>Dashboard<cr>", "home" },
@@ -275,7 +296,7 @@ local nmappings = {
 
 -- }
 
--- wk.register(vmappings, {
+-- wk.add(vmappings, {
 -- 	mode = "v",
 -- 	prefix = "<leader>",
 -- 	buffer = nil,
@@ -332,7 +353,7 @@ return {
 	config = function()
 		local wk = require("which-key")
 
-		wk.register(nmappings, {
+		wk.add(nmappings, {
 			mode = "n",
 			prefix = "<leader>",
 			buffer = nil,
